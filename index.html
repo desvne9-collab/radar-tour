@@ -1,1 +1,1001 @@
+ШАР ТЭНГИСИЙН ЭРЭГ БЭЭЖИН ЮНИВЕРСАЛЬ АЯЛАЛ ӨДӨР-5 Бэйдахэ /Шилэн гүүр, Бээжин хот/
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>RADAR TOUR | Аялал</title>
+  <meta name="description" content="RADAR TOUR - Таны амралтыг бид зохион байгуулна.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f8fa;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e8eaf0;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #111827;
+    }
+
+    .logo span {
+      color: #1677ff;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #4b5563;
+    }
+
+    nav a:hover {
+      color: #1677ff;
+    }
+
+    .nav-btn {
+      background: #1677ff;
+      color: white !important;
+      padding: 12px 20px;
+      border-radius: 30px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.42)),
+        url("https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=2000&q=85")
+        center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      padding: 80px 24px;
+      color: white;
+    }
+
+    .hero small {
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.05;
+      max-width: 850px;
+      margin: 18px 0;
+      font-weight: 900;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 19px;
+      color: #f3f4f6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 25px;
+      border-radius: 30px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: #1677ff;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #0f61d8;
+      transform: translateY(-2px);
+    }
+
+    .btn-white {
+      background: white;
+      color: #111827;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 90px 24px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title span {
+      color: #1677ff;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .section-title h2 {
+      font-size: 40px;
+      margin-top: 8px;
+    }
+
+    .section-title p {
+      color: #6b7280;
+      margin-top: 10px;
+    }
+
+    /* TOUR CARD */
+    .tour-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .tour-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #e8eaf0;
+      box-shadow: 0 10px 35px rgba(0,0,0,.05);
+      transition: .25s;
+    }
+
+    .tour-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px rgba(0,0,0,.1);
+    }
+
+    .tour-image {
+      height: 230px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .tour-content {
+      padding: 24px;
+    }
+
+    .tour-content h3 {
+      font-size: 22px;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .tour-content p {
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    .tour-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+
+    .tag {
+      background: #eef5ff;
+      color: #1267d9;
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .tour-price {
+      font-size: 22px;
+      font-weight: 900;
+      margin-top: 15px;
+    }
+
+    .tour-price small {
+      font-size: 12px;
+      color: #6b7280;
+      font-weight: normal;
+    }
+
+    .details-btn {
+      display: block;
+      text-align: center;
+      margin-top: 18px;
+      padding: 12px;
+      background: #111827;
+      color: white;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    /* FEATURE */
+    .features {
+      background: #111827;
+      color: white;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+    }
+
+    .feature-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .feature h3 {
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    /* TOUR DETAIL */
+    .detail {
+      background: white;
+    }
+
+    .detail-box {
+      background: #f8fafc;
+      border-radius: 24px;
+      padding: 35px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .detail-box h3 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .detail-intro {
+      color: #64748b;
+      margin-bottom: 25px;
+    }
+
+    .day {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 14px;
+    }
+
+    .day h4 {
+      color: #1677ff;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .meal {
+      margin-top: 12px;
+      font-size: 13px;
+      font-weight: bold;
+      color: #475569;
+    }
+
+    /* ABOUT */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about-image {
+      min-height: 430px;
+      border-radius: 25px;
+      background:
+        url("https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=1200&q=85")
+        center/cover;
+    }
+
+    .about h2 {
+      font-size: 42px;
+      margin-bottom: 18px;
+    }
+
+    .about p {
+      color: #64748b;
+      margin-bottom: 15px;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #f1f5f9;
+    }
+
+    .contact-box {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 50px rgba(0,0,0,.06);
+    }
+
+    form {
+      display: grid;
+      gap: 15px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #dbe1e8;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #1677ff;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+      padding: 16px;
+      border-radius: 12px;
+      background: #1677ff;
+      color: white;
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0b1220;
+      color: white;
+      padding: 50px 24px 25px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    footer h3 {
+      margin-bottom: 12px;
+    }
+
+    footer p,
+    footer a {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+      }
+
+      .tour-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        height: 65px;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      section {
+        padding: 65px 18px;
+      }
+
+      .hero {
+        min-height: 600px;
+      }
+
+      .hero h1 {
+        font-size: 44px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .tour-grid,
+      .feature-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2 {
+        font-size: 31px;
+      }
+
+      .detail-box,
+      .contact-box {
+        padding: 22px;
+      }
+
+      .about h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav">
+    <a href="#" class="logo">RADAR <span>TOUR</span></a>
+
+    <nav>
+      <a href="#home">Нүүр</a>
+      <a href="#tours">Аяллууд</a>
+      <a href="#about">Бидний тухай</a>
+      <a href="#contact">Холбоо барих</a>
+      <a href="#contact" class="nav-btn">Аялал захиалах</a>
+    </nav>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+
+    <small>RADAR TOUR • TRAVEL AGENCY</small>
+
+    <h1>ДЭЛХИЙГ<br>ХАМТДАА АЯЛЪЯ</h1>
+
+    <p>
+      Таны амралтыг бид зохион байгуулна.
+      Шууд нислэг, аяллын хөтөлбөр, найдвартай үйлчилгээ.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#tours" class="btn btn-primary">
+        Аяллууд үзэх
+      </a>
+
+      <a href="#contact" class="btn btn-white">
+        Холбоо барих
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- TOURS -->
+<section id="tours">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>OUR TOURS</span>
+      <h2>Онцлох аяллууд</h2>
+      <p>Танд тохирох аяллаа сонгоод дэлгэрэнгүй мэдээлэл аваарай.</p>
+    </div>
+
+
+    <div class="tour-grid">
+
+
+      <!-- BEIDAIHE + BEIJING -->
+      <div class="tour-card">
+
+        <div
+          class="tour-image"
+          style="
+          background-image:url('https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1200&q=85');
+          ">
+        </div>
+
+        <div class="tour-content">
+
+          <h3>
+            Шар тэнгисийн эрэг + Бээжин
+            Universal аялал
+          </h3>
+
+          <p>
+            Бэйдахэ • Бээжин • Эрээн
+          </p>
+
+          <div class="tour-meta">
+            <span class="tag">8 өдөр</span>
+            <span class="tag">Шилэн гүүр</span>
+            <span class="tag">Universal Studios</span>
+          </div>
+
+          <p>
+            Шар тэнгисийн эрэг, Бэйдахэгийн шилэн гүүр,
+            Бээжингийн алдарт байгууламжууд болон
+            Universal Studios-оор аялах дурсамж дүүрэн аялал.
+          </p>
+
+          <a href="#beijing-tour" class="details-btn">
+            Дэлгэрэнгүй үзэх
+          </a>
+
+        </div>
+      </div>
+
+
+      <!-- ДАРААГИЙН АЯЛЛУУДЫГ ЭНД НЭМНЭ -->
+      <!--
+      <div class="tour-card">
+        ...
+      </div>
+      -->
+
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FEATURES -->
+<section class="features">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span style="color:#60a5fa;">WHY RADAR TOUR</span>
+      <h2>Яагаад RADAR TOUR?</h2>
+    </div>
+
+    <div class="feature-grid">
+
+      <div class="feature">
+        <div class="feature-icon">✈️</div>
+        <h3>Шууд нислэг</h3>
+        <p>
+          Тохиромжтой, хялбар аяллын сонголтууд.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🌍</div>
+        <h3>Олон чиглэл</h3>
+        <p>
+          Хятад болон Азийн аяллын олон сонголт.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🤝</div>
+        <h3>Найдвартай үйлчилгээ</h3>
+        <p>
+          Аяллын туршлагатай баг танд үйлчилнэ.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">💬</div>
+        <h3>Зөвлөгөө</h3>
+        <p>
+          Аяллын талаар шаардлагатай мэдээллийг өгнө.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- BEIJING DETAIL -->
+<section class="detail" id="beijing-tour">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>TOUR PROGRAM</span>
+      <h2>Шар тэнгисийн эрэг + Бээжин</h2>
+      <p>Бэйдахэ • Бээжин • Universal Studios • Эрээн</p>
+    </div>
+
+
+    <div class="detail-box">
+
+      <h3>Аяллын хөтөлбөр</h3>
+
+      <p class="detail-intro">
+        Шар тэнгисийн эрэг, Бэйдахэ болон Бээжингийн
+        алдартай газруудыг хамарсан аялал.
+      </p>
+
+
+      <div class="day">
+
+        <h4>ӨДӨР-5 • Бэйдахэ → Бээжин</h4>
+
+        <p>
+          Өглөөний цайны дараа Сувдны дэлгүүр болон
+          брэнд дэлгүүрээр шоппинг хийх боломжтой.
+        </p>
+
+        <p>
+          Дараа нь Хятадын аялал жуулчлалын 4А зэрэглэлийн
+          бүс болох Binb Tang Yu цогцолборын
+          178 метр урт, 2.6 метр өргөн шилэн гүүрийг
+          үзэж сонирхоно.
+        </p>
+
+        <p>
+          Мөн тус цогцолборын усан оргилуур болон
+          нуурыг үзэх боломжтой.
+        </p>
+
+        <p>
+          Үүний дараа Бээжин хот руу зорчино.
+          Орой Бээжин хотод ирж Зуны олимпийн XXIX
+          их наадмын төв цэнгэлдэх хүрээлэн
+          “Шувууны үүр” болон Water Cube цогцолборыг
+          гаднаас нь үзэж сонирхоно.
+        </p>
+
+        <div class="meal">
+          🍽 ӨГЛӨӨНИЙ ЦАЙ • ОРОЙН ХООЛ
+        </div>
+
+      </div>
+
+
+      <div class="day">
+
+        <h4>ӨДӨР-6 • Бээжин — Universal Studios</h4>
+
+        <p>
+          Өглөөний цайны дараа Бээжингийн Universal Studios
+          зугаа цэнгэлийн цогцолборт очиж,
+          цагийг хөгжилтэй, дурсамж дүүрэн өнгөрүүлнэ.
+        </p>
+
+        <div class="meal">
+          🍽 ӨГЛӨӨНИЙ ЦАЙ • ОРОЙН ХООЛ
+        </div>
+
+      </div>
+
+
+      <div class="day">
+
+        <h4>ӨДӨР-7 • Бээжин → Эрээн</h4>
+
+        <p>
+          Өглөөний цайны дараа хурдны замаар
+          Эрээн хотыг зорино.
+          Орой Эрээн хотод ирж буудалдаа амарна.
+        </p>
+
+        <div class="meal">
+          🍽 ӨГЛӨӨНИЙ ЦАЙ • ОРОЙН ХООЛ
+        </div>
+
+      </div>
+
+
+      <div class="day">
+
+        <h4>ӨДӨР-8 • Эрээн → Улаанбаатар</h4>
+
+        <p>
+          Өглөөний цайны дараа чөлөөт цагтай.
+          Аялагчид зах, худалдааны төвөөр
+          худалдан авалт хийх боломжтой.
+        </p>
+
+        <p>
+          Үүний дараа Эрээнээс Замын-Үүд рүү
+          хил гаалиар нэвтэрч Замын-Үүдэд очно.
+        </p>
+
+        <p>
+          18:05 цагт Улаанбаатар хотын зүг
+          275-р галт тэргээр хөдөлнө.
+        </p>
+
+        <div class="meal">
+          🍽 ӨГЛӨӨНИЙ ЦАЙ
+        </div>
+
+        <p style="margin-top:15px;">
+          Маргааш өглөө 09:20 цагт Улаанбаатар хотод
+          ирснээр дурсамж дүүрэн аялал өндөрлөнө.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+  <div class="container">
+
+    <div class="about">
+
+      <div class="about-image"></div>
+
+      <div>
+
+        <span style="color:#1677ff;font-weight:800;">
+          ABOUT RADAR TOUR
+        </span>
+
+        <h2>
+          Таны амралтыг<br>
+          бид зохион байгуулна.
+        </h2>
+
+        <p>
+          RADAR TOUR нь аялагчдад тохирсон аяллын
+          чиглэл, хөтөлбөр, үйлчилгээний сонголтыг
+          санал болгож ажилладаг аяллын компани.
+        </p>
+
+        <p>
+          ✈️ Шууд нислэг<br>
+          🏝️ Тайван амралт<br>
+          🤝 Найдвартай аяллын үйлчилгээ
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>CONTACT US</span>
+      <h2>Аяллаа захиалах</h2>
+      <p>
+        Мэдээллээ үлдээгээрэй. Манай ажилтан тантай холбогдоно.
+      </p>
+    </div>
+
+
+    <div class="contact-box">
+
+      <form onsubmit="sendForm(event)">
+
+        <input
+          type="text"
+          id="name"
+          placeholder="Таны нэр"
+          required
+        >
+
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Утасны дугаар"
+          required
+        >
+
+        <select id="tour" required>
+
+          <option value="">
+            Аяллаа сонгоно уу
+          </option>
+
+          <option>
+            Шар тэнгисийн эрэг + Бээжин + Universal
+          </option>
+
+        </select>
+
+        <textarea
+          id="message"
+          placeholder="Нэмэлт асуулт / хүсэлт"
+        ></textarea>
+
+        <button type="submit">
+          ЗАХИАЛГА ИЛГЭЭХ
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="footer-grid">
+
+    <div>
+      <h3>RADAR TOUR</h3>
+
+      <p>
+        Таны амралтыг бид зохион байгуулна.
+      </p>
+
+      <p style="margin-top:12px;">
+        ✈️ Шууд нислэг • 🏝️ Тайван амралт
+        • 🤝 Найдвартай аяллын үйлчилгээ
+      </p>
+    </div>
+
+
+    <div>
+      <h3>Холбоос</h3>
+
+      <p><a href="#home">Нүүр</a></p>
+      <p><a href="#tours">Аяллууд</a></p>
+      <p><a href="#about">Бидний тухай</a></p>
+      <p><a href="#contact">Холбоо барих</a></p>
+    </div>
+
+
+    <div>
+      <h3>Холбоо барих</h3>
+
+      <p>📞 9811-1682</p>
+      <p>📍 Ulaanbaatar, Mongolia</p>
+      <p>🌐 RADAR TOUR</p>
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+    © 2026 RADAR TOUR. All rights reserved.
+  </div>
+
+</footer>
+
+
+<script>
+
+function sendForm(event) {
+
+  event.preventDefault();
+
+  const name =
+    document.getElementById("name").value;
+
+  const phone =
+    document.getElementById("phone").value;
+
+  const tour =
+    document.getElementById("tour").value;
+
+  alert(
+    "Баярлалаа, " +
+    name +
+    "!\n\n" +
+    "Таны хүсэлтийг хүлээн авлаа.\n" +
+    "Манай ажилтан удахгүй " +
+    phone +
+    " дугаарт холбогдоно."
+  );
+
+}
+
+</script>
+
+</body>
+</html>
