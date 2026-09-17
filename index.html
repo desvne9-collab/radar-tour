@@ -1,3115 +1,1232 @@
+```html
 <!DOCTYPE html>
 <html lang="mn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RADAR TOUR | Таны амралтыг бид зохион байгуулна</title>
+  <!-- САЙТЫН НЭР -->
+  <title>RADAR TOUR</title>
 
-<meta name="description" content="RADAR TOUR - Монголын аялал жуулчлалын байгууллага. Гадаад аялал, дан тийз, зочид буудлын захиалга, байгууллагын аялал.">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    html {
+      scroll-behavior: smooth;
+    }
 
-:root{
-    --dark:#07111f;
-    --dark2:#0d1b2d;
-    --blue:#1769e0;
-    --blue2:#0b4fc1;
-    --sky:#eaf3ff;
-    --white:#fff;
-    --text:#172033;
-    --muted:#687386;
-    --border:#e7ebf1;
-    --green:#13a66a;
-    --orange:#ff8a25;
-    --shadow:0 20px 60px rgba(13,31,55,.12);
-    --radius:22px;
-}
+    body {
+      background: #f7f8fa;
+      color: #171717;
+    }
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid #eee;
+      backdrop-filter: blur(10px);
+    }
 
-html{
-    scroll-behavior:smooth;
-}
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
 
-body{
-    font-family:'Inter',Arial,sans-serif;
-    color:var(--text);
-    background:#fff;
-    line-height:1.6;
-}
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
 
-a{
-    color:inherit;
-    text-decoration:none;
-}
+    .logo span {
+      color: #e63946;
+    }
 
-button,input,textarea,select{
-    font:inherit;
-}
+    nav {
+      display: flex;
+      gap: 28px;
+    }
 
-.container{
-    width:min(1180px,92%);
-    margin:auto;
-}
+    nav a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 600;
+      cursor: pointer;
+    }
 
-/* ================= HEADER ================= */
+    nav a:hover {
+      color: #e63946;
+    }
 
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(255,255,255,.94);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(0,0,0,.06);
-}
+    .menu-btn {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
 
-.nav{
-    height:78px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:30px;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:11px;
-    font-size:24px;
-    font-weight:800;
-    letter-spacing:-1px;
-}
-
-.logo-mark{
-    width:42px;
-    height:42px;
-    border-radius:13px;
-    display:grid;
-    place-items:center;
-    color:#fff;
-    background:linear-gradient(135deg,#1769e0,#55a7ff);
-    box-shadow:0 8px 25px rgba(23,105,224,.3);
-    font-size:21px;
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:28px;
-}
-
-.nav-links a{
-    color:#39465a;
-    font-size:14px;
-    font-weight:600;
-    transition:.2s;
-}
-
-.nav-links a:hover{
-    color:var(--blue);
-}
-
-.nav-phone{
-    background:var(--dark);
-    color:white !important;
-    padding:11px 17px;
-    border-radius:12px;
-}
-
-.menu-btn{
-    display:none;
-    border:0;
-    background:none;
-    font-size:27px;
-    cursor:pointer;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    min-height:650px;
-    position:relative;
-    overflow:hidden;
-    color:white;
-    display:flex;
-    align-items:center;
-    background:
-        linear-gradient(90deg,rgba(4,14,27,.88),rgba(4,14,27,.48),rgba(4,14,27,.18)),
-        url('https://images.unsplash.com/photo-1539635278303-d4002c07eae3?auto=format&fit=crop&w=2000&q=85')
+    /* HERO */
+    .hero {
+      min-height: 620px;
+      background:
+        linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.55)),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80")
         center/cover;
-}
-
-.hero:after{
-    content:"";
-    position:absolute;
-    inset:auto 0 0;
-    height:170px;
-    background:linear-gradient(transparent,#fff);
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-    max-width:720px;
-    padding:100px 0 140px;
-}
-
-.badge{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-    padding:8px 13px;
-    border:1px solid rgba(255,255,255,.3);
-    background:rgba(255,255,255,.1);
-    backdrop-filter:blur(10px);
-    border-radius:30px;
-    font-size:13px;
-    margin-bottom:20px;
-}
-
-.hero h1{
-    font-size:clamp(42px,6vw,76px);
-    line-height:1.02;
-    letter-spacing:-3px;
-    margin-bottom:22px;
-}
-
-.hero h1 span{
-    color:#65b2ff;
-}
-
-.hero p{
-    max-width:610px;
-    font-size:18px;
-    color:#e5edf8;
-    margin-bottom:32px;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    border:0;
-    cursor:pointer;
-    border-radius:13px;
-    padding:14px 21px;
-    font-weight:700;
-    transition:.25s;
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    gap:8px;
-}
-
-.btn-primary{
-    color:white;
-    background:var(--blue);
-    box-shadow:0 10px 30px rgba(23,105,224,.3);
-}
-
-.btn-primary:hover{
-    transform:translateY(-2px);
-    background:var(--blue2);
-}
-
-.btn-light{
-    background:white;
-    color:var(--dark);
-}
-
-.btn-outline{
-    background:transparent;
-    color:white;
-    border:1px solid rgba(255,255,255,.4);
-}
-
-.btn-dark{
-    color:#fff;
-    background:var(--dark);
-}
-
-.btn-green{
-    color:#fff;
-    background:var(--green);
-}
-
-/* ================= QUICK SEARCH ================= */
-
-.search-box{
-    position:relative;
-    z-index:10;
-    margin-top:-62px;
-}
-
-.search-inner{
-    background:white;
-    border-radius:20px;
-    padding:18px;
-    box-shadow:var(--shadow);
-    display:grid;
-    grid-template-columns:1.2fr 1fr 1fr auto;
-    gap:12px;
-}
-
-.search-field{
-    border:1px solid var(--border);
-    border-radius:13px;
-    padding:12px 15px;
-    background:#fafbfc;
-}
-
-.search-field label{
-    display:block;
-    font-size:11px;
-    color:var(--muted);
-    margin-bottom:3px;
-}
-
-.search-field input,
-.search-field select{
-    width:100%;
-    border:0;
-    outline:0;
-    background:transparent;
-    color:var(--text);
-    font-weight:600;
-}
-
-/* ================= GENERAL ================= */
-
-section{
-    padding:95px 0;
-}
-
-.section-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    gap:30px;
-    margin-bottom:40px;
-}
-
-.eyebrow{
-    color:var(--blue);
-    font-size:12px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:1.7px;
-    margin-bottom:9px;
-}
-
-.section-title{
-    font-size:clamp(30px,4vw,48px);
-    line-height:1.1;
-    letter-spacing:-1.8px;
-}
-
-.section-desc{
-    max-width:550px;
-    color:var(--muted);
-}
-
-/* ================= TOURS ================= */
-
-.tours-section{
-    background:#f7f9fc;
-}
-
-.tour-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-}
-
-.tour-card{
-    background:white;
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    overflow:hidden;
-    transition:.3s;
-}
-
-.tour-card:hover{
-    transform:translateY(-7px);
-    box-shadow:var(--shadow);
-}
-
-.tour-image{
-    height:235px;
-    position:relative;
-    overflow:hidden;
-}
-
-.tour-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.5s;
-}
-
-.tour-card:hover .tour-image img{
-    transform:scale(1.06);
-}
-
-.tour-tag{
-    position:absolute;
-    top:15px;
-    left:15px;
-    padding:7px 11px;
-    border-radius:20px;
-    background:rgba(255,255,255,.92);
-    color:var(--dark);
-    font-size:11px;
-    font-weight:800;
-}
-
-.tour-body{
-    padding:22px;
-}
-
-.tour-body h3{
-    font-size:20px;
-    line-height:1.25;
-    margin-bottom:8px;
-}
-
-.tour-location{
-    color:var(--muted);
-    font-size:13px;
-    margin-bottom:18px;
-}
-
-.tour-meta{
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-    color:#596579;
-    font-size:12px;
-    margin-bottom:20px;
-}
-
-.tour-price{
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    gap:10px;
-    padding-top:17px;
-    border-top:1px solid var(--border);
-}
-
-.price-label{
-    color:var(--muted);
-    font-size:11px;
-}
-
-.price{
-    font-size:21px;
-    font-weight:800;
-    color:var(--blue);
-}
-
-/* ================= ABOUT ================= */
-
-.about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:70px;
-    align-items:center;
-}
-
-.about-image{
-    min-height:500px;
-    border-radius:30px;
-    background:
-        linear-gradient(135deg,rgba(7,17,31,.15),rgba(23,105,224,.2)),
-        url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1200&q=85')
-        center/cover;
-    position:relative;
-}
-
-.about-card{
-    position:absolute;
-    right:-25px;
-    bottom:30px;
-    background:white;
-    padding:22px;
-    width:230px;
-    border-radius:20px;
-    box-shadow:var(--shadow);
-}
-
-.about-card strong{
-    font-size:34px;
-    display:block;
-    color:var(--blue);
-}
-
-.about-text p{
-    color:var(--muted);
-    margin:18px 0;
-}
-
-.about-list{
-    list-style:none;
-    margin-top:25px;
-}
-
-.about-list li{
-    padding:12px 0;
-    border-bottom:1px solid var(--border);
-    font-weight:600;
-}
-
-.about-list span{
-    color:var(--green);
-    margin-right:8px;
-}
-
-/* ================= SERVICES ================= */
-
-.services{
-    background:var(--dark);
-    color:white;
-}
-
-.services .section-desc{
-    color:#9daabd;
-}
-
-.service-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:17px;
-}
-
-.service{
-    padding:27px;
-    min-height:210px;
-    border:1px solid rgba(255,255,255,.1);
-    background:rgba(255,255,255,.045);
-    border-radius:20px;
-}
-
-.service-icon{
-    width:45px;
-    height:45px;
-    display:grid;
-    place-items:center;
-    background:rgba(76,151,255,.14);
-    border-radius:13px;
-    font-size:21px;
-    margin-bottom:25px;
-}
-
-.service h3{
-    margin-bottom:8px;
-}
-
-.service p{
-    color:#9daabd;
-    font-size:13px;
-}
-
-/* ================= TOUR DETAIL ================= */
-
-.detail-list{
-    display:grid;
-    gap:12px;
-}
-
-.detail-day{
-    border:1px solid var(--border);
-    border-radius:17px;
-    overflow:hidden;
-    background:white;
-}
-
-.day-title{
-    padding:17px 20px;
-    cursor:pointer;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-weight:800;
-    background:#fafbfc;
-}
-
-.day-content{
-    padding:0 20px 18px;
-    color:var(--muted);
-    font-size:14px;
-}
-
-.day-content p{
-    margin-top:10px;
-}
-
-/* ================= PRICES ================= */
-
-.price-section{
-    background:#f7f9fc;
-}
-
-.price-table-wrap{
-    overflow-x:auto;
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:20px;
-    box-shadow:0 10px 40px rgba(20,40,70,.05);
-}
-
-.price-table{
-    width:100%;
-    border-collapse:collapse;
-    min-width:720px;
-}
-
-.price-table th{
-    background:var(--dark);
-    color:white;
-    padding:15px;
-    text-align:left;
-    font-size:12px;
-}
-
-.price-table td{
-    padding:15px;
-    border-bottom:1px solid var(--border);
-    font-size:13px;
-}
-
-.price-table tr:last-child td{
-    border-bottom:0;
-}
-
-.price-table td strong{
-    color:var(--blue);
-}
-
-/* ================= BOOKING ================= */
-
-.booking{
-    background:#edf5ff;
-}
-
-.booking-grid{
-    display:grid;
-    grid-template-columns:.8fr 1.2fr;
-    gap:50px;
-    align-items:start;
-}
-
-.contact-box{
-    background:var(--dark);
-    color:white;
-    border-radius:25px;
-    padding:35px;
-}
-
-.contact-box p{
-    color:#aab7c9;
-    margin:12px 0 30px;
-}
-
-.contact-item{
-    padding:16px 0;
-    border-top:1px solid rgba(255,255,255,.1);
-}
-
-.contact-item small{
-    color:#8290a4;
-    display:block;
-}
-
-.contact-item strong{
-    font-size:18px;
-}
-
-.form{
-    background:white;
-    padding:35px;
-    border-radius:25px;
-    box-shadow:var(--shadow);
-}
-
-.form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-}
-
-.form-group{
-    margin-bottom:15px;
-}
-
-.form-group.full{
-    grid-column:1/-1;
-}
-
-.form-group label{
-    display:block;
-    font-size:12px;
-    font-weight:700;
-    margin-bottom:7px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-    width:100%;
-    padding:13px 14px;
-    border:1px solid var(--border);
-    border-radius:12px;
-    outline:none;
-    background:#fafbfc;
-}
-
-.form-group textarea{
-    min-height:120px;
-    resize:vertical;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-    background:#050c16;
-    color:white;
-    padding:60px 0 25px;
-}
-
-.footer-grid{
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr 1fr;
-    gap:40px;
-    padding-bottom:45px;
-}
-
-.footer-logo{
-    font-size:24px;
-    font-weight:800;
-    margin-bottom:15px;
-}
-
-footer p,
-footer a{
-    color:#8f9cad;
-    font-size:13px;
-}
-
-footer h4{
-    margin-bottom:15px;
-}
-
-.footer-links{
-    display:grid;
-    gap:9px;
-}
-
-.copyright{
-    padding-top:22px;
-    border-top:1px solid rgba(255,255,255,.08);
-    color:#6d7887;
-    font-size:12px;
-}
-
-/* ================= MODAL ================= */
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:2000;
-    background:rgba(3,10,18,.75);
-    padding:25px;
-    overflow:auto;
-}
-
-.modal.active{
-    display:block;
-}
-
-.modal-box{
-    width:min(850px,100%);
-    margin:40px auto;
-    background:white;
-    border-radius:25px;
-    overflow:hidden;
-    animation:modalIn .25s ease;
-}
-
-@keyframes modalIn{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.modal-image{
-    height:310px;
-    position:relative;
-}
-
-.modal-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.close{
-    position:absolute;
-    right:18px;
-    top:18px;
-    width:42px;
-    height:42px;
-    border:0;
-    border-radius:50%;
-    background:rgba(0,0,0,.55);
-    color:white;
-    font-size:23px;
-    cursor:pointer;
-}
-
-.modal-content{
-    padding:30px;
-}
-
-.modal-content h2{
-    font-size:30px;
-    margin-bottom:8px;
-}
-
-.modal-content .intro{
-    color:var(--muted);
-    margin-bottom:25px;
-}
-
-.modal-price{
-    background:#eef6ff;
-    border-radius:15px;
-    padding:18px;
-    margin:20px 0;
-}
-
-.modal-price strong{
-    font-size:25px;
-    color:var(--blue);
-}
-
-.modal-days{
-    display:grid;
-    gap:10px;
-}
-
-.modal-day{
-    padding:15px;
-    border:1px solid var(--border);
-    border-radius:13px;
-}
-
-.modal-day strong{
-    display:block;
-    margin-bottom:5px;
-}
-
-/* ================= TOAST ================= */
-
-.toast{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    z-index:3000;
-    background:var(--dark);
-    color:white;
-    padding:15px 20px;
-    border-radius:13px;
-    box-shadow:var(--shadow);
-    transform:translateY(100px);
-    opacity:0;
-    transition:.3s;
-}
-
-.toast.show{
-    transform:translateY(0);
-    opacity:1;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:950px){
-
-    .nav-links{
-        display:none;
-        position:absolute;
-        top:78px;
-        left:0;
-        right:0;
-        background:white;
-        padding:20px 5%;
-        flex-direction:column;
-        align-items:flex-start;
-        box-shadow:0 15px 30px rgba(0,0,0,.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 40px 20px;
     }
 
-    .nav-links.open{
-        display:flex;
+    .hero-content {
+      max-width: 800px;
     }
 
-    .menu-btn{
-        display:block;
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 85px);
+      font-weight: 900;
+      margin-bottom: 20px;
     }
 
-    .nav-phone{
-        display:none;
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
     }
 
-    .search-inner{
-        grid-template-columns:1fr 1fr;
+    .btn {
+      display: inline-block;
+      border: none;
+      background: #e63946;
+      color: white;
+      padding: 15px 28px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: .2s;
     }
 
-    .tour-grid{
-        grid-template-columns:repeat(2,1fr);
+    .btn:hover {
+      background: #c92534;
+      transform: translateY(-2px);
     }
 
-    .service-grid{
-        grid-template-columns:repeat(2,1fr);
+    /* GENERAL */
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 20px;
     }
 
-    .about-grid,
-    .booking-grid{
-        grid-template-columns:1fr;
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
     }
 
-    .about-image{
-        min-height:400px;
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
     }
 
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
-    }
-}
-
-@media(max-width:620px){
-
-    section{
-        padding:70px 0;
+    .section-title p {
+      color: #777;
     }
 
-    .hero{
-        min-height:600px;
+    /* TOURS */
+    .tours {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
     }
 
-    .hero-content{
-        padding:80px 0 120px;
+    .tour-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,.07);
+      transition: .25s;
     }
 
-    .hero h1{
-        letter-spacing:-2px;
+    .tour-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 40px rgba(0,0,0,.12);
     }
 
-    .hero p{
-        font-size:15px;
+    .tour-img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
     }
 
-    .search-inner{
-        grid-template-columns:1fr;
+    .tour-body {
+      padding: 22px;
     }
 
-    .tour-grid{
-        grid-template-columns:1fr;
+    .tour-body h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
     }
 
-    .service-grid{
-        grid-template-columns:1fr;
+    .tour-body p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 15px;
     }
 
-    .form-grid{
-        grid-template-columns:1fr;
+    .price {
+      color: #e63946;
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 18px;
     }
 
-    .form-group.full{
-        grid-column:auto;
+    /* FEATURES */
+    .features {
+      background: white;
+      max-width: none;
     }
 
-    .footer-grid{
-        grid-template-columns:1fr;
+    .feature-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 0 20px;
     }
 
-    .section-head{
-        display:block;
+    .feature {
+      text-align: center;
+      padding: 30px 15px;
     }
 
-    .section-desc{
-        margin-top:15px;
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
     }
 
-    .about-card{
-        right:15px;
+    .feature h3 {
+      margin-bottom: 10px;
     }
-}
-</style>
+
+    .feature p {
+      color: #777;
+      line-height: 1.5;
+    }
+
+    /* ABOUT */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 18px;
+    }
+
+    .about h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      background: #111;
+      color: white;
+      border-radius: 20px;
+      padding: 50px;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+
+    .contact-box p {
+      margin: 8px;
+      color: #ddd;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 3000;
+      inset: 0;
+      background: rgba(0,0,0,.7);
+      overflow-y: auto;
+      padding: 30px 15px;
+    }
+
+    .modal-content {
+      max-width: 750px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 18px;
+      padding: 35px;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      right: 22px;
+      top: 15px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .modal-content h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .modal-content h3 {
+      margin-top: 25px;
+      margin-bottom: 10px;
+    }
+
+    .program {
+      background: #f5f5f5;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+
+    /* FORM */
+    form {
+      margin-top: 25px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: white;
+      padding: 35px 20px;
+      text-align: center;
+    }
+
+    footer p {
+      color: #aaa;
+      margin-top: 8px;
+    }
+
+    /* MOBILE */
+    @media(max-width: 850px) {
+      nav {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .tours {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width: 550px) {
+      .tours {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 550px;
+      }
+
+      .modal-content {
+        padding: 25px 18px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-
+<!-- HEADER -->
 <header>
-<div class="container nav">
+  <div class="nav">
 
-    <a href="#home" class="logo">
-        <span class="logo-mark">✈</span>
-        RADAR TOUR
-    </a>
+    <!-- НЭРЭЭ ЭНДЭЭС СОЛИНО -->
+    <div class="logo">
+      RADAR <span>TOUR</span>
+    </div>
 
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-    <nav class="nav-links" id="navLinks">
-        <a href="#home">Нүүр</a>
-        <a href="#tours">Аяллууд</a>
-        <a href="#about">Бидний тухай</a>
-        <a href="#services">Үйлчилгээ</a>
-        <a href="#prices">Үнэ</a>
-        <a href="#contact">Холбоо барих</a>
+    <nav>
+      <a href="#home">Нүүр</a>
+      <a href="#tours">Аяллууд</a>
+      <a href="#about">Бидний тухай</a>
+      <a href="#contact">Холбоо барих</a>
     </nav>
 
-    <a href="tel:98111682" class="nav-phone">☎ 9811-1682</a>
+    <div class="menu-btn">☰</div>
 
-</div>
+  </div>
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="hero-content">
 
-<section class="hero" id="home">
-
-<div class="container">
-
-<div class="hero-content">
-
-    <div class="badge">
-        ✈️ 2023 оноос хойш аяллын үйлчилгээгээр
-    </div>
-
-    <h1>
-        Таны дараагийн<br>
-        <span>аялал эндээс</span> эхэлнэ.
-    </h1>
+    <h1>RADAR TOUR</h1>
 
     <p>
-        RADAR TOUR таны амралтыг төлөвлөж,
-        ая тухтай, дурсамжтай аяллыг зохион байгуулна.
+      Дурсамж дүүрэн аяллыг бидэнтэй хамт бүтээгээрэй.
     </p>
 
-    <div class="hero-buttons">
-        <a href="#tours" class="btn btn-primary">
-            Аяллууд үзэх →
-        </a>
+    <a href="#tours" class="btn">
+      Аяллууд үзэх
+    </a>
 
-        <a href="#contact" class="btn btn-light">
-            Захиалга өгөх
-        </a>
+  </div>
+</div>
+
+
+<!-- TOURS -->
+<section id="tours">
+
+  <div class="section-title">
+    <h2>Онцлох аяллууд</h2>
+    <p>Танд тохирох аяллаа сонгоорой</p>
+  </div>
+
+  <div class="tours">
+
+    <!-- MANJURIA -->
+    <div class="tour-card">
+
+      <img
+        class="tour-img"
+        src="https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1000&q=80"
+      >
+
+      <div class="tour-body">
+
+        <h3>🇨🇳 Манжуур</h3>
+
+        <p>
+          3 шөнө / 4 өдөр
+          <br>
+          Баасан гараг бүр
+        </p>
+
+        <div class="price">
+          790,000₮
+        </div>
+
+        <button
+          class="btn"
+          onclick="openTour('manjur')"
+        >
+          Дэлгэрэнгүй
+        </button>
+
+      </div>
     </div>
 
-</div>
 
-</div>
+    <!-- BEIJING -->
+    <div class="tour-card">
+
+      <img
+        class="tour-img"
+        src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1000&q=80"
+      >
+
+      <div class="tour-body">
+
+        <h3>🇨🇳 Бээжин</h3>
+
+        <p>
+          Бээжин – Бэйдайхэ
+          <br>
+          5 өдөр
+        </p>
+
+        <div class="price">
+          1,590,000₮
+        </div>
+
+        <button
+          class="btn"
+          onclick="openTour('beijing')"
+        >
+          Дэлгэрэнгүй
+        </button>
+
+      </div>
+    </div>
+
+
+    <!-- THAILAND -->
+    <div class="tour-card">
+
+      <img
+        class="tour-img"
+        src="https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1000&q=80"
+      >
+
+      <div class="tour-body">
+
+        <h3>🇹🇭 Тайланд</h3>
+
+        <p>
+          Тайландын аялал
+          <br>
+          Дулаан орон
+        </p>
+
+        <div class="price">
+          4,990,000₮
+        </div>
+
+        <button
+          class="btn"
+          onclick="openTour('thailand')"
+        >
+          Дэлгэрэнгүй
+        </button>
+
+      </div>
+    </div>
+
+
+    <!-- JAPAN -->
+    <div class="tour-card">
+
+      <img
+        class="tour-img"
+        src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1000&q=80"
+      >
+
+      <div class="tour-body">
+
+        <h3>🇯🇵 Япон</h3>
+
+        <p>
+          Япон улсын аялал
+        </p>
+
+        <div class="price">
+          5,600,000₮
+        </div>
+
+        <button
+          class="btn"
+          onclick="openTour('japan')"
+        >
+          Дэлгэрэнгүй
+        </button>
+
+      </div>
+    </div>
+
+
+    <!-- KOREA -->
+    <div class="tour-card">
+
+      <img
+        class="tour-img"
+        src="https://images.unsplash.com/photo-1538485399081-7c897f9b6b22?auto=format&fit=crop&w=1000&q=80"
+      >
+
+      <div class="tour-body">
+
+        <h3>🇰🇷 Солонгос</h3>
+
+        <p>
+          БНСУ-ын аялал
+        </p>
+
+        <div class="price">
+          5,900,000₮
+        </div>
+
+        <button
+          class="btn"
+          onclick="openTour('korea')"
+        >
+          Дэлгэрэнгүй
+        </button>
+
+      </div>
+    </div>
+
+  </div>
 </section>
 
 
-<!-- ================= SEARCH ================= -->
+<!-- FEATURES -->
+<div class="features">
 
-<div class="container search-box">
+  <div class="feature-grid">
 
-<div class="search-inner">
-
-    <div class="search-field">
-        <label>ХААШАА?</label>
-        <input id="searchDestination" type="text"
-               placeholder="Жишээ: Шанхай">
+    <div class="feature">
+      <div class="feature-icon">✈️</div>
+      <h3>Тав тухтай аялал</h3>
+      <p>
+        Аяллын туршлагатай баг хамт олон.
+      </p>
     </div>
 
-    <div class="search-field">
-        <label>АЯЛЛЫН ТӨРӨЛ</label>
-        <select id="searchType">
-            <option value="">Бүгд</option>
-            <option>Гадаад аялал</option>
-            <option>Далайн аялал</option>
-            <option>Хотын аялал</option>
-            <option>Байгууллагын аялал</option>
-        </select>
+    <div class="feature">
+      <div class="feature-icon">🗺️</div>
+      <h3>Олон чиглэл</h3>
+      <p>
+        Монгол болон олон улсын аяллууд.
+      </p>
     </div>
 
-    <div class="search-field">
-        <label>ХҮНИЙ ТОО</label>
-        <input type="number" min="1" value="1" id="travellers">
+    <div class="feature">
+      <div class="feature-icon">💳</div>
+      <h3>Уян хатан захиалга</h3>
+      <p>
+        Захиалгаа вебээр өгөх боломжтой.
+      </p>
     </div>
 
-    <button class="btn btn-primary" onclick="searchTours()">
-        Хайх
-    </button>
+    <div class="feature">
+      <div class="feature-icon">☎️</div>
+      <h3>24/7 холбоо</h3>
+      <p>
+        Лавлах болон мэдээлэл авах боломжтой.
+      </p>
+    </div>
 
+  </div>
 </div>
-</div>
-
-
-<!-- ================= TOURS ================= -->
-
-<section class="tours-section" id="tours">
-
-<div class="container">
-
-<div class="section-head">
-
-<div>
-    <div class="eyebrow">RADAR TOUR</div>
-    <h2 class="section-title">Аяллаа сонгоорой.</h2>
-</div>
-
-<p class="section-desc">
-    Хятад, Тайланд, Япон, Солонгос болон бусад чиглэлийн
-    аяллын хөтөлбөрүүдээс өөрт тохирох аяллаа сонгоно уу.
-</p>
-
-</div>
-
-
-<div class="tour-grid" id="tourGrid">
-
-
-<!-- SHANGHAI DISNEY -->
-
-<article class="tour-card"
- data-name="Шанхай Диснейлэнд"
- data-type="Гадаад аялал">
-
-<div class="tour-image">
-<img src="https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=900&q=80"
-alt="Шанхай">
-<span class="tour-tag">🇨🇳 Хятад</span>
-</div>
-
-<div class="tour-body">
-
-<h3>Шанхай + Диснейлэнд</h3>
-
-<div class="tour-location">
-📍 Shanghai, China
-</div>
-
-<div class="tour-meta">
-<span>🗓 4–5 шөнө</span>
-<span>🎢 Disney</span>
-</div>
-
-<div class="tour-price">
-<div>
-<div class="price-label">Эхлэх үнэ</div>
-<div class="price">2,490,000₮</div>
-</div>
-
-<button class="btn btn-dark"
-onclick="openTour('shanghai')">
-Дэлгэрэнгүй
-</button>
-</div>
-
-</div>
-</article>
-
-
-<!-- HAINAN -->
-
-<article class="tour-card"
- data-name="Хайнань Санья"
- data-type="Далайн аялал">
-
-<div class="tour-image">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80"
-alt="Хайнань">
-<span class="tour-tag">🌴 Хайнань</span>
-</div>
-
-<div class="tour-body">
-
-<h3>Хайнань – Санья</h3>
-
-<div class="tour-location">
-📍 Sanya, Hainan
-</div>
-
-<div class="tour-meta">
-<span>☀️ Далайн аялал</span>
-<span>🏨 Зочид буудал</span>
-</div>
-
-<div class="tour-price">
-<div>
-<div class="price-label">Эхлэх үнэ</div>
-<div class="price">2,290,000₮</div>
-</div>
-
-<button class="btn btn-dark"
-onclick="openTour('hainan')">
-Дэлгэрэнгүй
-</button>
-</div>
-
-</div>
-</article>
-
-
-<!-- ZHANGJIAJIE -->
-
-<article class="tour-card"
- data-name="Жанжиаже Тэнгэрийн хаалга"
- data-type="Гадаад аялал">
-
-<div class="tour-image">
-<img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=80"
-alt="Жанжиаже">
-<span class="tour-tag">🏔 Хятад</span>
-</div>
-
-<div class="tour-body">
-
-<h3>Жанжиаже – Тэнгэрийн хаалга</h3>
-
-<div class="tour-location">
-📍 Zhangjiajie, China
-</div>
-
-<div class="tour-meta">
-<span>🌄 10 өдөр</span>
-<span>🏔 5A аялал</span>
-</div>
-
-<div class="tour-price">
-<div>
-<div class="price-label">Үнэ</div>
-<div class="price">3,290,000₮</div>
-</div>
-
-<button class="btn btn-dark"
-onclick="openTour('zhangjiajie')">
-Дэлгэрэнгүй
-</button>
-</div>
-
-</div>
-</article>
-
-
-<!-- THAILAND -->
-
-<article class="tour-card"
- data-name="Тайланд Бангкок Паттаяа"
- data-type="Далайн аялал">
-
-<div class="tour-image">
-<img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=900&q=80"
-alt="Тайланд">
-<span class="tour-tag">🇹🇭 Тайланд</span>
-</div>
-
-<div class="tour-body">
-
-<h3>Бангкок – Паттаяа</h3>
-
-<div class="tour-location">
-📍 Bangkok – Pattaya
-</div>
-
-<div class="tour-meta">
-<span>☀️ 8 өдөр</span>
-<span>🏝 Coral Island</span>
-</div>
-
-<div class="tour-price">
-<div>
-<div class="price-label">Үнэ</div>
-<div class="price">Лавлах</div>
-</div>
-
-<button class="btn btn-dark"
-onclick="openTour('thailand')">
-Дэлгэрэнгүй
-</button>
-</div>
-
-</div>
-</article>
-
-
-<!-- JAPAN -->
-
-<article class="tour-card"
- data-name="Япон Сакура Токио Фүжи Хаконе"
- data-type="Хотын аялал">
-
-<div class="tour-image">
-<img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=900&q=80"
-alt="Япон">
-<span class="tour-tag">🇯🇵 Япон</span>
-</div>
-
-<div class="tour-body">
-
-<h3>Япон – Сакура</h3>
-
-<div class="tour-location">
-📍 Токио – Фүжи – Хаконе
-</div>
-
-<div class="tour-meta">
-<span>🌸 6 өдөр</span>
-<span>🗻 Fuji</span>
-</div>
-
-<div class="tour-price">
-<div>
-<div class="price-label">Үнэ</div>
-<div class="price">Лавлах</div>
-</div>
-
-<button class="btn btn-dark"
-onclick="openTour('japan')">
-Дэлгэрэнгүй
-</button>
-</div>
-
-</div>
-</article>
-
-
-<!-- MANZHOU -->
-
-<article class="tour-card"
- data-name="Манжуур"
- data-type="Гадаад аялал">
-
-<div class="tour-image">
-<img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=900&q=80"
-alt="Манжуур">
-<span class="tour-tag">🇨🇳 Хятад</span>
-</div>
-
-<div class="tour-body">
-
-<h3>Манжуур аялал</h3>
-
-<div class="tour-location">
-📍 Manzhouli
-</div>
-
-<div class="tour-meta">
-<span>🗓 4 өдөр</span>
-<span>🛍 Shopping</span>
-</div>
-
-<div class="tour-price">
-<div>
-<div class="price-label">Үнэ</div>
-<div class="price">Лавлах</div>
-</div>
-
-<button class="btn btn-dark"
-onclick="openTour('manzhouli')">
-Дэлгэрэнгүй
-</button>
-</div>
-
-</div>
-</article>
-
-
-<!-- DATONG -->
-
-<article class="tour-card"
- data-name="Датон"
- data-type="Гадаад аялал">
-
-<div class="tour-image">
-<img src="https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?auto=format&fit=crop&w=900&q=80"
-alt="Хятад аялал">
-<span class="tour-tag">🇨🇳 Хятад</span>
-</div>
-
-<div class="tour-body">
-
-<h3>Датон аялал</h3>
-
-<div class="tour-location">
-📍 Datong – Hohhot
-</div>
-
-<div class="tour-meta">
-<span>🗓 7 өдөр</span>
-<span>♨️ Hot Spring</span>
-</div>
-
-<div class="tour-price">
-<div>
-<div class="price-label">Үнэ</div>
-<div class="price">Лавлах</div>
-</div>
-
-<button class="btn btn-dark"
-onclick="openTour('datong')">
-Дэлгэрэнгүй
-</button>
-</div>
-
-</div>
-</article>
-
-
-<!-- JINING BEIJING -->
-
-<article class="tour-card"
- data-name="Жининь Бээжин Universal Studios"
- data-type="Хотын аялал">
-
-<div class="tour-image">
-<img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=900&q=80"
-alt="Бээжин">
-<span class="tour-tag">🇨🇳 Бээжин</span>
-</div>
-
-<div class="tour-body">
-
-<h3>Жининь – Бээжин – Universal</h3>
-
-<div class="tour-location">
-📍 Beijing, China
-</div>
-
-<div class="tour-meta">
-<span>🗓 8 өдөр</span>
-<span>🎬 Universal</span>
-</div>
-
-<div class="tour-price">
-<div>
-<div class="price-label">Үнэ</div>
-<div class="price">Лавлах</div>
-</div>
-
-<button class="btn btn-dark"
-onclick="openTour('beijing')">
-Дэлгэрэнгүй
-</button>
-</div>
-
-</div>
-</article>
-
-
-<!-- KOREA -->
-
-<article class="tour-card"
- data-name="Солонгос эрүүл мэнд эмчилгээ"
- data-type="Гадаад аялал">
-
-<div class="tour-image">
-<img src="https://images.unsplash.com/photo-1538485399081-7c897f2b5f5a?auto=format&fit=crop&w=900&q=80"
-alt="Солонгос">
-<span class="tour-tag">🇰🇷 Солонгос</span>
-</div>
-
-<div class="tour-body">
-
-<h3>Солонгос – Эрүүл мэндийн аялал</h3>
-
-<div class="tour-location">
-📍 South Korea
-</div>
-
-<div class="tour-meta">
-<span>🏥 Шинжилгээ</span>
-<span>✈️ Аялал</span>
-</div>
-
-<div class="tour-price">
-<div>
-<div class="price-label">Үнэ</div>
-<div class="price">Лавлах</div>
-</div>
-
-<button class="btn btn-dark"
-onclick="openTour('korea')">
-Дэлгэрэнгүй
-</button>
-</div>
-
-</div>
-</article>
-
-
-<!-- HAINAN HAIKOU -->
-
-<article class="tour-card"
- data-name="Хайнань Хайкоу шууд нислэг"
- data-type="Далайн аялал">
-
-<div class="tour-image">
-<img src="https://images.unsplash.com/photo-1493552152660-f915ab47ae9d?auto=format&fit=crop&w=900&q=80"
-alt="Хайнань">
-<span class="tour-tag">🌴 Хайнань</span>
-</div>
-
-<div class="tour-body">
-
-<h3>Хайнань – Хайкоу шууд нислэг</h3>
-
-<div class="tour-location">
-📍 Haikou – Sanya
-</div>
-
-<div class="tour-meta">
-<span>✈️ Шууд нислэг</span>
-<span>🏝 8 өдөр</span>
-</div>
-
-<div class="tour-price">
-<div>
-<div class="price-label">Үнэ</div>
-<div class="price">Лавлах</div>
-</div>
-
-<button class="btn btn-dark"
-onclick="openTour('haikou')">
-Дэлгэрэнгүй
-</button>
-</div>
-
-</div>
-</article>
-
-
-<!-- SHANGHAI DIRECT -->
-
-<article class="tour-card"
- data-name="Шанхай шууд нислэг"
- data-type="Хотын аялал">
-
-<div class="tour-image">
-<img src="https://images.unsplash.com/photo-1538428494232-9c0d8a3ab403?auto=format&fit=crop&w=900&q=80"
-alt="Шанхай">
-<span class="tour-tag">🇨🇳 Шанхай</span>
-</div>
-
-<div class="tour-body">
-
-<h3>Шууд нислэгтэй Шанхай</h3>
-
-<div class="tour-location">
-📍 Shanghai, China
-</div>
-
-<div class="tour-meta">
-<span>✈️ Шууд нислэг</span>
-<span>🗓 4 өдөр</span>
-</div>
-
-<div class="tour-price">
-<div>
-<div class="price-label">Үнэ</div>
-<div class="price">Лавлах</div>
-</div>
-
-<button class="btn btn-dark"
-onclick="openTour('shanghai-direct')">
-Дэлгэрэнгүй
-</button>
-</div>
-
-</div>
-</article>
-
-
-</div>
-</div>
-</section>
-
 
-<!-- ================= ABOUT ================= -->
 
+<!-- ABOUT -->
 <section id="about">
 
-<div class="container about-grid">
+  <div class="about">
 
-<div class="about-image">
-    <div class="about-card">
-        <strong>2023+</strong>
-        <span>Аялал жуулчлалын салбарт ажилласан жил</span>
+    <img
+      src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80"
+    >
+
+    <div>
+
+      <h2>Бидний тухай</h2>
+
+      <p>
+        RADAR TOUR нь аялагчдад зориулсан
+        дотоод болон гадаад аяллын үйлчилгээг
+        санал болгодог аяллын компани юм.
+      </p>
+
+      <p>
+        Групп аялал, байгууллагын аялал болон
+        хувь хүний аяллын захиалгыг хүлээн авна.
+      </p>
+
+      <a href="#contact" class="btn">
+        Холбоо барих
+      </a>
+
     </div>
-</div>
 
-<div class="about-text">
+  </div>
 
-<div class="eyebrow">БИДНИЙ ТУХАЙ</div>
-
-<h2 class="section-title">
-Аяллыг зөвхөн зохион байгуулах биш,
-дурсамж болгоно.
-</h2>
-
-<p>
-<strong>RADAR TOUR</strong> нь 2023 оноос хойш
-аялал жуулчлалын чиглэлээр үйл ажиллагаа явуулж
-буй туршлагатай хамт олон юм.
-</p>
-
-<p>
-Бид хувь хүн, гэр бүл, найз нөхдийн аяллаас гадна
-<strong>албан байгууллага, хамт олны захиалгат аялал</strong>
-зохион байгуулах өргөн туршлагатай.
-</p>
-
-<p>
-Аяллын төлөвлөлт, зохион байгуулалт, тээвэр,
-байр, хөтөлбөрийн шийдлийг хэрэглэгчийн хэрэгцээнд
-нийцүүлэн хүргэхийг зорин ажилладаг.
-</p>
-
-<ul class="about-list">
-<li><span>✓</span> 2023 оноос хойш үйл ажиллагаа явуулж байна</li>
-<li><span>✓</span> Байгууллага, хамт олны захиалгат аялал</li>
-<li><span>✓</span> Монголын Аялал Жуулчлалын Холбооны гишүүн байгууллага</li>
-<li><span>✓</span> Аялал, дан тийз, зочид буудлын захиалга</li>
-</ul>
-
-</div>
-
-</div>
 </section>
 
 
-<!-- ================= SERVICES ================= -->
+<!-- CONTACT -->
+<section id="contact">
 
-<section class="services" id="services">
+  <div class="contact-box">
 
-<div class="container">
+    <h2>Холбоо барих</h2>
 
-<div class="section-head">
+    <p>📞 9811-1682</p>
+    <p>📞 9100-1128</p>
+    <p>📧 desvne9@gmail.com</p>
 
-<div>
-<div class="eyebrow">ҮЙЛЧИЛГЭЭ</div>
-<h2 class="section-title">Танд хэрэгтэй бүхнийг нэг дор.</h2>
-</div>
+    <p>
+      📍 Улаанбаатар хот, Баянзүрх дүүрэг,
+      Нисора тауэр 7-703
+    </p>
 
-<p class="section-desc">
-Аяллаа төлөвлөхөөс эхлээд буцаж ирэх хүртэл
-ая тухтай байдлыг тань бодолцоно.
-</p>
+    <br>
 
-</div>
+    <button
+      class="btn"
+      onclick="openBooking()"
+    >
+      ✈️ Аялал захиалах
+    </button>
 
+  </div>
 
-<div class="service-grid">
-
-<div class="service">
-<div class="service-icon">✈️</div>
-<h3>Гадаад аялал</h3>
-<p>
-Хятад, Тайланд, Япон, Солонгос болон бусад
-чиглэлийн аяллын хөтөлбөр.
-</p>
-</div>
-
-<div class="service">
-<div class="service-icon">🎫</div>
-<h3>Дан тийз</h3>
-<p>
-Агаарын тээврийн дан тийзийн захиалга,
-мэдээлэл болон зөвлөгөө.
-</p>
-</div>
-
-<div class="service">
-<div class="service-icon">🏨</div>
-<h3>Зочид буудал</h3>
-<p>
-Аялал болон хувийн хэрэгцээнд тохирох
-зочид буудлын захиалга.
-</p>
-</div>
-
-<div class="service">
-<div class="service-icon">🏢</div>
-<h3>Байгууллагын аялал</h3>
-<p>
-Албан байгууллага, хамт олны захиалгат
-аяллыг зохион байгуулна.
-</p>
-</div>
-
-</div>
-</div>
 </section>
 
 
-<!-- ================= HAINAN PROGRAM ================= -->
-
-<section id="hainan-program">
-
-<div class="container">
-
-<div class="section-head">
-<div>
-<div class="eyebrow">ОНЦЛОХ АЯЛАЛ</div>
-<h2 class="section-title">Хайнань – Санья</h2>
-</div>
-
-<p class="section-desc">
-Далайн эрэг, усан парк, завины аялал,
-чөлөөт өдөр болон Санья хотын аялал.
-</p>
-</div>
-
-
-<div class="detail-list">
-
-<div class="detail-day">
-<div class="day-title">
-1-р өдөр — Улаанбаатар → Санья
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-19:00 цагт Чингис Хаан ОУ-ын нисэх буудалд цуглаж,
-аяллын менежерт бүртгүүлэн заавар зөвлөгөө авна.
-22:10 цагт ниснэ.
-</p>
-</div>
-</div>
-
-<div class="detail-day">
-<div class="day-title">
-2-р өдөр — Санья
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-03:30 цагт Саняд газардна. Мэргэжлийн хөтөч тосно.
-Зочид буудалд амарч, өглөөний цайгаа уусны дараа
-буудалтай танилцан, усан санд сэлж, чөлөөт өдрийг өнгөрөөнө.
-</p>
-<p><strong>Хоол:</strong> Өглөө</p>
-</div>
-</div>
-
-<div class="detail-day">
-<div class="day-title">
-3-р өдөр — Далайн аялал
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-Хайнаны сувдны дэлгүүр, үнэт эдлэл, бэлэг дурсгалын
-дэлгүүрээр зочилно. Тансаг хувийн онгоцоор задгай
-далайн аялал хийнэ. Нэмэлтээр экстрем тоглоомууд
-сонгох боломжтой.
-</p>
-<p>
-Завинаас буусны дараа оройн хоолонд орж,
-зочид буудалдаа амарна.
-</p>
-<p><strong>Хоол:</strong> Өглөө, Орой</p>
-</div>
-</div>
-
-<div class="detail-day">
-<div class="day-title">
-4-р өдөр — Atlantis усан парк
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-Atlantis усан паркад бүтэн өдөр тоглож,
-үзүүлбэр үзэн цагийг зугаатай өнгөрөөнө.
-Оройн хоолны дараа зочид буудалдаа амарна.
-</p>
-</div>
-</div>
-
-<div class="detail-day">
-<div class="day-title">
-5-р өдөр — Бингланг + Romance Show
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-Бингланг – Хайнаны эртний уугуул иргэдийн тосгонд
-очиж, ойн адал явдал, шилэн гүүр, zipline,
-бартаат замын 4 дугуйт, шувууны хүрээлэн,
-go-kart, мөнгөн эдлэлийн музей/дэлгүүр болон
-галын шоу үзнэ.
-</p>
-<p>
-Дараа нь Sanya Romance Show-д түүхэн соёл,
-бүжиг, цирк, гэрлийн шоу болон бусад үзүүлбэрүүдийг
-үзнэ.
-</p>
-<p><strong>Хоол:</strong> Өдөр, Орой</p>
-</div>
-</div>
-
-<div class="detail-day">
-<div class="day-title">
-6-р өдөр — Чөлөөт өдөр + уламжлалт эмчилгээ
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-Өглөөний цайны дараа Хятадын уламжлалт анагаах
-ухааны сувилалд эмчийн үзлэг, оношилгоонд хамрагдах
-боломжтой.
-</p>
-<p>
-Өдөр, оройн хоол өөрсдөө. Орой Санья хотын
-шөнийн клубт аяллын багаараа зочилно.
-</p>
-<p><strong>Хоол:</strong> Өглөө</p>
-</div>
-</div>
-
-<div class="detail-day">
-<div class="day-title">
-7-р өдөр — Чөлөөт өдөр
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-Хоттой танилцах, худалдаа хийх болон хувийн
-чөлөөт цаг.
-</p>
-</div>
-</div>
-
-<div class="detail-day">
-<div class="day-title">
-8-р өдөр — Санья → Улаанбаатар
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-Өглөөний цай. 12:00 цагт өрөө хүлээлгэн өгнө.
-JOY CITY худалдааны төвөөр орно. Санья хотын
-хамгийн өндөр цэг рүү cable car-аар аялна.
-Шөнийн Санья хот болон хотын түүхийг харуулсан
-ойн хотхонтой танилцана.
-</p>
-<p>
-Оройн хоолны дараа нисэх буудал руу явж,
-03:30 цагийн нислэгээр Улаанбаатар руу ниснэ.
-Маргааш 08:00 цагт Чингис Хаан ОУ-ын нисэх
-буудалд бууна.
-</p>
-</div>
-</div>
-
-</div>
-</div>
-</section>
-
-
-<!-- ================= PRICE TABLE ================= -->
-
-<section class="price-section" id="prices">
-
-<div class="container">
-
-<div class="section-head">
-
-<div>
-<div class="eyebrow">ҮНИЙН МЭДЭЭЛЭЛ</div>
-<h2 class="section-title">Аяллын үнэ</h2>
-</div>
-
-<p class="section-desc">
-Огноо болон аяллын төрлөөс хамааран үнэ өөрчлөгдөж
-болох тул захиалга хийхийн өмнө мэдээллээ баталгаажуулна уу.
-</p>
-
-</div>
-
-
-<h3 style="margin-bottom:18px;">🇨🇳 Шанхай аялал</h3>
-
-<div class="price-table-wrap">
-
-<table class="price-table">
-
-<thead>
-<tr>
-<th>Аяллын огноо</th>
-<th>Хугацаа</th>
-<th>Том хүн</th>
-<th>Хүүхэд</th>
-<th>Тайлбар</th>
-</tr>
-</thead>
-
-<tbody>
-
-<tr>
-<td>10 сарын 29</td>
-<td>5 шөнө 6 өдөр</td>
-<td><strong>3,590,000₮</strong></td>
-<td>3,150,000₮</td>
-<td>—</td>
-</tr>
-
-<tr>
-<td>11 сарын 03</td>
-<td>4 шөнө 5 өдөр</td>
-<td><strong>3,490,000₮</strong></td>
-<td>3,090,000₮</td>
-<td>🎢 Диснейлэндтэй</td>
-</tr>
-
-<tr>
-<td>11 сарын 12</td>
-<td>5 шөнө 6 өдөр</td>
-<td><strong>2,490,000₮</strong></td>
-<td>2,290,000₮</td>
-<td>—</td>
-</tr>
-
-<tr>
-<td>11 сарын 26</td>
-<td>5 шөнө 6 өдөр</td>
-<td><strong>2,490,000₮</strong></td>
-<td>2,290,000₮</td>
-<td>—</td>
-</tr>
-
-<tr>
-<td>12 сарын 22</td>
-<td>4 шөнө 5 өдөр</td>
-<td><strong>2,490,000₮</strong></td>
-<td>2,290,000₮</td>
-<td>Диснейлэндгүй</td>
-</tr>
-
-</tbody>
-</table>
-</div>
-
-
-<br><br>
-
-<h3 style="margin-bottom:18px;">🌴 Хайнань аялал</h3>
-
-<div class="price-table-wrap">
-
-<table class="price-table">
-
-<thead>
-<tr>
-<th>Аяллын огноо</th>
-<th>Том хүн</th>
-<th>Хүүхэд</th>
-<th>Чөлөөт аялал</th>
-<th>Дан тийз</th>
-<th>Ганцаар өрөө</th>
-</tr>
-</thead>
-
-<tbody>
-
-<tr>
-<td>09/12, 09/19, 09/26</td>
-<td><strong>2,690,000₮</strong></td>
-<td>2,390,000₮</td>
-<td>2,290,000₮</td>
-<td>1,690,000₮</td>
-<td>800,000₮</td>
-</tr>
-
-<tr>
-<td>10/03, 10/10, 10/17, 10/24</td>
-<td><strong>2,690,000₮</strong></td>
-<td>2,390,000₮</td>
-<td>2,290,000₮</td>
-<td>1,690,000₮</td>
-<td>800,000₮</td>
-</tr>
-
-<tr>
-<td>10/31</td>
-<td><strong>3,490,000₮</strong></td>
-<td>3,190,000₮</td>
-<td>2,790,000₮</td>
-<td>1,990,000₮</td>
-<td>800,000₮</td>
-</tr>
-
-<tr>
-<td>11/07, 11/14, 11/21, 11/28</td>
-<td><strong>3,490,000₮</strong></td>
-<td>3,190,000₮</td>
-<td>2,790,000₮</td>
-<td>1,990,000₮</td>
-<td>800,000₮</td>
-</tr>
-
-<tr>
-<td>12/05, 12/12</td>
-<td><strong>3,880,000₮</strong></td>
-<td>3,380,000₮</td>
-<td>3,380,000₮</td>
-<td>2,190,000₮</td>
-<td>800,000₮</td>
-</tr>
-
-<tr>
-<td>12/19, 12/26, 01/02, 01/09</td>
-<td><strong>4,180,000₮</strong></td>
-<td>3,680,000₮</td>
-<td>3,690,000₮</td>
-<td>2,990,000₮</td>
-<td>800,000₮</td>
-</tr>
-
-<tr>
-<td>01/16, 01/23, 01/30</td>
-<td><strong>3,880,000₮</strong></td>
-<td>3,380,000₮</td>
-<td>3,380,000₮</td>
-<td>2,190,000₮</td>
-<td>800,000₮</td>
-</tr>
-
-<tr>
-<td>02/06</td>
-<td><strong>4,180,000₮</strong></td>
-<td>3,680,000₮</td>
-<td>3,680,000₮</td>
-<td>2,990,000₮</td>
-<td>800,000₮</td>
-</tr>
-
-<tr>
-<td>02/13</td>
-<td><strong>3,880,000₮</strong></td>
-<td>3,380,000₮</td>
-<td>3,380,000₮</td>
-<td>2,190,000₮</td>
-<td>800,000₮</td>
-</tr>
-
-</tbody>
-</table>
-</div>
-
-
-<br><br>
-
-<h3 style="margin-bottom:18px;">🏔️ Шанхай – Жанжиаже</h3>
-
-<div class="price-table-wrap">
-
-<table class="price-table">
-
-<thead>
-<tr>
-<th>Огноо</th>
-<th>Том хүн</th>
-<th>Хүүхэд</th>
-<th>Ганцаар өрөө</th>
-</tr>
-</thead>
-
-<tbody>
-
-<tr>
-<td>10 сарын 10</td>
-<td><strong>3,660,000₮</strong></td>
-<td>3,330,000₮</td>
-<td>700,000₮</td>
-</tr>
-
-<tr>
-<td>11 сарын 19</td>
-<td><strong>3,660,000₮</strong></td>
-<td>3,330,000₮</td>
-<td>700,000₮</td>
-</tr>
-
-</tbody>
-</table>
-</div>
-
-
-<br><br>
-
-<h3 style="margin-bottom:18px;">🏔️ Жанжиаже – Тэнгэрийн хаалга</h3>
-
-<div class="price-table-wrap">
-
-<table class="price-table">
-
-<thead>
-<tr>
-<th>Аяллын огноо</th>
-<th>Том хүн</th>
-<th>Хүүхэд</th>
-</tr>
-</thead>
-
-<tbody>
-
-<tr>
-<td>11/03, 11/10, 11/17, 11/24</td>
-<td><strong>3,290,000₮</strong></td>
-<td>2,990,000₮</td>
-</tr>
-
-<tr>
-<td>12/01, 12/08</td>
-<td><strong>3,490,000₮</strong></td>
-<td>3,190,000₮</td>
-</tr>
-
-</tbody>
-</table>
-</div>
-
-</div>
-</section>
-
-
-<!-- ================= OTHER TOUR PROGRAMS ================= -->
-
-<section>
-
-<div class="container">
-
-<div class="section-head">
-<div>
-<div class="eyebrow">АЯЛЛЫН ХӨТӨЛБӨР</div>
-<h2 class="section-title">Бусад чиглэлүүд</h2>
-</div>
-</div>
-
-
-<div class="detail-list">
-
-
-<div class="detail-day">
-<div class="day-title">
-🇨🇳 Шууд нислэгтэй Шанхай — 4 өдөр
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-<strong>1-р өдөр:</strong> Улаанбаатар 13:00 → Шанхай 16:45.
-Онгоцны буудлаас тосож, 18:00–19:00 оройн хоол,
-зочид буудал.
-</p>
-<p>
-<strong>2-р өдөр:</strong> 07:30 өглөөний цай. 09:00 гарна.
-Shanghai city central tower, Madame Tussauds,
-Yu Garden, Yu Garden shopping street, Huangpu river cruise.
-</p>
-<p>
-<strong>3-р өдөр:</strong> Wukang Road, shopping/food,
-Shanghai Ocean Aquarium, нэмэлтээр Disneyland,
-Nanjing Road, Shanghai Bund.
-</p>
-<p>
-<strong>4-р өдөр:</strong> Өглөөний цай, нисэх буудал.
-08:00 Шанхай → 12:00 Улаанбаатар.
-</p>
-</div>
-</div>
-
-
-<div class="detail-day">
-<div class="day-title">
-🇹🇭 Тайланд – Бангкок – Паттаяа — 8 өдөр
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-Бангкокт газардсаны дараа хөтөч тосож,
-Паттаяа руу явна.
-</p>
-<p>
-<strong>2-р өдөр:</strong> Тайландын үндэсний парк,
-Thai show, завь, дөрвөн нүүрт бурхан, заан унах,
-1 цагийн Thai massage, Gems Gallery, Terminal 21.
-</p>
-<p>
-<strong>3-р өдөр:</strong> Coral Island. Далайн эрэг,
-parasailing, seawalk, jetski зэрэг нэмэлт үйлчилгээнүүд.
-Орой Cabaret show, buffet dinner.
-</p>
-<p>
-<strong>4-р өдөр:</strong> Чөлөөт өдөр.
-</p>
-<p>
-<strong>5-р өдөр:</strong> Паттаяа → Бангкок,
-Snake zoo/show, Siam water park.
-</p>
-<p>
-<strong>6-р өдөр:</strong> Grand Palace, Emerald Buddha,
-Chao Phraya river cruise, live music, dinner.
-</p>
-<p>
-<strong>7-р өдөр:</strong> Чөлөөт өдөр.
-</p>
-<p>
-<strong>8-р өдөр:</strong> Бангкок → Улаанбаатар.
-</p>
-</div>
-</div>
-
-
-<div class="detail-day">
-<div class="day-title">
-🇯🇵 Япон – Сакура – Токио – Фүжи – Хаконе
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-<strong>1-р өдөр:</strong> Улаанбаатар → Tokyo Narita.
-Tokyo, Skytree, оройн хоол, буудал.
-</p>
-<p>
-<strong>2-р өдөр:</strong> Odaiba, Rainbow Bridge,
-Statue of Liberty, Uniqlo/H&M/Zara, Asakusa Buddhist temple,
-sumo stadium exterior, Shibuya crossing, Hachiko.
-</p>
-<p>
-<strong>3-р өдөр:</strong> Fuji, Lake Ashi pirate-themed boat,
-cable car, sulfur mountain, black eggs, hotel hot spring.
-</p>
-<p>
-<strong>4-р өдөр:</strong> Shiraito Falls, Fuji + red five-story
-pagoda + cherry blossom viewpoint. Боломжтой бол Gotemba outlet
-эсвэл Fuji 5th station.
-</p>
-<p>
-<strong>5-р өдөр:</strong> Чөлөөт өдөр. Shopping, Disneyland,
-хоттой танилцах боломжтой.
-</p>
-<p>
-<strong>6-р өдөр:</strong> Narita нисэх буудал → Улаанбаатар.
-</p>
-</div>
-</div>
-
-
-<div class="detail-day">
-<div class="day-title">
-🇨🇳 Манжуур — 4 өдөр
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-<strong>1-р өдөр:</strong> Улаанбаатар → Хайлар.
-Hulunbuir Museum, Манжуур руу автобусаар явна.
-</p>
-<p>
-<strong>2-р өдөр:</strong> Wedding Palace, Mishka-Klubnika park,
-Matryoshka Square гаднаас үзэх, shopping.
-</p>
-<p>
-<strong>3-р өдөр:</strong> Манжуурын музей, арслан/зааны парк,
-Хайлар руу буцна. Нэмэлтээр Mufu sauna болон hot spring.
-</p>
-<p>
-<strong>4-р өдөр:</strong> Genghis Square, нисэх буудал,
-Хайлар → Улаанбаатар.
-</p>
-</div>
-</div>
-
-
-<div class="detail-day">
-<div class="day-title">
-🇨🇳 Датон — 7 өдөр
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-<strong>1-р өдөр:</strong> Улаанбаатар → Замын-Үүд галт тэрэг.
-</p>
-<p>
-<strong>2-р өдөр:</strong> Хил нэвтэрч Жинин чиглэлд явна.
-Water World resort, 33 төрлийн халуун рашаан.
-</p>
-<p>
-<strong>3-р өдөр:</strong> Датон, Fanta Wild kids park,
-Датон хотын шөнийн үзэмж, Ming-era wall, tourist street.
-</p>
-<p>
-<strong>4-р өдөр:</strong> Mini Avatar, усан парк, амьтны хүрээлэн,
-шилэн гүүр. Орой Хөх хот.
-</p>
-<p>
-<strong>5-р өдөр:</strong> Хөх хотын Science Museum,
-children's science park, technology museum, Wanda Plaza,
-Outlets Mall.
-</p>
-<p>
-<strong>6-р өдөр:</strong> Хөх хот → Эрээн → Замын-Үүд.
-</p>
-<p>
-<strong>7-р өдөр:</strong> Улаанбаатар. Аялал дуусна.
-</p>
-</div>
-</div>
-
-
-<div class="detail-day">
-<div class="day-title">
-🇨🇳 Жининь – Бээжин – Universal Studios — 8 өдөр
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-<strong>1-р өдөр:</strong> УБ → Замын-Үүд галт тэрэг.
-</p>
-<p>
-<strong>2-р өдөр:</strong> Эрээн → Жинин. Water World 5-star resort,
-33 халуун рашаан, бассейн, саун болон бусад үйлчилгээ.
-</p>
-<p>
-<strong>3-р өдөр:</strong> Бээжин. Bird's Nest + Water Cube.
-</p>
-<p>
-<strong>4-р өдөр:</strong> Beijing Aquarium, zoo, World Park.
-</p>
-<p>
-<strong>5-р өдөр:</strong> Universal Studios бүтэн өдөр.
-</p>
-<p>
-<strong>6-р өдөр:</strong> Цагаан хэрэм. Дараа нь Эрээн.
-</p>
-<p>
-<strong>7-р өдөр:</strong> Эрээн shopping, Замын-Үүд,
-18:05 галт тэрэг → Улаанбаатар.
-</p>
-<p>
-<strong>8-р өдөр:</strong> 09:20 Улаанбаатар. Аялал дуусна.
-</p>
-</div>
-</div>
-
-
-<div class="detail-day">
-<div class="day-title">
-🇨🇳 Хайнань – УБ → Хайкоу шууд нислэг — 8 өдөр
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-<strong>1-р өдөр:</strong> УБ → Хайкоу. 22:10–03:10.
-Шууд зочид буудал.
-</p>
-<p>
-<strong>2-р өдөр:</strong> Хайкоу → Санья. Замдаа cable car,
-glass bridge. Санья, оройн хоол.
-</p>
-<p>
-<strong>3-р өдөр:</strong> Санья чөлөөт өдөр.
-</p>
-<p>
-<strong>4-р өдөр:</strong> Pearl store, 12:00 open-sea cruise,
-3 цагийн далайн аялал, extreme games, helicopter ride,
-buffet dinner.
-</p>
-<p>
-<strong>5-р өдөр:</strong> Atlantis water park бүтэн өдөр.
-</p>
-<p>
-<strong>6–7-р өдөр:</strong> Чөлөөт өдөр, хот болон shopping.
-</p>
-<p>
-<strong>8-р өдөр:</strong> Monkey Island cable car,
-Haikou Outlet, Монгол хоол, Хайкоу → УБ.
-</p>
-</div>
-</div>
-
-
-<div class="detail-day">
-<div class="day-title">
-🇰🇷 Солонгос – Эрүүл мэндийн аялал
-<span>+</span>
-</div>
-<div class="day-content">
-<p>
-Манай аяллын үйлчилгээний хүрээнд Солонгос улс руу
-эрүүл мэндийн шинжилгээ, эмчилгээтэй аяллын
-хөтөлбөр санал болгож байна.
-</p>
-<ul style="margin:10px 0 0 20px;">
-<li>Бүтэн биеийн шинжилгээ</li>
-<li>Бүх төрлийн өвчний онош</li>
-<li>Бүх төрлийн мэс засал, эмчилгээ</li>
-<li>Гоо сайхны мэс засал, үйлчилгээ</li>
-<li>Хөтөлбөртэй аялал</li>
-</ul>
-<p style="margin-top:12px;">
-Эмнэлгийн үйлчилгээний нарийвчилсан нөхцөл,
-оношилгоо болон эмчилгээний талаар холбогдох
-эмнэлгийн байгууллагатай зөвлөлдөнө.
-</p>
-</div>
-</div>
-
-</div>
-</div>
-</section>
-
-
-<!-- ================= BOOKING ================= -->
-
-<section class="booking" id="contact">
-
-<div class="container booking-grid">
-
-<div>
-
-<div class="eyebrow">ЗАХИАЛГА</div>
-
-<h2 class="section-title">
-Аяллаа өнөөдөр захиалаарай.
-</h2>
-
-<p style="color:var(--muted);margin:20px 0 30px;">
-Аяллын талаар мэдээлэл авах, үнэ лавлах эсвэл
-захиалга өгөх бол бидэнтэй холбогдоорой.
-</p>
-
-
-<div class="contact-box">
-
-<h3>RADAR TOUR</h3>
-
-<p>
-Таны амралтыг бид зохион байгуулна ✈️
-</p>
-
-<div class="contact-item">
-<small>УТАС</small>
-<strong>
-<a href="tel:98111682">9811-1682</a>
-</strong>
-</div>
-
-<div class="contact-item">
-<small>НӨӨЦ УТАС</small>
-<strong>
-<a href="tel:91001128">9100-1128</a>
-</strong>
-</div>
-
-<div class="contact-item">
-<small>FACEBOOK</small>
-<strong>
-<a href="https://www.facebook.com/" target="_blank">
-Radar tour
-</a>
-</strong>
-</div>
-
-<div class="contact-item">
-<small>ХАЯГ</small>
-<strong style="font-size:14px;">
-Улаанбаатар хот, БЗД 1-р хороо,
-Нисора тауэр 7-703
-</strong>
-</div>
-
-<div class="contact-item">
-<small>АЖЛЫН ЦАГ</small>
-<strong style="font-size:14px;">
-Даваа–Баасан 09:00–18:00<br>
-Бямба 10:00–18:00
-</strong>
-</div>
-
-</div>
-</div>
-
-
-<form class="form" onsubmit="submitBooking(event)">
-
-<h3 style="font-size:24px;margin-bottom:22px;">
-Захиалга / Лавлагаа
-</h3>
-
-<div class="form-grid">
-
-<div class="form-group">
-<label>Нэр</label>
-<input type="text" id="name" required placeholder="Таны нэр">
-</div>
-
-<div class="form-group">
-<label>Утас</label>
-<input type="tel" id="phone" required placeholder="9911xxxx">
-</div>
-
-<div class="form-group">
-<label>Аялал сонгох</label>
-
-<select id="tourSelect" required>
-
-<option value="">Аяллаа сонгоно уу</option>
-
-<option>Шанхай + Диснейлэнд</option>
-<option>Хайнань – Санья</option>
-<option>Шанхай – Жанжиаже</option>
-<option>Жанжиаже – Тэнгэрийн хаалга</option>
-<option>Тайланд – Бангкок – Паттаяа</option>
-<option>Япон – Сакура</option>
-<option>Манжуур</option>
-<option>Датон</option>
-<option>Жининь – Бээжин – Universal Studios</option>
-<option>Солонгос – Эрүүл мэндийн аялал</option>
-<option>Хайнань – Хайкоу шууд нислэг</option>
-<option>Шууд нислэгтэй Шанхай</option>
-
-</select>
-</div>
-
-<div class="form-group">
-<label>Аялагчдын тоо</label>
-<input type="number" min="1" value="1" id="numberOfPeople">
-</div>
-
-<div class="form-group full">
-<label>Мессеж</label>
-
-<textarea id="message"
-placeholder="Аяллын огноо, нэмэлт асуултаа бичнэ үү..."></textarea>
-
-</div>
-
-<div class="form-group full">
-
-<button class="btn btn-primary" style="width:100%;">
-Захиалга илгээх →
-</button>
-
-</div>
-
-</div>
-
-</form>
-
-</div>
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-<div class="container">
-
-<div class="footer-grid">
-
-<div>
-
-<div class="footer-logo">
-✈ RADAR TOUR
-</div>
-
-<p>
-Таны амралтыг бид зохион байгуулна ✈️
-</p>
-
-<p style="margin-top:15px;">
-2023 оноос хойш аялал жуулчлалын
-үйлчилгээ үзүүлж байна.
-</p>
-
-</div>
-
-
-<div>
-
-<h4>Цэс</h4>
-
-<div class="footer-links">
-<a href="#home">Нүүр</a>
-<a href="#tours">Аяллууд</a>
-<a href="#about">Бидний тухай</a>
-<a href="#prices">Үнэ</a>
-<a href="#contact">Холбоо барих</a>
-</div>
-
-</div>
-
-
-<div>
-
-<h4>Үйлчилгээ</h4>
-
-<div class="footer-links">
-<a href="#services">Гадаад аялал</a>
-<a href="#services">Дан тийз</a>
-<a href="#services">Зочид буудал</a>
-<a href="#services">Байгууллагын аялал</a>
-</div>
-
-</div>
-
-
-<div>
-
-<h4>Холбоо барих</h4>
-
-<div class="footer-links">
-
-<a href="tel:98111682">
-9811-1682
-</a>
-
-<a href="tel:91001128">
-9100-1128
-</a>
-
-<a href="mailto:desvne9@gmail.com">
-desvne9@gmail.com
-</a>
-
-<a href="#contact">
-БЗД 1-р хороо, Нисора тауэр 7-703
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="copyright">
-© 2026 RADAR TOUR. All rights reserved.
-</div>
-
-</div>
-</footer>
-
-
-<!-- ================= MODAL ================= -->
-
+<!-- TOUR MODAL -->
 <div class="modal" id="tourModal">
 
-<div class="modal-box">
+  <div class="modal-content">
 
-<div class="modal-image">
+    <span class="close" onclick="closeTour()">
+      ×
+    </span>
 
-<img id="modalImage" src="" alt="Аялал">
+    <div id="tourDetails"></div>
 
-<button class="close" onclick="closeModal()">×</button>
-
-</div>
-
-<div class="modal-content">
-
-<h2 id="modalTitle"></h2>
-
-<div class="intro" id="modalIntro"></div>
-
-<div class="modal-price">
-<div>Үнэ</div>
-<strong id="modalPrice"></strong>
-</div>
-
-<div class="modal-days" id="modalDays"></div>
-
-<br>
-
-<a href="#contact"
-onclick="closeModal()"
-class="btn btn-primary">
-Энэ аяллыг захиалах →
-</a>
+  </div>
 
 </div>
 
-</div>
+
+<!-- BOOKING MODAL -->
+<div class="modal" id="bookingModal">
+
+  <div class="modal-content">
+
+    <span class="close" onclick="closeBooking()">
+      ×
+    </span>
+
+    <h2>✈️ Аялал захиалах</h2>
+
+    <p style="color:#777;margin-bottom:20px;">
+      Мэдээллээ бөглөөд захиалга илгээнэ үү.
+    </p>
+
+    <form id="bookingForm">
+
+      <input
+        type="text"
+        id="name"
+        placeholder="Таны нэр"
+        required
+      >
+
+      <input
+        type="tel"
+        id="phone"
+        placeholder="Утасны дугаар"
+        required
+      >
+
+      <select id="tour" required>
+
+        <option value="">
+          Аяллаа сонгоно уу
+        </option>
+
+        <option value="Манжуур">
+          Манжуур — 790,000₮
+        </option>
+
+        <option value="Бээжин – Бэйдайхэ">
+          Бээжин – Бэйдайхэ — 1,590,000₮
+        </option>
+
+        <option value="Тайланд">
+          Тайланд — 4,990,000₮
+        </option>
+
+        <option value="Япон">
+          Япон — 5,600,000₮
+        </option>
+
+        <option value="Солонгос">
+          Солонгос — 5,900,000₮
+        </option>
+
+      </select>
+
+      <input
+        type="number"
+        id="people"
+        min="1"
+        value="1"
+        placeholder="Хүний тоо"
+        required
+      >
+
+      <textarea
+        id="message"
+        placeholder="Нэмэлт мэдээлэл..."
+      ></textarea>
+
+      <button
+        type="submit"
+        class="btn"
+        style="width:100%;"
+      >
+        Захиалга илгээх
+      </button>
+
+    </form>
+
+    <div
+      id="successMessage"
+      style="
+        display:none;
+        margin-top:20px;
+        padding:15px;
+        background:#e8f7ed;
+        color:#147a35;
+        border-radius:8px;
+      "
+    >
+      ✅ Захиалга амжилттай бүртгэгдлээ!
+    </div>
+
+  </div>
+
 </div>
 
 
-<!-- ================= TOAST ================= -->
+<!-- FOOTER -->
+<footer>
 
-<div class="toast" id="toast">
-Захиалгын мэдээлэл бэлэн боллоо. Удахгүй холбогдоно.
-</div>
+  <h3>RADAR TOUR</h3>
+
+  <p>
+    Аялал бүр дурсамж.
+  </p>
+
+  <p>
+    © 2026 RADAR TOUR. All rights reserved.
+  </p>
+
+</footer>
 
 
 <script>
 
-/* ================= MOBILE MENU ================= */
+  /* =========================
+     АЯЛЛЫН МЭДЭЭЛЭЛ
+  ========================= */
 
-function toggleMenu(){
+  const tours = {
 
-    document
-    .getElementById("navLinks")
-    .classList
-    .toggle("open");
+    manjur: {
 
-}
+      title: "🇨🇳 Манжуур",
 
+      price: "790,000₮",
 
-/* ================= TOUR DATA ================= */
+      duration: "3 шөнө / 4 өдөр",
 
-const tours = {
+      date: "Баасан гараг бүр",
 
-    "shanghai":{
-        title:"Шанхай + Диснейлэнд",
-        intro:"Шанхайн хотын аялал, алдартай үзвэрүүд болон Диснейлэндийг багтаасан аялал.",
-        price:"2,490,000₮-с",
-        image:"https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1200&q=85",
-        days:[
-            ["1-р өдөр","Улаанбаатар 13:00 → Шанхай 16:45. Тосож, халуун рашаан цогцолбор, оройн хоол."],
-            ["2-р өдөр","Мадам Тюссо, Дорнын сувд телевизийн цамхаг, Шанхайн түүхийн музей."],
-            ["3-р өдөр","Хуанпу мөрнөөр завь, Чэнхуан сүм, Юйюань цэцэрлэг, Нанжин гудамж, Shanghai Bund."],
-            ["4-р өдөр","Диснейлэнд бүтэн өдөр."],
-            ["5-р өдөр","Эрт нисэх буудал. 07:50 Шанхай → 12:00 Улаанбаатар."]
-        ]
+      description:
+        "Манжуур хотын аялал.",
+
+      program: [
+
+        "1 дэх өдөр — Улаанбаатар → Манжуур",
+
+        "2 дахь өдөр — Манжуур хотын аялал",
+
+        "3 дахь өдөр — Чөлөөт өдөр / худалдаа",
+
+        "4 дахь өдөр — Манжуур → Улаанбаатар"
+
+      ]
+
     },
 
-    "hainan":{
-        title:"Хайнань – Санья",
-        intro:"Хайнань арлын далайн эрэг, усан парк, задгай далайн аялал болон Санья хотын аялал.",
-        price:"2,290,000₮-с",
-        image:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85",
-        days:[
-            ["1-р өдөр","Чингис Хаан ОУ-ын нисэх буудалд 19:00 цуглаж, 22:10 ниснэ."],
-            ["2-р өдөр","03:30 Саняд газардна. Хөтөч тосож, буудалд амарч, өглөөний цай. Усан сан болон чөлөөт өдөр."],
-            ["3-р өдөр","Хайнаны сувдны дэлгүүр, үнэт эдлэл, бэлэг дурсгал. Тансаг хувийн онгоцоор задгай далайн аялал."],
-            ["4-р өдөр","Atlantis усан парк бүтэн өдөр."],
-            ["5-р өдөр","Бингланг тосгон, шилэн гүүр, zipline, 4 дугуйт, галын шоу, Sanya Romance Show."],
-            ["6-р өдөр","Чөлөөт өдөр + уламжлалт эмчилгээний сувиллын үзлэг. Орой шөнийн клуб."],
-            ["7-р өдөр","Чөлөөт өдөр."],
-            ["8-р өдөр","JOY CITY, cable car, шөнийн Санья. Нисэх буудал → Улаанбаатар."]
-        ]
+
+    beijing: {
+
+      title: "🇨🇳 Бээжин – Бэйдайхэ",
+
+      price: "1,590,000₮",
+
+      duration: "5 өдөр",
+
+      date: "Тусгай хуваарийн дагуу",
+
+      description:
+        "Бээжин болон Бэйдайхэ чиглэлийн аялал.",
+
+      program: [
+
+        "1 дэх өдөр — Бээжин",
+
+        "2 дахь өдөр — Бээжин хотын аялал",
+
+        "3 дахь өдөр — Бэйдайхэ",
+
+        "4 дахь өдөр — Чөлөөт хөтөлбөр",
+
+        "5 дахь өдөр — Буцах"
+
+      ]
+
     },
 
-    "zhangjiajie":{
-        title:"Жанжиаже – Тэнгэрийн хаалга",
-        intro:"Тяньмэнь уул, Тэнгэрийн хаалга, Юаньжяже, шилэн гүүр зэрэг байгалийн үзэсгэлэнт газрууд.",
-        price:"3,290,000₮-с",
-        image:"https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=85",
-        days:[
-            ["1-р өдөр","Улаанбаатар–Замын Үүд. 15:30 галт тэрэг."],
-            ["2-р өдөр","Замын Үүд → Эрээн. Буудалд байрлана."],
-            ["3-р өдөр","Эрээн → Хөх хот → Чанша."],
-            ["4-р өдөр","Жанжиаже–Тяньмэнь уул, Тэнгэрийн хаалга, cableway, 99 нугалаа, шилэн маршрут."],
-            ["5-р өдөр","Юаньжяжэ ойн парк, Bailong glass elevator, Avatar-ийн зураг авалтын бүс."],
-            ["6-р өдөр","Тяньзи уул, Golden Whip Stream."],
-            ["7-р өдөр","China Grand Canyon Glass Bridge → Чанша."],
-            ["8-р өдөр","Чанша → Хөх хот."],
-            ["9-р өдөр","Хөх хот → Эрээн → Замын Үүд → Улаанбаатар."],
-            ["10-р өдөр","09:20 Улаанбаатар. Аялал дуусна."]
-        ]
+
+    thailand: {
+
+      title: "🇹🇭 Тайланд",
+
+      price: "4,990,000₮",
+
+      duration: "Аяллын хөтөлбөрөөс хамаарна",
+
+      date: "Тусгай хуваарийн дагуу",
+
+      description:
+        "Тайландын халуун орны аялал.",
+
+      program: [
+
+        "Тайландын аяллын хөтөлбөр",
+
+        "Хотын аялал",
+
+        "Чөлөөт цаг",
+
+        "Амралт, зугаалга"
+
+      ]
+
     },
 
-    "thailand":{
-        title:"Тайланд – Бангкок – Паттаяа",
-        intro:"Паттаяа, Coral Island, Бангкок, Grand Palace болон Chao Phraya river cruise.",
-        price:"Үнэ лавлах",
-        image:"https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1200&q=85",
-        days:[
-            ["1-р өдөр","Улаанбаатар → Бангкок → Паттаяа."],
-            ["2-р өдөр","Thai national park, Thai show, завь, дөрвөн нүүрт бурхан, заан, Thai massage, Gems Gallery, Terminal 21."],
-            ["3-р өдөр","Coral Island, далайн эрэг, нэмэлт усан спорт, Cabaret show."],
-            ["4-р өдөр","Чөлөөт өдөр."],
-            ["5-р өдөр","Паттаяа → Бангкок, Snake show, Siam water park."],
-            ["6-р өдөр","Grand Palace, Emerald Buddha, Chao Phraya river cruise."],
-            ["7-р өдөр","Чөлөөт өдөр."],
-            ["8-р өдөр","Бангкок → Улаанбаатар."]
-        ]
+
+    japan: {
+
+      title: "🇯🇵 Япон",
+
+      price: "5,600,000₮",
+
+      duration: "Аяллын хөтөлбөрөөс хамаарна",
+
+      date: "Тусгай хуваарийн дагуу",
+
+      description:
+        "Япон улсын аялал.",
+
+      program: [
+
+        "Япон улсын аяллын хөтөлбөр",
+
+        "Хотын аялал",
+
+        "Чөлөөт цаг",
+
+        "Буцах"
+
+      ]
+
     },
 
-    "japan":{
-        title:"Япон – Сакура – Токио – Фүжи – Хаконе",
-        intro:"Токио хот, Фүжи уул, Хаконе, сакура болон Японы алдартай газрууд.",
-        price:"Үнэ лавлах",
-        image:"https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1200&q=85",
-        days:[
-            ["1-р өдөр","Улаанбаатар → Tokyo Narita, Skytree, оройн хоол."],
-            ["2-р өдөр","Odaiba, Rainbow Bridge, Asakusa, sumo stadium, Shibuya crossing, Hachiko."],
-            ["3-р өдөр","Fuji, Lake Ashi, cable car, sulfur mountain, black eggs, hot spring."],
-            ["4-р өдөр","Shiraito Falls, Fuji + red pagoda + sakura viewpoint."],
-            ["5-р өдөр","Чөлөөт өдөр. Shopping, Disneyland болон хотын аялал."],
-            ["6-р өдөр","Narita → Улаанбаатар."]
-        ]
-    },
 
-    "manzhouli":{
-        title:"Манжуур",
-        intro:"Хайлар болон Манжуур хотын музей, талбай, парк, shopping.",
-        price:"Үнэ лавлах",
-        image:"https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=85",
-        days:[
-            ["1-р өдөр","УБ → Хайлар. Hulunbuir Museum → Манжуур."],
-            ["2-р өдөр","Wedding Palace, Mishka-Klubnika park, Matryoshka Square, shopping."],
-            ["3-р өдөр","Манжуурын музей, арслан/зааны парк → Хайлар."],
-            ["4-р өдөр","Genghis Square → нисэх буудал → Улаанбаатар."]
-        ]
-    },
+    korea: {
 
-    "datong":{
-        title:"Датон",
-        intro:"Датон, Хөх хот, Жинин чиглэлд халуун рашаан болон зугаа цэнгэлийн аялал.",
-        price:"Үнэ лавлах",
-        image:"https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?auto=format&fit=crop&w=1200&q=85",
-        days:[
-            ["1-р өдөр","УБ → Замын Үүд галт тэрэг."],
-            ["2-р өдөр","Хил → Жинин. Water World resort, 33 төрлийн халуун рашаан."],
-            ["3-р өдөр","Датон, Fanta Wild kids park, Ming-era wall, tourist street."],
-            ["4-р өдөр","Mini Avatar, усан парк, zoo, glass bridge → Хөх хот."],
-            ["5-р өдөр","Science Museum, technology museum, Wanda Plaza, Outlets Mall."],
-            ["6-р өдөр","Хөх хот → Эрээн → Замын Үүд."],
-            ["7-р өдөр","Улаанбаатар. Аялал дуусна."]
-        ]
-    },
+      title: "🇰🇷 Солонгос",
 
-    "beijing":{
-        title:"Жининь – Бээжин – Universal Studios",
-        intro:"Бээжин, Universal Studios, Цагаан хэрэм, World Park болон Water World resort.",
-        price:"Үнэ лавлах",
-        image:"https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1200&q=85",
-        days:[
-            ["1-р өдөр","УБ → Замын Үүд галт тэрэг."],
-            ["2-р өдөр","Эрээн → Жинин. Water World 5-star resort, 33 халуун рашаан."],
-            ["3-р өдөр","Бээжин. Bird’s Nest + Water Cube."],
-            ["4-р өдөр","Beijing Aquarium, zoo, World Park."],
-            ["5-р өдөр","Universal Studios бүтэн өдөр."],
-            ["6-р өдөр","Цагаан хэрэм → Эрээн."],
-            ["7-р өдөр","Эрээн shopping → Замын Үүд → Улаанбаатар."],
-            ["8-р өдөр","09:20 Улаанбаатар."]
-        ]
-    },
+      price: "5,900,000₮",
 
-    "korea":{
-        title:"Солонгос – Эрүүл мэндийн аялал",
-        intro:"Эрүүл мэндийн шинжилгээ, эмчилгээ болон аяллын хөтөлбөртэй үйлчилгээ.",
-        price:"Үнэ лавлах",
-        image:"https://images.unsplash.com/photo-1538485399081-7c897f2b5f5a?auto=format&fit=crop&w=1200&q=85",
-        days:[
-            ["Үйлчилгээ","Бүтэн биеийн шинжилгээ."],
-            ["Үйлчилгээ","Бүх төрлийн өвчний онош."],
-            ["Үйлчилгээ","Бүх төрлийн мэс засал, эмчилгээ."],
-            ["Үйлчилгээ","Гоо сайхны бүх төрлийн мэс засал, үйлчилгээ."],
-            ["Үйлчилгээ","Бүх төрлийн хөтөлбөртэй аялал."]
-        ]
-    },
+      duration: "Аяллын хөтөлбөрөөс хамаарна",
 
-    "haikou":{
-        title:"Хайнань – Хайкоу шууд нислэг",
-        intro:"Улаанбаатар–Хайкоу шууд нислэгтэй, Санья болон Хайкоу чиглэлийн аялал.",
-        price:"Үнэ лавлах",
-        image:"https://images.unsplash.com/photo-1493552152660-f915ab47ae9d?auto=format&fit=crop&w=1200&q=85",
-        days:[
-            ["1-р өдөр","УБ → Хайкоу. 22:10–03:10."],
-            ["2-р өдөр","Хайкоу → Санья. Cable car, glass bridge."],
-            ["3-р өдөр","Санья чөлөөт өдөр."],
-            ["4-р өдөр","Pearl store, open-sea cruise, extreme games, helicopter ride."],
-            ["5-р өдөр","Atlantis water park."],
-            ["6-р өдөр","Чөлөөт өдөр."],
-            ["7-р өдөр","Чөлөөт өдөр."],
-            ["8-р өдөр","Monkey Island, Haikou Outlet → Хайкоу → УБ."]
-        ]
-    },
+      date: "Тусгай хуваарийн дагуу",
 
-    "shanghai-direct":{
-        title:"Шууд нислэгтэй Шанхай",
-        intro:"Шанхай хотын төв, Madame Tussauds, Yu Garden, Aquarium, Bund болон завины аялал.",
-        price:"Үнэ лавлах",
-        image:"https://images.unsplash.com/photo-1538428494232-9c0d8a3ab403?auto=format&fit=crop&w=1200&q=85",
-        days:[
-            ["1-р өдөр","УБ 13:00 → Шанхай 16:45. Тосож, оройн хоол."],
-            ["2-р өдөр","Shanghai city central tower, Madame Tussauds, Yu Garden, Huangpu river cruise."],
-            ["3-р өдөр","Wukang Road, Shanghai Ocean Aquarium, нэмэлт Disneyland, Nanjing Road, Shanghai Bund."],
-            ["4-р өдөр","Өглөөний цай → нисэх буудал. 08:00 Шанхай → 12:00 УБ."]
-        ]
+      description:
+        "БНСУ-ын аялал.",
+
+      program: [
+
+        "Солонгосын аяллын хөтөлбөр",
+
+        "Сөүл хотын аялал",
+
+        "Чөлөөт цаг",
+
+        "Буцах"
+
+      ]
+
     }
 
-};
+  };
 
 
-/* ================= OPEN TOUR ================= */
+  /* =========================
+     АЯЛЛЫН ДЭЛГЭРЭНГҮЙ
+  ========================= */
 
-function openTour(id){
+  function openTour(id) {
 
     const tour = tours[id];
 
-    if(!tour) return;
+    let html = `
 
-    document.getElementById("modalTitle").textContent =
-        tour.title;
+      <h2>${tour.title}</h2>
 
-    document.getElementById("modalIntro").textContent =
-        tour.intro;
+      <p style="color:#777;margin-bottom:15px;">
+        ${tour.description}
+      </p>
 
-    document.getElementById("modalPrice").textContent =
-        tour.price;
+      <div class="price">
+        ${tour.price}
+      </div>
 
-    document.getElementById("modalImage").src =
-        tour.image;
+      <p>
+        <b>Хугацаа:</b>
+        ${tour.duration}
+      </p>
 
-    const daysBox =
-        document.getElementById("modalDays");
+      <p>
+        <b>Огноо:</b>
+        ${tour.date}
+      </p>
 
-    daysBox.innerHTML = "";
+      <h3>📋 Аяллын хөтөлбөр</h3>
 
-    tour.days.forEach(day => {
+    `;
 
-        const div = document.createElement("div");
+    tour.program.forEach((item) => {
 
-        div.className = "modal-day";
-
-        div.innerHTML = `
-            <strong>${day[0]}</strong>
-            <span>${day[1]}</span>
-        `;
-
-        daysBox.appendChild(div);
+      html += `
+        <div class="program">
+          ${item}
+        </div>
+      `;
 
     });
 
-    document
-        .getElementById("tourModal")
-        .classList
-        .add("active");
+    html += `
 
-    document.body.style.overflow = "hidden";
-}
+      <button
+        class="btn"
+        style="margin-top:15px;"
+        onclick="closeTour(); openBooking('${tour.title}')"
+      >
+        ✈️ Энэ аяллыг захиалах
+      </button>
 
+    `;
 
-/* ================= CLOSE MODAL ================= */
+    document.getElementById("tourDetails").innerHTML = html;
 
-function closeModal(){
+    document.getElementById("tourModal").style.display = "block";
 
-    document
-        .getElementById("tourModal")
-        .classList
-        .remove("active");
-
-    document.body.style.overflow = "";
-
-}
+  }
 
 
-/* Close by clicking background */
+  function closeTour() {
 
-document
-.getElementById("tourModal")
-.addEventListener("click",function(e){
+    document.getElementById("tourModal").style.display = "none";
 
-    if(e.target === this){
-        closeModal();
-    }
-
-});
+  }
 
 
-/* ================= SEARCH ================= */
+  /* =========================
+     ЗАХИАЛГЫН FORM
+  ========================= */
 
-function searchTours(){
+  function openBooking(tourName = "") {
 
-    const destination =
-        document
-        .getElementById("searchDestination")
-        .value
-        .toLowerCase()
-        .trim();
+    document.getElementById("bookingModal").style.display = "block";
 
-    const type =
-        document
-        .getElementById("searchType")
-        .value;
+    if (tourName) {
 
-    const cards =
-        document.querySelectorAll(".tour-card");
+      const select = document.getElementById("tour");
 
-    let found = 0;
+      for (let i = 0; i < select.options.length; i++) {
 
-    cards.forEach(card => {
+        if (select.options[i].text.includes(tourName)) {
 
-        const name =
-            card.dataset.name.toLowerCase();
-
-        const cardType =
-            card.dataset.type;
-
-        const matchName =
-            !destination ||
-            name.includes(destination);
-
-        const matchType =
-            !type ||
-            cardType === type;
-
-        if(matchName && matchType){
-
-            card.style.display = "";
-
-            found++;
-
-        }else{
-
-            card.style.display = "none";
+          select.selectedIndex = i;
 
         }
 
-    });
-
-    document
-        .getElementById("tours")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
-
-    if(found === 0){
-
-        showToast("Таны хайлтад тохирох аялал олдсонгүй.");
-
-    }else{
-
-        showToast(found + " аялал олдлоо.");
+      }
 
     }
 
-}
+  }
 
 
-/* ================= BOOKING ================= */
+  function closeBooking() {
 
-function submitBooking(event){
+    document.getElementById("bookingModal").style.display = "none";
 
-    event.preventDefault();
-
-    const name =
-        document.getElementById("name").value;
-
-    const phone =
-        document.getElementById("phone").value;
-
-    const tour =
-        document.getElementById("tourSelect").value;
-
-    const people =
-        document.getElementById("numberOfPeople").value;
-
-    const message =
-        document.getElementById("message").value;
+  }
 
 
-    /*
-       Одоогоор backend холбогоогүй.
-       Хэрэглэгч form бөглөхөд
-       WhatsApp/Email/Telegram API
-       дараа нь холбож болно.
-    */
+  /* =========================
+     FORM SUBMIT
+  ========================= */
 
-    const text =
-        `Сайн байна уу RADAR TOUR.%0A%0A` +
-        `Нэр: ${encodeURIComponent(name)}%0A` +
-        `Утас: ${encodeURIComponent(phone)}%0A` +
-        `Аялал: ${encodeURIComponent(tour)}%0A` +
-        `Аялагч: ${encodeURIComponent(people)}%0A` +
-        `Мессеж: ${encodeURIComponent(message)}`;
+  document
+    .getElementById("bookingForm")
+    .addEventListener("submit", function(e) {
 
-    /*
-       Одоогоор зөвхөн мэдээлэл бэлэн болсон
-       тухай мэдэгдэл харуулна.
-    */
+      e.preventDefault();
 
-    showToast("Захиалга хүлээн авахад бэлэн боллоо. ☎ 9811-1682");
+      const booking = {
 
-    event.target.reset();
+        name:
+          document.getElementById("name").value,
 
-}
+        phone:
+          document.getElementById("phone").value,
 
+        tour:
+          document.getElementById("tour").value,
 
-/* ================= TOAST ================= */
+        people:
+          document.getElementById("people").value,
 
-function showToast(message){
+        message:
+          document.getElementById("message").value,
 
-    const toast =
-        document.getElementById("toast");
+        date:
+          new Date().toLocaleString("mn-MN")
 
-    toast.textContent = message;
-
-    toast.classList.add("show");
-
-    setTimeout(() => {
-
-        toast.classList.remove("show");
-
-    },3500);
-
-}
+      };
 
 
-/* ================= ACCORDION ================= */
+      /*
+        ОДООХОНДОО ЗАХИАЛГЫГ
+        LOCAL STORAGE-Д ХАДГАЛНА.
+      */
 
-document.querySelectorAll(".day-title").forEach(title => {
+      let bookings =
+        JSON.parse(
+          localStorage.getItem("radarBookings")
+        ) || [];
 
-    title.addEventListener("click",function(){
 
-        const content =
-            this.nextElementSibling;
+      bookings.push(booking);
 
-        if(!content) return;
 
-        if(
-            content.style.display === "none" ||
-            content.style.display === ""
-        ){
+      localStorage.setItem(
+        "radarBookings",
+        JSON.stringify(bookings)
+      );
 
-            content.style.display = "block";
 
-        }else{
+      document.getElementById(
+        "successMessage"
+      ).style.display = "block";
 
-            content.style.display = "none";
 
-        }
+      document.getElementById(
+        "bookingForm"
+      ).reset();
 
     });
 
-});
+
+  /* =========================
+     MODAL ГАДНА ДАРАХ
+  ========================= */
+
+  window.onclick = function(event) {
+
+    const tourModal =
+      document.getElementById("tourModal");
+
+    const bookingModal =
+      document.getElementById("bookingModal");
 
 
-/* ================= ESCAPE ================= */
+    if (event.target === tourModal) {
 
-document.addEventListener("keydown",function(e){
+      closeTour();
 
-    if(e.key === "Escape"){
-        closeModal();
     }
 
-});
+
+    if (event.target === bookingModal) {
+
+      closeBooking();
+
+    }
+
+  };
+
+
+  /* =========================
+     ЭНГИЙН ҮЗЭЛТИЙН ТООЛУУР
+  ========================= */
+
+  let views =
+    Number(
+      localStorage.getItem("radarViews")
+    ) || 0;
+
+
+  views++;
+
+
+  localStorage.setItem(
+    "radarViews",
+    views
+  );
+
+
+  console.log(
+    "RADAR TOUR нийт үзэлт:",
+    views
+  );
 
 </script>
 
 </body>
 </html>
+```
