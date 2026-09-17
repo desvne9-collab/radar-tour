@@ -2,684 +2,981 @@
 <!DOCTYPE html>
 <html lang="mn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-  <!-- САЙТЫН НЭР -->
-  <title>RADAR TOUR</title>
+<!-- =====================================================
+     RADAR TOUR
+     НЭГ ФАЙЛЫН WEBSITE
+====================================================== -->
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<title>RADAR TOUR | Аялал бүр дурсамж</title>
 
-    html {
-      scroll-behavior: smooth;
-    }
+<style>
+:root{
+  --red:#e63946;
+  --dark:#101114;
+  --gray:#6b7280;
+  --light:#f6f7f9;
+  --white:#fff;
+  --border:#e8e8eb;
+  --green:#16a34a;
+}
 
-    body {
-      background: #f7f8fa;
-      color: #171717;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    /* HEADER */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,.96);
-      border-bottom: 1px solid #eee;
-      backdrop-filter: blur(10px);
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    .nav {
-      max-width: 1200px;
-      margin: auto;
-      height: 75px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--light);
+  color:var(--dark);
+}
 
-    .logo {
-      font-size: 25px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
+button,input,select,textarea{
+  font:inherit;
+}
 
-    .logo span {
-      color: #e63946;
-    }
+button{
+  cursor:pointer;
+}
 
-    nav {
-      display: flex;
-      gap: 28px;
-    }
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
-    nav a {
-      text-decoration: none;
-      color: #222;
-      font-weight: 600;
-      cursor: pointer;
-    }
+/* =========================
+   TOP BAR
+========================= */
 
-    nav a:hover {
-      color: #e63946;
-    }
+.topbar{
+  background:#101114;
+  color:#fff;
+  font-size:13px;
+}
 
-    .menu-btn {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
-    }
+.topbar-inner{
+  max-width:1240px;
+  margin:auto;
+  padding:9px 20px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
 
-    /* HERO */
-    .hero {
-      min-height: 620px;
-      background:
-        linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.55)),
-        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80")
-        center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      padding: 40px 20px;
-    }
+.topbar span{
+  opacity:.85;
+}
 
-    .hero-content {
-      max-width: 800px;
-    }
+/* =========================
+   HEADER
+========================= */
 
-    .hero h1 {
-      font-size: clamp(45px, 8vw, 85px);
-      font-weight: 900;
-      margin-bottom: 20px;
-    }
+header{
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  backdrop-filter:blur(15px);
+}
 
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
+.header-inner{
+  max-width:1240px;
+  height:78px;
+  margin:auto;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+}
 
-    .btn {
-      display: inline-block;
-      border: none;
-      background: #e63946;
-      color: white;
-      padding: 15px 28px;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-      transition: .2s;
-    }
+.logo{
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:-1px;
+  white-space:nowrap;
+}
 
-    .btn:hover {
-      background: #c92534;
-      transform: translateY(-2px);
-    }
+.logo b{
+  color:var(--red);
+}
 
-    /* GENERAL */
-    section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 80px 20px;
-    }
+.logo small{
+  display:block;
+  font-size:8px;
+  letter-spacing:3px;
+  color:#999;
+  margin-top:3px;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
+.nav{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  font-size:14px;
+  font-weight:700;
+}
 
-    .section-title h2 {
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
+.nav a:hover{
+  color:var(--red);
+}
 
-    .section-title p {
-      color: #777;
-    }
+.header-book{
+  background:var(--dark);
+  color:#fff;
+  border:0;
+  border-radius:9px;
+  padding:12px 18px;
+  font-weight:700;
+}
 
-    /* TOURS */
-    .tours {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
+.menu{
+  display:none;
+  border:0;
+  background:none;
+  font-size:28px;
+}
 
-    .tour-card {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 8px 30px rgba(0,0,0,.07);
-      transition: .25s;
-    }
+/* =========================
+   HERO
+========================= */
 
-    .tour-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 15px 40px rgba(0,0,0,.12);
-    }
+.hero{
+  min-height:650px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  color:#fff;
+  background:
+    linear-gradient(90deg,
+      rgba(0,0,0,.78),
+      rgba(0,0,0,.32),
+      rgba(0,0,0,.05)),
+    url("https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=2000&q=90")
+    center/cover;
+}
 
-    .tour-img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-    }
+.hero-content{
+  width:100%;
+  max-width:1240px;
+  margin:auto;
+  padding:80px 20px;
+}
 
-    .tour-body {
-      padding: 22px;
-    }
+.hero-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.25);
+  padding:9px 14px;
+  border-radius:50px;
+  font-size:13px;
+  margin-bottom:22px;
+  backdrop-filter:blur(10px);
+}
 
-    .tour-body h3 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
+.hero h1{
+  max-width:780px;
+  font-size:clamp(45px,7vw,88px);
+  line-height:.98;
+  letter-spacing:-4px;
+  margin-bottom:25px;
+}
 
-    .tour-body p {
-      color: #666;
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
+.hero h1 span{
+  color:#ff5b67;
+}
 
-    .price {
-      color: #e63946;
-      font-size: 22px;
-      font-weight: 900;
-      margin-bottom: 18px;
-    }
+.hero p{
+  max-width:600px;
+  font-size:19px;
+  line-height:1.6;
+  color:#eee;
+  margin-bottom:30px;
+}
 
-    /* FEATURES */
-    .features {
-      background: white;
-      max-width: none;
-    }
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
 
-    .feature-grid {
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      padding: 0 20px;
-    }
+.btn{
+  border:0;
+  border-radius:9px;
+  padding:14px 22px;
+  font-weight:800;
+  transition:.2s;
+}
 
-    .feature {
-      text-align: center;
-      padding: 30px 15px;
-    }
+.btn-red{
+  background:var(--red);
+  color:#fff;
+}
 
-    .feature-icon {
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
+.btn-red:hover{
+  background:#c92836;
+  transform:translateY(-2px);
+}
 
-    .feature h3 {
-      margin-bottom: 10px;
-    }
+.btn-white{
+  background:#fff;
+  color:#111;
+}
 
-    .feature p {
-      color: #777;
-      line-height: 1.5;
-    }
+.btn-dark{
+  background:#111;
+  color:#fff;
+}
 
-    /* ABOUT */
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
+/* =========================
+   SEARCH BOX
+========================= */
 
-    .about img {
-      width: 100%;
-      border-radius: 18px;
-    }
+.search-wrap{
+  max-width:1080px;
+  margin:-42px auto 0;
+  position:relative;
+  z-index:10;
+  padding:0 20px;
+}
 
-    .about h2 {
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
+.search-box{
+  background:#fff;
+  box-shadow:0 15px 45px rgba(0,0,0,.13);
+  border-radius:16px;
+  padding:20px;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr auto;
+  gap:10px;
+}
 
-    .about p {
-      color: #666;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
+.search-box input,
+.search-box select{
+  border:1px solid var(--border);
+  background:#fafafa;
+  border-radius:9px;
+  padding:14px;
+  outline:none;
+}
 
-    /* CONTACT */
-    .contact-box {
-      background: #111;
-      color: white;
-      border-radius: 20px;
-      padding: 50px;
-      text-align: center;
-    }
+.search-box input:focus,
+.search-box select:focus{
+  border-color:var(--red);
+}
 
-    .contact-box h2 {
-      font-size: 38px;
-      margin-bottom: 20px;
-    }
+/* =========================
+   SECTIONS
+========================= */
 
-    .contact-box p {
-      margin: 8px;
-      color: #ddd;
-    }
+.section{
+  max-width:1240px;
+  margin:auto;
+  padding:90px 20px;
+}
 
-    /* MODAL */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 3000;
-      inset: 0;
-      background: rgba(0,0,0,.7);
-      overflow-y: auto;
-      padding: 30px 15px;
-    }
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:20px;
+  margin-bottom:35px;
+}
 
-    .modal-content {
-      max-width: 750px;
-      margin: 30px auto;
-      background: white;
-      border-radius: 18px;
-      padding: 35px;
-      position: relative;
-    }
+.eyebrow{
+  color:var(--red);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
 
-    .close {
-      position: absolute;
-      right: 22px;
-      top: 15px;
-      font-size: 30px;
-      cursor: pointer;
-    }
+.section-head h2{
+  font-size:42px;
+  letter-spacing:-2px;
+}
 
-    .modal-content h2 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
+.section-head p{
+  max-width:450px;
+  color:var(--gray);
+  line-height:1.6;
+}
 
-    .modal-content h3 {
-      margin-top: 25px;
-      margin-bottom: 10px;
-    }
+/* =========================
+   TOUR CARDS
+========================= */
 
-    .program {
-      background: #f5f5f5;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 10px 0;
-      line-height: 1.6;
-    }
+.tour-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
 
-    /* FORM */
-    form {
-      margin-top: 25px;
-    }
+.tour-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  transition:.25s;
+}
 
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      font-size: 15px;
-    }
+.tour-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 18px 45px rgba(0,0,0,.09);
+}
 
-    textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
+.tour-img-wrap{
+  height:250px;
+  position:relative;
+  overflow:hidden;
+}
 
-    /* FOOTER */
-    footer {
-      background: #111;
-      color: white;
-      padding: 35px 20px;
-      text-align: center;
-    }
+.tour-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
+}
 
-    footer p {
-      color: #aaa;
-      margin-top: 8px;
-    }
+.tour-card:hover .tour-img{
+  transform:scale(1.05);
+}
 
-    /* MOBILE */
-    @media(max-width: 850px) {
-      nav {
-        display: none;
-      }
+.badge{
+  position:absolute;
+  left:14px;
+  top:14px;
+  background:#fff;
+  color:#111;
+  padding:8px 11px;
+  border-radius:50px;
+  font-size:11px;
+  font-weight:900;
+}
 
-      .menu-btn {
-        display: block;
-      }
+.tour-body{
+  padding:21px;
+}
 
-      .tours {
-        grid-template-columns: 1fr 1fr;
-      }
+.tour-location{
+  color:var(--gray);
+  font-size:12px;
+  margin-bottom:8px;
+}
 
-      .feature-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+.tour-body h3{
+  font-size:23px;
+  margin-bottom:10px;
+}
 
-      .about {
-        grid-template-columns: 1fr;
-      }
-    }
+.tour-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:16px;
+}
 
-    @media(max-width: 550px) {
-      .tours {
-        grid-template-columns: 1fr;
-      }
+.meta{
+  background:#f4f4f5;
+  padding:7px 9px;
+  border-radius:7px;
+  font-size:11px;
+  color:#555;
+}
 
-      .feature-grid {
-        grid-template-columns: 1fr;
-      }
+.price-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:10px;
+}
 
-      .hero {
-        min-height: 550px;
-      }
+.price{
+  color:var(--red);
+  font-size:21px;
+  font-weight:900;
+}
 
-      .modal-content {
-        padding: 25px 18px;
-      }
-    }
-  </style>
+.price small{
+  color:#999;
+  font-size:10px;
+  display:block;
+  font-weight:normal;
+}
+
+.detail-btn{
+  border:0;
+  background:#111;
+  color:#fff;
+  border-radius:8px;
+  padding:11px 15px;
+  font-size:12px;
+  font-weight:800;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-section{
+  background:#fff;
+}
+
+.about{
+  max-width:1240px;
+  margin:auto;
+  padding:90px 20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.about-img{
+  height:500px;
+  border-radius:22px;
+  object-fit:cover;
+  width:100%;
+}
+
+.about h2{
+  font-size:44px;
+  letter-spacing:-2px;
+  margin-bottom:20px;
+}
+
+.about p{
+  color:var(--gray);
+  line-height:1.9;
+  margin-bottom:16px;
+}
+
+.check{
+  display:flex;
+  gap:10px;
+  margin:15px 0;
+  font-weight:700;
+}
+
+.check i{
+  color:var(--green);
+  font-style:normal;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+  background:#111;
+  color:#fff;
+}
+
+.stats-grid{
+  max-width:1240px;
+  margin:auto;
+  padding:60px 20px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.stat{
+  text-align:center;
+  border-right:1px solid #333;
+}
+
+.stat:last-child{
+  border:0;
+}
+
+.stat strong{
+  font-size:40px;
+  display:block;
+}
+
+.stat span{
+  color:#aaa;
+  font-size:13px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+  background:#f0f1f3;
+}
+
+.contact-box{
+  max-width:1240px;
+  margin:auto;
+  padding:90px 20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+}
+
+.contact h2{
+  font-size:44px;
+  margin-bottom:20px;
+}
+
+.contact p{
+  color:var(--gray);
+  line-height:1.8;
+}
+
+.contact-list{
+  margin-top:25px;
+}
+
+.contact-item{
+  padding:15px 0;
+  border-bottom:1px solid #ddd;
+}
+
+.contact-item strong{
+  display:block;
+  margin-bottom:4px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:3000;
+  background:rgba(0,0,0,.72);
+  padding:25px;
+  overflow:auto;
+}
+
+.modal-box{
+  max-width:850px;
+  background:#fff;
+  margin:30px auto;
+  border-radius:20px;
+  overflow:hidden;
+  position:relative;
+}
+
+.modal-close{
+  position:absolute;
+  right:18px;
+  top:15px;
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:#111;
+  color:#fff;
+  font-size:22px;
+  z-index:5;
+}
+
+.modal-img{
+  width:100%;
+  height:330px;
+  object-fit:cover;
+}
+
+.modal-content{
+  padding:30px;
+}
+
+.modal-content h2{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.modal-price{
+  color:var(--red);
+  font-size:25px;
+  font-weight:900;
+  margin:12px 0 20px;
+}
+
+.program-day{
+  background:#f6f7f8;
+  padding:16px;
+  border-radius:10px;
+  margin:8px 0;
+  line-height:1.6;
+}
+
+.program-day b{
+  display:block;
+  margin-bottom:5px;
+}
+
+/* =========================
+   BOOKING
+========================= */
+
+.booking-form{
+  display:grid;
+  gap:12px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+  width:100%;
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:9px;
+  outline:none;
+}
+
+.booking-form textarea{
+  min-height:100px;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus{
+  border-color:var(--red);
+}
+
+.booking-note{
+  font-size:12px;
+  color:#888;
+  line-height:1.5;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#0d0e10;
+  color:#fff;
+}
+
+.footer-inner{
+  max-width:1240px;
+  margin:auto;
+  padding:55px 20px 25px;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:50px;
+}
+
+.footer-logo{
+  font-size:25px;
+  font-weight:900;
+  margin-bottom:15px;
+}
+
+.footer-logo span{
+  color:var(--red);
+}
+
+footer p,
+footer a{
+  color:#999;
+  line-height:1.8;
+}
+
+footer a:hover{
+  color:#fff;
+}
+
+.copyright{
+  max-width:1240px;
+  margin:auto;
+  border-top:1px solid #222;
+  padding:20px;
+  color:#666;
+  font-size:12px;
+}
+
+/* =========================
+   ADMIN PANEL
+========================= */
+
+.admin-panel{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  background:#f5f5f5;
+  overflow:auto;
+}
+
+.admin-header{
+  background:#111;
+  color:#fff;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.admin-main{
+  max-width:1100px;
+  margin:auto;
+  padding:30px 20px;
+}
+
+.admin-cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.admin-card{
+  background:#fff;
+  padding:22px;
+  border-radius:12px;
+  border:1px solid #eee;
+}
+
+.admin-card strong{
+  font-size:30px;
+  display:block;
+  margin-top:8px;
+}
+
+.booking-table{
+  width:100%;
+  border-collapse:collapse;
+  background:#fff;
+}
+
+.booking-table th,
+.booking-table td{
+  padding:12px;
+  border-bottom:1px solid #eee;
+  text-align:left;
+  font-size:13px;
+}
+
+.empty{
+  text-align:center;
+  padding:40px;
+  color:#888;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+  .nav{
+    display:none;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .header-book{
+    display:none;
+  }
+
+  .hero{
+    min-height:600px;
+  }
+
+  .search-box{
+    grid-template-columns:1fr;
+  }
+
+  .tour-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .about,
+  .contact-box{
+    grid-template-columns:1fr;
+  }
+
+  .stats-grid{
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+  }
+
+  .stat{
+    border:0;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+
+  .topbar-inner{
+    justify-content:center;
+    font-size:11px;
+  }
+
+  .topbar-inner span:first-child{
+    display:none;
+  }
+
+  .hero h1{
+    letter-spacing:-2px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .section-head{
+    display:block;
+  }
+
+  .section-head h2,
+  .about h2,
+  .contact h2{
+    font-size:34px;
+  }
+
+  .tour-grid{
+    grid-template-columns:1fr;
+  }
+
+  .tour-img-wrap{
+    height:230px;
+  }
+
+  .about{
+    padding-top:60px;
+    padding-bottom:60px;
+  }
+
+  .about-img{
+    height:350px;
+  }
+
+  .stats-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr;
+  }
+
+  .modal{
+    padding:10px;
+  }
+
+  .modal-img{
+    height:220px;
+  }
+
+  .modal-content{
+    padding:20px;
+  }
+
+  .admin-cards{
+    grid-template-columns:1fr;
+  }
+
+  .booking-table{
+    display:block;
+    overflow-x:auto;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- =========================
+     TOP BAR
+========================= -->
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>RADAR TOUR • 2023 оноос аяллын үйлчилгээ</span>
+    <span>📞 9811-1682 &nbsp; | &nbsp; 9100-1128</span>
+  </div>
+</div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
-  <div class="nav">
+  <div class="header-inner">
 
-    <!-- НЭРЭЭ ЭНДЭЭС СОЛИНО -->
-    <div class="logo">
-      RADAR <span>TOUR</span>
-    </div>
+    <a href="#home" class="logo">
+      RADAR <b>TOUR</b>
+      <small>TRAVEL & EXPERIENCE</small>
+    </a>
 
-    <nav>
+    <nav class="nav">
       <a href="#home">Нүүр</a>
       <a href="#tours">Аяллууд</a>
       <a href="#about">Бидний тухай</a>
       <a href="#contact">Холбоо барих</a>
     </nav>
 
-    <div class="menu-btn">☰</div>
+    <button class="header-book" onclick="openBooking()">
+      Аялал захиалах
+    </button>
+
+    <button class="menu" onclick="toggleMobileMenu()">☰</button>
 
   </div>
 </header>
 
 
-<!-- HERO -->
-<div class="hero" id="home">
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
   <div class="hero-content">
 
-    <h1>RADAR TOUR</h1>
+    <div class="hero-tag">
+      ✈️ Дараагийн аяллаа эндээс эхлүүл
+    </div>
+
+    <h1>
+      Дэлхийг <span>хамтдаа</span><br>
+      аялцгаая.
+    </h1>
 
     <p>
-      Дурсамж дүүрэн аяллыг бидэнтэй хамт бүтээгээрэй.
+      RADAR TOUR — Монгол аялагчдад зориулсан
+      дотоод болон гадаад аяллын сонголтууд,
+      групп болон байгууллагын аяллын үйлчилгээ.
     </p>
 
-    <a href="#tours" class="btn">
-      Аяллууд үзэх
-    </a>
+    <div class="hero-buttons">
 
-  </div>
-</div>
-
-
-<!-- TOURS -->
-<section id="tours">
-
-  <div class="section-title">
-    <h2>Онцлох аяллууд</h2>
-    <p>Танд тохирох аяллаа сонгоорой</p>
-  </div>
-
-  <div class="tours">
-
-    <!-- MANJURIA -->
-    <div class="tour-card">
-
-      <img
-        class="tour-img"
-        src="https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1000&q=80"
-      >
-
-      <div class="tour-body">
-
-        <h3>🇨🇳 Манжуур</h3>
-
-        <p>
-          3 шөнө / 4 өдөр
-          <br>
-          Баасан гараг бүр
-        </p>
-
-        <div class="price">
-          790,000₮
-        </div>
-
-        <button
-          class="btn"
-          onclick="openTour('manjur')"
-        >
-          Дэлгэрэнгүй
-        </button>
-
-      </div>
-    </div>
-
-
-    <!-- BEIJING -->
-    <div class="tour-card">
-
-      <img
-        class="tour-img"
-        src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1000&q=80"
-      >
-
-      <div class="tour-body">
-
-        <h3>🇨🇳 Бээжин</h3>
-
-        <p>
-          Бээжин – Бэйдайхэ
-          <br>
-          5 өдөр
-        </p>
-
-        <div class="price">
-          1,590,000₮
-        </div>
-
-        <button
-          class="btn"
-          onclick="openTour('beijing')"
-        >
-          Дэлгэрэнгүй
-        </button>
-
-      </div>
-    </div>
-
-
-    <!-- THAILAND -->
-    <div class="tour-card">
-
-      <img
-        class="tour-img"
-        src="https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1000&q=80"
-      >
-
-      <div class="tour-body">
-
-        <h3>🇹🇭 Тайланд</h3>
-
-        <p>
-          Тайландын аялал
-          <br>
-          Дулаан орон
-        </p>
-
-        <div class="price">
-          4,990,000₮
-        </div>
-
-        <button
-          class="btn"
-          onclick="openTour('thailand')"
-        >
-          Дэлгэрэнгүй
-        </button>
-
-      </div>
-    </div>
-
-
-    <!-- JAPAN -->
-    <div class="tour-card">
-
-      <img
-        class="tour-img"
-        src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1000&q=80"
-      >
-
-      <div class="tour-body">
-
-        <h3>🇯🇵 Япон</h3>
-
-        <p>
-          Япон улсын аялал
-        </p>
-
-        <div class="price">
-          5,600,000₮
-        </div>
-
-        <button
-          class="btn"
-          onclick="openTour('japan')"
-        >
-          Дэлгэрэнгүй
-        </button>
-
-      </div>
-    </div>
-
-
-    <!-- KOREA -->
-    <div class="tour-card">
-
-      <img
-        class="tour-img"
-        src="https://images.unsplash.com/photo-1538485399081-7c897f9b6b22?auto=format&fit=crop&w=1000&q=80"
-      >
-
-      <div class="tour-body">
-
-        <h3>🇰🇷 Солонгос</h3>
-
-        <p>
-          БНСУ-ын аялал
-        </p>
-
-        <div class="price">
-          5,900,000₮
-        </div>
-
-        <button
-          class="btn"
-          onclick="openTour('korea')"
-        >
-          Дэлгэрэнгүй
-        </button>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- FEATURES -->
-<div class="features">
-
-  <div class="feature-grid">
-
-    <div class="feature">
-      <div class="feature-icon">✈️</div>
-      <h3>Тав тухтай аялал</h3>
-      <p>
-        Аяллын туршлагатай баг хамт олон.
-      </p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">🗺️</div>
-      <h3>Олон чиглэл</h3>
-      <p>
-        Монгол болон олон улсын аяллууд.
-      </p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">💳</div>
-      <h3>Уян хатан захиалга</h3>
-      <p>
-        Захиалгаа вебээр өгөх боломжтой.
-      </p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">☎️</div>
-      <h3>24/7 холбоо</h3>
-      <p>
-        Лавлах болон мэдээлэл авах боломжтой.
-      </p>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- ABOUT -->
-<section id="about">
-
-  <div class="about">
-
-    <img
-      src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80"
-    >
-
-    <div>
-
-      <h2>Бидний тухай</h2>
-
-      <p>
-        RADAR TOUR нь аялагчдад зориулсан
-        дотоод болон гадаад аяллын үйлчилгээг
-        санал болгодог аяллын компани юм.
-      </p>
-
-      <p>
-        Групп аялал, байгууллагын аялал болон
-        хувь хүний аяллын захиалгыг хүлээн авна.
-      </p>
-
-      <a href="#contact" class="btn">
-        Холбоо барих
+      <a href="#tours" class="btn btn-red">
+        Аяллууд үзэх
       </a>
 
+      <button class="btn btn-white" onclick="openBooking()">
+        Захиалга өгөх
+      </button>
+
     </div>
 
   </div>
@@ -687,147 +984,126 @@
 </section>
 
 
-<!-- CONTACT -->
-<section id="contact">
+<!-- =========================
+     SEARCH
+========================= -->
 
-  <div class="contact-box">
+<div class="search-wrap">
 
-    <h2>Холбоо барих</h2>
+  <div class="search-box">
 
-    <p>📞 9811-1682</p>
-    <p>📞 9100-1128</p>
-    <p>📧 desvne9@gmail.com</p>
-
-    <p>
-      📍 Улаанбаатар хот, Баянзүрх дүүрэг,
-      Нисора тауэр 7-703
-    </p>
-
-    <br>
-
-    <button
-      class="btn"
-      onclick="openBooking()"
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="🔎 Аяллын нэрээр хайх..."
+      oninput="filterTours()"
     >
-      ✈️ Аялал захиалах
+
+    <select id="countryFilter" onchange="filterTours()">
+
+      <option value="">Бүх улс</option>
+      <option value="Хятад">Хятад</option>
+      <option value="Тайланд">Тайланд</option>
+      <option value="Япон">Япон</option>
+      <option value="Солонгос">Солонгос</option>
+
+    </select>
+
+    <select id="sortFilter" onchange="sortTours()">
+
+      <option value="default">Эрэмбэ</option>
+      <option value="low">Үнэ багаас</option>
+      <option value="high">Үнэ ихээс</option>
+
+    </select>
+
+    <button class="btn btn-red" onclick="filterTours()">
+      Хайх
     </button>
 
   </div>
 
-</section>
-
-
-<!-- TOUR MODAL -->
-<div class="modal" id="tourModal">
-
-  <div class="modal-content">
-
-    <span class="close" onclick="closeTour()">
-      ×
-    </span>
-
-    <div id="tourDetails"></div>
-
-  </div>
-
 </div>
 
 
-<!-- BOOKING MODAL -->
-<div class="modal" id="bookingModal">
+<!-- =========================
+     TOURS
+========================= -->
 
-  <div class="modal-content">
+<section class="section" id="tours">
 
-    <span class="close" onclick="closeBooking()">
-      ×
-    </span>
+  <div class="section-head">
 
-    <h2>✈️ Аялал захиалах</h2>
+    <div>
+      <div class="eyebrow">OUR TOURS</div>
+      <h2>Аяллаа сонгоорой.</h2>
+    </div>
 
-    <p style="color:#777;margin-bottom:20px;">
-      Мэдээллээ бөглөөд захиалга илгээнэ үү.
+    <p>
+      Өөрт тохирох аяллаа сонгоод дэлгэрэнгүй
+      хөтөлбөр, үнэ болон захиалгын мэдээллийг үзээрэй.
     </p>
 
-    <form id="bookingForm">
+  </div>
 
-      <input
-        type="text"
-        id="name"
-        placeholder="Таны нэр"
-        required
-      >
+  <div class="tour-grid" id="tourGrid"></div>
 
-      <input
-        type="tel"
-        id="phone"
-        placeholder="Утасны дугаар"
-        required
-      >
+</section>
 
-      <select id="tour" required>
 
-        <option value="">
-          Аяллаа сонгоно уу
-        </option>
+<!-- =========================
+     ABOUT
+========================= -->
 
-        <option value="Манжуур">
-          Манжуур — 790,000₮
-        </option>
+<div class="about-section" id="about">
 
-        <option value="Бээжин – Бэйдайхэ">
-          Бээжин – Бэйдайхэ — 1,590,000₮
-        </option>
+  <div class="about">
 
-        <option value="Тайланд">
-          Тайланд — 4,990,000₮
-        </option>
-
-        <option value="Япон">
-          Япон — 5,600,000₮
-        </option>
-
-        <option value="Солонгос">
-          Солонгос — 5,900,000₮
-        </option>
-
-      </select>
-
-      <input
-        type="number"
-        id="people"
-        min="1"
-        value="1"
-        placeholder="Хүний тоо"
-        required
-      >
-
-      <textarea
-        id="message"
-        placeholder="Нэмэлт мэдээлэл..."
-      ></textarea>
-
-      <button
-        type="submit"
-        class="btn"
-        style="width:100%;"
-      >
-        Захиалга илгээх
-      </button>
-
-    </form>
-
-    <div
-      id="successMessage"
-      style="
-        display:none;
-        margin-top:20px;
-        padding:15px;
-        background:#e8f7ed;
-        color:#147a35;
-        border-radius:8px;
-      "
+    <img
+      class="about-img"
+      src="https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&fit=crop&w=1200&q=90"
     >
-      ✅ Захиалга амжилттай бүртгэгдлээ!
+
+    <div>
+
+      <div class="eyebrow">ABOUT RADAR TOUR</div>
+
+      <h2>
+        Аялал бүр<br>
+        дурсамж.
+      </h2>
+
+      <p>
+        RADAR TOUR нь 2023 оноос аяллын чиглэлээр
+        үйл ажиллагаа явуулж, аялагчдад гадаад болон
+        групп аяллын үйлчилгээ үзүүлж байна.
+      </p>
+
+      <p>
+        Байгууллага, хамт олон, групп захиалгыг
+        мөн хүлээн авна.
+      </p>
+
+      <div class="check">
+        <i>✓</i>
+        Гадаад аяллын чиглэлүүд
+      </div>
+
+      <div class="check">
+        <i>✓</i>
+        Байгууллага болон групп аялал
+      </div>
+
+      <div class="check">
+        <i>✓</i>
+        Вебээр захиалга авах боломж
+      </div>
+
+      <div class="check">
+        <i>✓</i>
+        Монголын Аялал Жуулчлалын Холбооны гишүүн
+      </div>
+
     </div>
 
   </div>
@@ -835,395 +1111,1166 @@
 </div>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     STATS
+========================= -->
+
+<div class="stats">
+
+  <div class="stats-grid">
+
+    <div class="stat">
+      <strong>2023+</strong>
+      <span>Үйл ажиллагаа</span>
+    </div>
+
+    <div class="stat">
+      <strong id="viewCount">0</strong>
+      <span>Сайтын үзэлт</span>
+    </div>
+
+    <div class="stat">
+      <strong id="bookingCount">0</strong>
+      <span>Веб захиалга</span>
+    </div>
+
+    <div class="stat">
+      <strong>24/7</strong>
+      <span>Захиалгын хүсэлт</span>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<div class="contact" id="contact">
+
+  <div class="contact-box">
+
+    <div>
+
+      <div class="eyebrow">CONTACT</div>
+
+      <h2>
+        Аяллаа<br>
+        эхлүүлье.
+      </h2>
+
+      <p>
+        Аяллын талаар мэдээлэл авах,
+        групп болон байгууллагын захиалга өгөх бол
+        бидэнтэй холбогдоорой.
+      </p>
+
+      <div class="contact-list">
+
+        <div class="contact-item">
+          <strong>📞 Утас</strong>
+          <a href="tel:98111682">9811-1682</a> /
+          <a href="tel:91001128">9100-1128</a>
+        </div>
+
+        <div class="contact-item">
+          <strong>📍 Хаяг</strong>
+          БЗД 1-р хороо, Нисора тауэр 7-703
+        </div>
+
+        <div class="contact-item">
+          <strong>🕐 Ажлын цаг</strong>
+          Даваа–Баасан 09:00–18:00<br>
+          Бямба 10:00–18:00
+        </div>
+
+        <div class="contact-item">
+          <strong>📘 Facebook</strong>
+          Radar tour
+        </div>
+
+      </div>
+
+    </div>
+
+    <div>
+
+      <div class="modal-content"
+           style="border-radius:18px;background:#fff">
+
+        <h3 style="margin-bottom:8px">
+          Шууд захиалга
+        </h3>
+
+        <p style="margin-bottom:20px">
+          Мэдээллээ үлдээгээрэй. Бид тантай холбогдоно.
+        </p>
+
+        <form class="booking-form" onsubmit="submitBooking(event)">
+
+          <input
+            id="quickName"
+            type="text"
+            placeholder="Нэр"
+            required
+          >
+
+          <input
+            id="quickPhone"
+            type="tel"
+            placeholder="Утасны дугаар"
+            required
+          >
+
+          <select id="quickTour" required>
+            <option value="">Аялал сонгох</option>
+          </select>
+
+          <input
+            id="quickPeople"
+            type="number"
+            min="1"
+            value="1"
+            placeholder="Хүний тоо"
+            required
+          >
+
+          <textarea
+            id="quickMessage"
+            placeholder="Нэмэлт хүсэлт..."
+          ></textarea>
+
+          <button class="btn btn-red" type="submit">
+            Захиалга илгээх
+          </button>
+
+          <div class="booking-note">
+            Захиалга илгээсний дараа манай ажилтан
+            тантай холбогдож дэлгэрэнгүй мэдээлэл өгнө.
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-  <h3>RADAR TOUR</h3>
+  <div class="footer-inner">
 
-  <p>
-    Аялал бүр дурсамж.
-  </p>
+    <div>
 
-  <p>
+      <div class="footer-logo">
+        RADAR <span>TOUR</span>
+      </div>
+
+      <p>
+        Аялал бүр дурсамж.
+      </p>
+
+      <p>
+        Гадаад аялал • Групп аялал •
+        Байгууллагын аялал
+      </p>
+
+    </div>
+
+    <div>
+
+      <h4>Цэс</h4>
+
+      <p><a href="#home">Нүүр</a></p>
+      <p><a href="#tours">Аяллууд</a></p>
+      <p><a href="#about">Бидний тухай</a></p>
+      <p><a href="#contact">Холбоо барих</a></p>
+
+    </div>
+
+    <div>
+
+      <h4>Холбоо</h4>
+
+      <p>9811-1682</p>
+      <p>9100-1128</p>
+      <p>Facebook: Radar tour</p>
+
+    </div>
+
+  </div>
+
+  <div class="copyright">
     © 2026 RADAR TOUR. All rights reserved.
-  </p>
+  </div>
 
 </footer>
 
 
-<script>
+<!-- =========================
+     TOUR DETAIL MODAL
+========================= -->
 
-  /* =========================
-     АЯЛЛЫН МЭДЭЭЛЭЛ
-  ========================= */
+<div class="modal" id="tourModal">
 
-  const tours = {
+  <div class="modal-box">
 
-    manjur: {
+    <button class="modal-close" onclick="closeModal('tourModal')">
+      ×
+    </button>
 
-      title: "🇨🇳 Манжуур",
+    <img id="modalImg" class="modal-img">
 
-      price: "790,000₮",
+    <div class="modal-content">
 
-      duration: "3 шөнө / 4 өдөр",
+      <div class="eyebrow" id="modalCountry"></div>
 
-      date: "Баасан гараг бүр",
+      <h2 id="modalTitle"></h2>
 
-      description:
-        "Манжуур хотын аялал.",
+      <div class="modal-price" id="modalPrice"></div>
 
-      program: [
-
-        "1 дэх өдөр — Улаанбаатар → Манжуур",
-
-        "2 дахь өдөр — Манжуур хотын аялал",
-
-        "3 дахь өдөр — Чөлөөт өдөр / худалдаа",
-
-        "4 дахь өдөр — Манжуур → Улаанбаатар"
-
-      ]
-
-    },
-
-
-    beijing: {
-
-      title: "🇨🇳 Бээжин – Бэйдайхэ",
-
-      price: "1,590,000₮",
-
-      duration: "5 өдөр",
-
-      date: "Тусгай хуваарийн дагуу",
-
-      description:
-        "Бээжин болон Бэйдайхэ чиглэлийн аялал.",
-
-      program: [
-
-        "1 дэх өдөр — Бээжин",
-
-        "2 дахь өдөр — Бээжин хотын аялал",
-
-        "3 дахь өдөр — Бэйдайхэ",
-
-        "4 дахь өдөр — Чөлөөт хөтөлбөр",
-
-        "5 дахь өдөр — Буцах"
-
-      ]
-
-    },
-
-
-    thailand: {
-
-      title: "🇹🇭 Тайланд",
-
-      price: "4,990,000₮",
-
-      duration: "Аяллын хөтөлбөрөөс хамаарна",
-
-      date: "Тусгай хуваарийн дагуу",
-
-      description:
-        "Тайландын халуун орны аялал.",
-
-      program: [
-
-        "Тайландын аяллын хөтөлбөр",
-
-        "Хотын аялал",
-
-        "Чөлөөт цаг",
-
-        "Амралт, зугаалга"
-
-      ]
-
-    },
-
-
-    japan: {
-
-      title: "🇯🇵 Япон",
-
-      price: "5,600,000₮",
-
-      duration: "Аяллын хөтөлбөрөөс хамаарна",
-
-      date: "Тусгай хуваарийн дагуу",
-
-      description:
-        "Япон улсын аялал.",
-
-      program: [
-
-        "Япон улсын аяллын хөтөлбөр",
-
-        "Хотын аялал",
-
-        "Чөлөөт цаг",
-
-        "Буцах"
-
-      ]
-
-    },
-
-
-    korea: {
-
-      title: "🇰🇷 Солонгос",
-
-      price: "5,900,000₮",
-
-      duration: "Аяллын хөтөлбөрөөс хамаарна",
-
-      date: "Тусгай хуваарийн дагуу",
-
-      description:
-        "БНСУ-ын аялал.",
-
-      program: [
-
-        "Солонгосын аяллын хөтөлбөр",
-
-        "Сөүл хотын аялал",
-
-        "Чөлөөт цаг",
-
-        "Буцах"
-
-      ]
-
-    }
-
-  };
-
-
-  /* =========================
-     АЯЛЛЫН ДЭЛГЭРЭНГҮЙ
-  ========================= */
-
-  function openTour(id) {
-
-    const tour = tours[id];
-
-    let html = `
-
-      <h2>${tour.title}</h2>
-
-      <p style="color:#777;margin-bottom:15px;">
-        ${tour.description}
+      <p id="modalDescription"
+         style="color:#666;line-height:1.7;margin-bottom:20px">
       </p>
 
-      <div class="price">
-        ${tour.price}
-      </div>
+      <div id="modalProgram"></div>
 
-      <p>
-        <b>Хугацаа:</b>
-        ${tour.duration}
-      </p>
-
-      <p>
-        <b>Огноо:</b>
-        ${tour.date}
-      </p>
-
-      <h3>📋 Аяллын хөтөлбөр</h3>
-
-    `;
-
-    tour.program.forEach((item) => {
-
-      html += `
-        <div class="program">
-          ${item}
-        </div>
-      `;
-
-    });
-
-    html += `
+      <br>
 
       <button
-        class="btn"
-        style="margin-top:15px;"
-        onclick="closeTour(); openBooking('${tour.title}')"
+        class="btn btn-red"
+        onclick="bookSelectedTour()"
       >
         ✈️ Энэ аяллыг захиалах
       </button>
 
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     BOOKING MODAL
+========================= -->
+
+<div class="modal" id="bookingModal">
+
+  <div class="modal-box">
+
+    <button class="modal-close" onclick="closeModal('bookingModal')">
+      ×
+    </button>
+
+    <div class="modal-content">
+
+      <div class="eyebrow">BOOKING</div>
+
+      <h2>Аялал захиалах</h2>
+
+      <p style="color:#777;margin:10px 0 25px">
+        Мэдээллээ бөглөөд хүсэлтээ илгээнэ үү.
+      </p>
+
+      <form class="booking-form" onsubmit="submitBooking(event)">
+
+        <input
+          id="modalName"
+          type="text"
+          placeholder="Нэр"
+          required
+        >
+
+        <input
+          id="modalPhone"
+          type="tel"
+          placeholder="Утасны дугаар"
+          required
+        >
+
+        <select id="modalTour" required>
+          <option value="">Аялал сонгох</option>
+        </select>
+
+        <input
+          id="modalPeople"
+          type="number"
+          min="1"
+          value="1"
+          placeholder="Хүний тоо"
+          required
+        >
+
+        <textarea
+          id="modalMessage"
+          placeholder="Нэмэлт мэдээлэл..."
+        ></textarea>
+
+        <button class="btn btn-red" type="submit">
+          Захиалга илгээх
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     ADMIN
+========================= -->
+
+<div class="admin-panel" id="adminPanel">
+
+  <div class="admin-header">
+
+    <strong>RADAR TOUR — ADMIN</strong>
+
+    <button
+      class="btn btn-red"
+      onclick="closeAdmin()"
+    >
+      Хаах
+    </button>
+
+  </div>
+
+  <div class="admin-main">
+
+    <div class="admin-cards">
+
+      <div class="admin-card">
+        <span>Нийт үзэлт</span>
+        <strong id="adminViews">0</strong>
+      </div>
+
+      <div class="admin-card">
+        <span>Нийт захиалга</span>
+        <strong id="adminBookings">0</strong>
+      </div>
+
+      <div class="admin-card">
+        <span>Энэ төхөөрөмжийн захиалга</span>
+        <strong id="adminLocal">0</strong>
+      </div>
+
+    </div>
+
+    <div class="admin-card">
+
+      <h3 style="margin-bottom:20px">
+        Захиалгууд
+      </h3>
+
+      <div id="bookingList"></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   SITE SETTINGS
+   ЭНЭ ХЭСГЭЭС НЭРЭЭ ДАРАА НЬ СОЛЬЖ БОЛНО.
+====================================================== */
+
+const SITE_NAME = "RADAR TOUR";
+
+
+/* =====================================================
+   АЯЛЛЫН DATA
+====================================================== */
+
+const tours = [
+
+  {
+    id:"manjur",
+    country:"Хятад",
+    title:"Манжуур",
+    price:790000,
+    priceText:"790,000₮",
+    duration:"3 шөнө / 4 өдөр",
+    date:"Баасан гараг бүр",
+    badge:"ЭРЭЛТТЭЙ",
+    image:"https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1200&q=90",
+    description:"Манжуур хотын аялал. Худалдаа, хотын аялал болон чөлөөт цагийг хослуулсан аяллын сонголт.",
+    program:[
+      ["1 дэх өдөр","Улаанбаатар → Манжуур. Аяллын эхлэл."],
+      ["2 дахь өдөр","Манжуур хотын аялал, чөлөөт хөтөлбөр."],
+      ["3 дахь өдөр","Худалдаа, хотын чөлөөт аялал."],
+      ["4 дахь өдөр","Манжуур → Улаанбаатар."]
+    ]
+  },
+
+  {
+    id:"manjur5",
+    country:"Хятад",
+    title:"Манжуур — 5 өдөр",
+    price:890000,
+    priceText:"890,000₮",
+    duration:"4 шөнө / 5 өдөр",
+    date:"Мягмар гараг бүр",
+    badge:"МЯГМАР",
+    image:"https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1200&q=90",
+    description:"Манжуурын 5 өдрийн аяллын хувилбар.",
+    program:[
+      ["1 дэх өдөр","Улаанбаатар → Манжуур."],
+      ["2 дахь өдөр","Манжуур хотын аялал."],
+      ["3 дахь өдөр","Хотын аялал, худалдаа."],
+      ["4 дахь өдөр","Чөлөөт хөтөлбөр."],
+      ["5 дахь өдөр","Манжуур → Улаанбаатар."]
+    ]
+  },
+
+  {
+    id:"beijing",
+    country:"Хятад",
+    title:"Бээжин – Бэйдайхэ",
+    price:1590000,
+    priceText:"1,590,000₮",
+    duration:"5 өдөр",
+    date:"Тусгай хуваарийн дагуу",
+    badge:"POPULAR",
+    image:"https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1200&q=90",
+    description:"Бээжин болон Бэйдайхэ чиглэлийн аялал.",
+    program:[
+      ["1 дэх өдөр","Бээжин хотод хүрэлцэн ирэх."],
+      ["2 дахь өдөр","Бээжин хотын аялал."],
+      ["3 дахь өдөр","Бэйдайхэ чиглэл."],
+      ["4 дахь өдөр","Чөлөөт хөтөлбөр."],
+      ["5 дахь өдөр","Буцах."]
+    ]
+  },
+
+  {
+    id:"hainan",
+    country:"Хятад",
+    title:"Хайнань – Санья",
+    price:0,
+    priceText:"Үнэ хөтөлбөрөөс хамаарна",
+    duration:"Тусгай хөтөлбөр",
+    date:"Тусгай хуваарийн дагуу",
+    badge:"Hainan",
+    image:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=90",
+    description:"Хайнань, Санья чиглэлийн амралт болон аяллын хөтөлбөр.",
+    program:[
+      ["Аяллын хөтөлбөр","Санья хотын аялал, амралт, чөлөөт хөтөлбөр."],
+      ["Чиглэл","Хайнань – Санья."],
+      ["Үнэ","Тухайн аяллын гаралтын хөтөлбөрөөр шинэчлэгдэнэ."]
+    ]
+  },
+
+  {
+    id:"hainan-direct",
+    country:"Хятад",
+    title:"Хайнань Direct",
+    price:0,
+    priceText:"Үнэ хөтөлбөрөөс хамаарна",
+    duration:"Тусгай хөтөлбөр",
+    date:"Тусгай хуваарийн дагуу",
+    badge:"DIRECT",
+    image:"https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=90",
+    description:"Хайнань чиглэлийн direct аяллын сонголт.",
+    program:[
+      ["Чиглэл","Монгол → Хайнань."],
+      ["Аялал","Хотын аялал болон амралт."],
+      ["Чөлөөт цаг","Хөтөлбөрийн дагуу."]
+    ]
+  },
+
+  {
+    id:"shanghai",
+    country:"Хятад",
+    title:"Шанхай",
+    price:0,
+    priceText:"Үнэ хөтөлбөрөөс хамаарна",
+    duration:"Тусгай хөтөлбөр",
+    date:"Тусгай хуваарийн дагуу",
+    badge:"SHANGHAI",
+    image:"https://images.unsplash.com/photo-1538428494232-9c0d8a3ab403?auto=format&fit=crop&w=1200&q=90",
+    description:"Шанхай хотын аялал болон Disney-тэй хослуулах боломжтой хөтөлбөр.",
+    program:[
+      ["Шанхай","Шанхай хотын аялал."],
+      ["Disney","Disney чиглэлийн хөтөлбөр боломжтой."],
+      ["Чөлөөт цаг","Худалдаа болон чөлөөт хөтөлбөр."]
+    ]
+  },
+
+  {
+    id:"zhangjiajie",
+    country:"Хятад",
+    title:"Жанжяжэ",
+    price:0,
+    priceText:"Үнэ хөтөлбөрөөс хамаарна",
+    duration:"Тусгай хөтөлбөр",
+    date:"Тусгай хуваарийн дагуу",
+    badge:"NATURE",
+    image:"https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?auto=format&fit=crop&w=1200&q=90",
+    description:"Жанжяжэгийн байгалийн үзэсгэлэнт газруудаар аялах аялал.",
+    program:[
+      ["Чиглэл","Жанжяжэ."],
+      ["Байгаль","Байгалийн үзэсгэлэнт газрууд."],
+      ["Аялал","Тусгай хөтөлбөрийн дагуу."]
+    ]
+  },
+
+  {
+    id:"datong",
+    country:"Хятад",
+    title:"Датун",
+    price:0,
+    priceText:"Үнэ хөтөлбөрөөс хамаарна",
+    duration:"Тусгай хөтөлбөр",
+    date:"Тусгай хуваарийн дагуу",
+    badge:"CHINA",
+    image:"https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1200&q=90",
+    description:"Датун хотын аяллын чиглэл.",
+    program:[
+      ["Датун","Датун хотын аялал."],
+      ["Үзэсгэлэнт газар","Хөтөлбөрийн дагуу."],
+      ["Чөлөөт цаг","Чөлөөт хөтөлбөр."]
+    ]
+  },
+
+  {
+    id:"thailand",
+    country:"Тайланд",
+    title:"Тайланд",
+    price:4990000,
+    priceText:"4,990,000₮",
+    duration:"Тусгай хөтөлбөр",
+    date:"Тусгай хуваарийн дагуу",
+    badge:"THAILAND",
+    image:"https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1200&q=90",
+    description:"Тайландын халуун орны аялал, амралт болон хотын аялал.",
+    program:[
+      ["Тайланд","Тайланд чиглэлийн аялал."],
+      ["Хотын аялал","Хот болон аялал жуулчлалын газрууд."],
+      ["Амралт","Чөлөөт цаг, амралт."]
+    ]
+  },
+
+  {
+    id:"japan",
+    country:"Япон",
+    title:"Япон – Сакура",
+    price:5600000,
+    priceText:"5,600,000₮",
+    duration:"Тусгай хөтөлбөр",
+    date:"Сакурагийн улирал",
+    badge:"SAKURA",
+    image:"https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1200&q=90",
+    description:"Япон улсын сакурагийн улирлын аялал.",
+    program:[
+      ["Япон","Япон улсын аяллын хөтөлбөр."],
+      ["Сакура","Сакура цэцэглэлтийн улирлын аялал."],
+      ["Хотын аялал","Хөтөлбөрийн дагуу хотын аялал."]
+    ]
+  },
+
+  {
+    id:"korea",
+    country:"Солонгос",
+    title:"Солонгос – Эмчилгээ",
+    price:5900000,
+    priceText:"5,900,000₮",
+    duration:"Тусгай хөтөлбөр",
+    date:"Тусгай хуваарийн дагуу",
+    badge:"KOREA",
+    image:"https://images.unsplash.com/photo-1538485399081-7c897f9b6b22?auto=format&fit=crop&w=1200&q=90",
+    description:"БНСУ-ын аялал болон эмчилгээний чиглэлтэй хөтөлбөр.",
+    program:[
+      ["Солонгос","БНСУ-ын аяллын хөтөлбөр."],
+      ["Эмчилгээ","Эмчилгээний чиглэлтэй үйлчилгээ."],
+      ["Чөлөөт цаг","Хотын аялал болон чөлөөт хөтөлбөр."]
+    ]
+  },
+
+  {
+    id:"jining",
+    country:"Хятад",
+    title:"Жинин – Бээжин – Universal",
+    price:0,
+    priceText:"Үнэ хөтөлбөрөөс хамаарна",
+    duration:"Тусгай хөтөлбөр",
+    date:"Тусгай хуваарийн дагуу",
+    badge:"UNIVERSAL",
+    image:"https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1200&q=90",
+    description:"Жинин, Бээжин болон Universal чиглэлүүдийг хослуулсан аялал.",
+    program:[
+      ["Жинин","Жинин чиглэлийн аялал."],
+      ["Бээжин","Бээжин хотын аялал."],
+      ["Universal","Universal Studios чиглэлийн хөтөлбөр."],
+      ["Чөлөөт цаг","Худалдаа болон чөлөөт хөтөлбөр."]
+    ]
+  }
+
+];
+
+
+/* =====================================================
+   TOUR CARD RENDER
+====================================================== */
+
+let currentTour = null;
+
+function renderTours(list=tours){
+
+  const grid=document.getElementById("tourGrid");
+
+  if(!list.length){
+    grid.innerHTML=`
+      <div style="grid-column:1/-1;text-align:center;padding:60px;color:#777">
+        Аялал олдсонгүй.
+      </div>
     `;
+    return;
+  }
 
-    document.getElementById("tourDetails").innerHTML = html;
+  grid.innerHTML=list.map(t=>`
 
-    document.getElementById("tourModal").style.display = "block";
+    <article class="tour-card">
+
+      <div class="tour-img-wrap">
+
+        <img
+          class="tour-img"
+          src="${t.image}"
+          alt="${t.title}"
+        >
+
+        <div class="badge">
+          ${t.badge}
+        </div>
+
+      </div>
+
+      <div class="tour-body">
+
+        <div class="tour-location">
+          📍 ${t.country}
+        </div>
+
+        <h3>${t.title}</h3>
+
+        <div class="tour-meta">
+
+          <span class="meta">
+            📅 ${t.date}
+          </span>
+
+          <span class="meta">
+            ⏱ ${t.duration}
+          </span>
+
+        </div>
+
+        <div class="price-row">
+
+          <div class="price">
+            ${t.priceText}
+            <small>Нэг хүний үнэ</small>
+          </div>
+
+          <button
+            class="detail-btn"
+            onclick="openTour('${t.id}')"
+          >
+            Дэлгэрэнгүй →
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  `).join("");
+
+}
+
+
+/* =====================================================
+   SELECT OPTIONS
+====================================================== */
+
+function loadTourOptions(){
+
+  const selects=[
+    document.getElementById("quickTour"),
+    document.getElementById("modalTour")
+  ];
+
+  selects.forEach(select=>{
+
+    select.innerHTML=
+      `<option value="">Аялал сонгох</option>`+
+      tours.map(t=>
+        `<option value="${t.title}">
+          ${t.title} — ${t.priceText}
+        </option>`
+      ).join("");
+
+  });
+
+}
+
+
+/* =====================================================
+   TOUR MODAL
+====================================================== */
+
+function openTour(id){
+
+  const t=tours.find(x=>x.id===id);
+
+  if(!t)return;
+
+  currentTour=t;
+
+  document.getElementById("modalImg").src=t.image;
+  document.getElementById("modalCountry").textContent=t.country;
+  document.getElementById("modalTitle").textContent=t.title;
+  document.getElementById("modalPrice").textContent=t.priceText;
+  document.getElementById("modalDescription").textContent=t.description;
+
+  document.getElementById("modalProgram").innerHTML=`
+
+    <h3 style="margin-bottom:12px">
+      📋 Аяллын хөтөлбөр
+    </h3>
+
+    ${t.program.map(p=>`
+
+      <div class="program-day">
+        <b>${p[0]}</b>
+        ${p[1]}
+      </div>
+
+    `).join("")}
+
+  `;
+
+  document.getElementById("tourModal").style.display="block";
+
+}
+
+
+function bookSelectedTour(){
+
+  closeModal("tourModal");
+
+  openBooking();
+
+  if(currentTour){
+
+    document.getElementById("modalTour").value=
+      currentTour.title;
 
   }
 
+}
 
-  function closeTour() {
 
-    document.getElementById("tourModal").style.display = "none";
+/* =====================================================
+   BOOKING
+====================================================== */
 
+function openBooking(){
+
+  document.getElementById("bookingModal").style.display="block";
+
+}
+
+function submitBooking(e){
+
+  e.preventDefault();
+
+  const form=e.target;
+
+  let prefix="modal";
+
+  if(form.querySelector("#quickName")){
+    prefix="quick";
   }
 
+  const booking={
 
-  /* =========================
-     ЗАХИАЛГЫН FORM
-  ========================= */
+    id:Date.now(),
 
-  function openBooking(tourName = "") {
+    name:document.getElementById(prefix+"Name").value,
 
-    document.getElementById("bookingModal").style.display = "block";
+    phone:document.getElementById(prefix+"Phone").value,
 
-    if (tourName) {
+    tour:document.getElementById(prefix+"Tour").value,
 
-      const select = document.getElementById("tour");
+    people:document.getElementById(prefix+"People").value,
 
-      for (let i = 0; i < select.options.length; i++) {
+    message:document.getElementById(prefix+"Message").value,
 
-        if (select.options[i].text.includes(tourName)) {
-
-          select.selectedIndex = i;
-
-        }
-
-      }
-
-    }
-
-  }
-
-
-  function closeBooking() {
-
-    document.getElementById("bookingModal").style.display = "none";
-
-  }
-
-
-  /* =========================
-     FORM SUBMIT
-  ========================= */
-
-  document
-    .getElementById("bookingForm")
-    .addEventListener("submit", function(e) {
-
-      e.preventDefault();
-
-      const booking = {
-
-        name:
-          document.getElementById("name").value,
-
-        phone:
-          document.getElementById("phone").value,
-
-        tour:
-          document.getElementById("tour").value,
-
-        people:
-          document.getElementById("people").value,
-
-        message:
-          document.getElementById("message").value,
-
-        date:
-          new Date().toLocaleString("mn-MN")
-
-      };
-
-
-      /*
-        ОДООХОНДОО ЗАХИАЛГЫГ
-        LOCAL STORAGE-Д ХАДГАЛНА.
-      */
-
-      let bookings =
-        JSON.parse(
-          localStorage.getItem("radarBookings")
-        ) || [];
-
-
-      bookings.push(booking);
-
-
-      localStorage.setItem(
-        "radarBookings",
-        JSON.stringify(bookings)
-      );
-
-
-      document.getElementById(
-        "successMessage"
-      ).style.display = "block";
-
-
-      document.getElementById(
-        "bookingForm"
-      ).reset();
-
-    });
-
-
-  /* =========================
-     MODAL ГАДНА ДАРАХ
-  ========================= */
-
-  window.onclick = function(event) {
-
-    const tourModal =
-      document.getElementById("tourModal");
-
-    const bookingModal =
-      document.getElementById("bookingModal");
-
-
-    if (event.target === tourModal) {
-
-      closeTour();
-
-    }
-
-
-    if (event.target === bookingModal) {
-
-      closeBooking();
-
-    }
+    created:new Date().toLocaleString("mn-MN")
 
   };
 
 
-  /* =========================
-     ЭНГИЙН ҮЗЭЛТИЙН ТООЛУУР
-  ========================= */
+  let bookings=
+    JSON.parse(
+      localStorage.getItem("radarBookings") || "[]"
+    );
 
-  let views =
+  bookings.push(booking);
+
+  localStorage.setItem(
+    "radarBookings",
+    JSON.stringify(bookings)
+  );
+
+
+  updateStats();
+
+
+  /*
+    Захиалгын мэдээллийг user's mail app-аар
+    шууд email болгон бэлдэх.
+  */
+
+  const subject=
+    encodeURIComponent(
+      "RADAR TOUR шинэ захиалга"
+    );
+
+  const body=
+    encodeURIComponent(
+`Шинэ аяллын захиалга
+
+Нэр: ${booking.name}
+Утас: ${booking.phone}
+Аялал: ${booking.tour}
+Хүний тоо: ${booking.people}
+Нэмэлт: ${booking.message}
+Огноо: ${booking.created}`
+    );
+
+
+  /*
+    Email client нээх.
+    Дараагийн шатанд жинхэнэ automatic
+    email notification service холбоход
+    энэ хэсгийг backend/API-аар сольж болно.
+  */
+
+  window.location.href=
+    `mailto:desvne9@gmail.com?subject=${subject}&body=${body}`;
+
+
+  alert(
+    "✅ Захиалга бүртгэгдлээ.\n\n" +
+    "Манай ажилтан тантай холбогдоно."
+  );
+
+
+  form.reset();
+
+  closeModal("bookingModal");
+
+}
+
+
+/* =====================================================
+   MODAL CLOSE
+====================================================== */
+
+function closeModal(id){
+
+  document.getElementById(id).style.display="none";
+
+}
+
+
+window.addEventListener("click",function(e){
+
+  if(e.target.classList.contains("modal")){
+
+    e.target.style.display="none";
+
+  }
+
+});
+
+
+/* =====================================================
+   SEARCH
+====================================================== */
+
+function filterTours(){
+
+  const search=
+    document.getElementById("searchInput")
+    .value
+    .toLowerCase();
+
+  const country=
+    document.getElementById("countryFilter")
+    .value;
+
+  const result=tours.filter(t=>{
+
+    const matchSearch=
+      t.title.toLowerCase().includes(search) ||
+      t.country.toLowerCase().includes(search);
+
+    const matchCountry=
+      !country || t.country===country;
+
+    return matchSearch && matchCountry;
+
+  });
+
+  renderTours(result);
+
+}
+
+
+/* =====================================================
+   SORT
+====================================================== */
+
+function sortTours(){
+
+  const type=
+    document.getElementById("sortFilter").value;
+
+  let list=[...tours];
+
+  if(type==="low"){
+
+    list.sort((a,b)=>a.price-b.price);
+
+  }
+
+  if(type==="high"){
+
+    list.sort((a,b)=>b.price-a.price);
+
+  }
+
+  renderTours(list);
+
+}
+
+
+/* =====================================================
+   VISITOR COUNTER
+====================================================== */
+
+function countVisit(){
+
+  let views=
     Number(
-      localStorage.getItem("radarViews")
-    ) || 0;
-
+      localStorage.getItem("radarViews") || 0
+    );
 
   views++;
-
 
   localStorage.setItem(
     "radarViews",
     views
   );
 
+}
 
-  console.log(
-    "RADAR TOUR нийт үзэлт:",
-    views
-  );
+
+/* =====================================================
+   STATS
+====================================================== */
+
+function updateStats(){
+
+  const views=
+    Number(
+      localStorage.getItem("radarViews") || 0
+    );
+
+  const bookings=
+    JSON.parse(
+      localStorage.getItem("radarBookings") || "[]"
+    );
+
+  document.getElementById("viewCount")
+    .textContent=views;
+
+  document.getElementById("bookingCount")
+    .textContent=bookings.length;
+
+}
+
+
+/* =====================================================
+   MOBILE MENU
+====================================================== */
+
+function toggleMobileMenu(){
+
+  const nav=document.querySelector(".nav");
+
+  if(nav.style.display==="flex"){
+
+    nav.style.display="none";
+
+  }else{
+
+    nav.style.display="flex";
+    nav.style.position="absolute";
+    nav.style.top="78px";
+    nav.style.left="0";
+    nav.style.right="0";
+    nav.style.background="#fff";
+    nav.style.padding="20px";
+    nav.style.flexDirection="column";
+    nav.style.borderBottom="1px solid #ddd";
+
+  }
+
+}
+
+
+/* =====================================================
+   ADMIN
+   Дараа нь password/database системтэй холбоно.
+====================================================== */
+
+function openAdmin(){
+
+  document.getElementById("adminPanel").style.display="block";
+
+  updateAdmin();
+
+}
+
+function closeAdmin(){
+
+  document.getElementById("adminPanel").style.display="none";
+
+}
+
+function updateAdmin(){
+
+  const views=
+    Number(
+      localStorage.getItem("radarViews") || 0
+    );
+
+  const bookings=
+    JSON.parse(
+      localStorage.getItem("radarBookings") || "[]"
+    );
+
+  document.getElementById("adminViews")
+    .textContent=views;
+
+  document.getElementById("adminBookings")
+    .textContent=bookings.length;
+
+  document.getElementById("adminLocal")
+    .textContent=bookings.length;
+
+
+  const box=
+    document.getElementById("bookingList");
+
+
+  if(!bookings.length){
+
+    box.innerHTML=`
+      <div class="empty">
+        Одоогоор захиалга алга.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  box.innerHTML=`
+
+    <table class="booking-table">
+
+      <thead>
+        <tr>
+          <th>Огноо</th>
+          <th>Нэр</th>
+          <th>Утас</th>
+          <th>Аялал</th>
+          <th>Хүн</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        ${bookings.map(b=>`
+
+          <tr>
+            <td>${b.created}</td>
+            <td>${b.name}</td>
+            <td>${b.phone}</td>
+            <td>${b.tour}</td>
+            <td>${b.people}</td>
+          </tr>
+
+        `).join("")}
+
+      </tbody>
+
+    </table>
+
+  `;
+
+}
+
+
+/* =====================================================
+   INIT
+====================================================== */
+
+document.title=
+  SITE_NAME+" | Аялал бүр дурсамж";
+
+countVisit();
+
+renderTours();
+
+loadTourOptions();
+
+updateStats();
+
+
+/*
+  ADMIN-ийг browser console-оос:
+  openAdmin()
+  гэж нээж болно.
+
+  Жишээ:
+  F12 → Console → openAdmin()
+*/
 
 </script>
 
