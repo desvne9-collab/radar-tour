@@ -4,890 +4,2197 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RADAR TOUR | Таны амралтыг бид зохион байгуулна</title>
+<title>RADAR TOUR — Таны амралтыг бид зохион байгуулна</title>
 
 <style>
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f6f8fb;
-  color:#172033;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f6f7f9;
+    color:#172033;
+}
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
 }
 
 a{
-  text-decoration:none;
-  color:inherit;
+    text-decoration:none;
+    color:inherit;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:1000;
-  padding:18px 6%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(255,255,255,.94);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid #eaecf0;
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid #eaecf0;
+}
+
+.nav{
+    max-width:1250px;
+    margin:auto;
+    height:76px;
+    padding:0 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
 .logo{
-  font-size:25px;
-  font-weight:900;
-  letter-spacing:1px;
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:-1px;
 }
 
 .logo span{
-  color:#ff5a36;
+    color:#ff5b35;
 }
 
-nav{
-  display:flex;
-  align-items:center;
-  gap:28px;
+.nav-links{
+    display:flex;
+    gap:28px;
+    align-items:center;
 }
 
-nav a{
-  font-size:14px;
-  font-weight:700;
-  color:#344054;
+.nav-links a{
+    font-size:14px;
+    font-weight:700;
+    color:#344054;
 }
 
-nav a:hover{
-  color:#ff5a36;
+.nav-links a:hover{
+    color:#ff5b35;
 }
 
-.nav-btn{
-  background:#ff5a36;
-  color:white!important;
-  padding:12px 19px;
-  border-radius:10px;
+.nav-call{
+    background:#ff5b35;
+    color:white!important;
+    padding:12px 18px;
+    border-radius:10px;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
-  min-height:720px;
-  padding:150px 6% 100px;
-  display:flex;
-  align-items:center;
-
-  background:
-  linear-gradient(90deg,
-  rgba(7,15,29,.88),
-  rgba(7,15,29,.55),
-  rgba(7,15,29,.15)
-  ),
-  url("https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=2200&q=90")
-  center/cover;
+    min-height:650px;
+    background:
+        linear-gradient(90deg,
+        rgba(0,0,0,.78),
+        rgba(0,0,0,.2)),
+        url("https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=2200&q=90")
+        center/cover;
+    display:flex;
+    align-items:center;
 }
 
 .hero-content{
-  max-width:760px;
-  color:white;
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    color:white;
 }
 
-.hero-label{
-  display:inline-block;
-  padding:9px 15px;
-  border:1px solid rgba(255,255,255,.4);
-  border-radius:50px;
-  margin-bottom:22px;
-  font-size:13px;
-  font-weight:700;
+.hero-small{
+    display:inline-block;
+    background:#ff5b35;
+    padding:9px 15px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:800;
+    margin-bottom:20px;
 }
 
 .hero h1{
-  font-size:clamp(48px,7vw,82px);
-  line-height:.98;
-  letter-spacing:-3px;
-  margin-bottom:25px;
-}
-
-.hero h1 span{
-  color:#ff704d;
+    font-size:64px;
+    max-width:760px;
+    line-height:1.02;
+    margin-bottom:22px;
+    letter-spacing:-2px;
 }
 
 .hero p{
-  max-width:620px;
-  color:#e4e7ec;
-  font-size:19px;
-  line-height:1.6;
-  margin-bottom:35px;
+    font-size:19px;
+    max-width:620px;
+    line-height:1.7;
+    color:#f2f4f7;
 }
 
 .hero-buttons{
-  display:flex;
-  gap:13px;
-  flex-wrap:wrap;
+    display:flex;
+    gap:12px;
+    margin-top:30px;
+    flex-wrap:wrap;
 }
 
-.primary-btn{
-  background:#ff5a36;
-  color:white;
-  padding:16px 25px;
-  border-radius:11px;
-  font-weight:800;
+.hero-btn{
+    padding:15px 23px;
+    border-radius:10px;
+    font-weight:800;
+    border:0;
 }
 
-.secondary-btn{
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.4);
-  color:white;
-  padding:16px 25px;
-  border-radius:11px;
-  font-weight:800;
+.hero-btn.main{
+    background:#ff5b35;
+    color:white;
 }
 
-/* QUICK */
-
-.quick-info{
-  position:relative;
-  margin:-55px auto 0;
-  width:88%;
-  max-width:1150px;
-  background:white;
-  border-radius:20px;
-  padding:27px;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-  box-shadow:0 20px 50px rgba(16,24,40,.13);
+.hero-btn.second{
+    background:white;
+    color:#101828;
 }
 
-.quick-item{
-  display:flex;
-  align-items:center;
-  gap:14px;
+/* ================= SEARCH ================= */
+
+.search-area{
+    margin-top:-45px;
+    position:relative;
+    z-index:20;
 }
 
-.quick-icon{
-  width:47px;
-  height:47px;
-  border-radius:13px;
-  background:#fff0ec;
-  display:grid;
-  place-items:center;
-  font-size:21px;
+.search-box{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+    background:white;
+    padding:18px;
+    border-radius:18px;
+    box-shadow:0 15px 50px rgba(16,24,40,.13);
+    display:flex;
+    gap:10px;
 }
 
-.quick-item strong{
-  display:block;
-  font-size:14px;
-  margin-bottom:4px;
+.search-box input{
+    flex:1;
+    border:1px solid #d0d5dd;
+    border-radius:10px;
+    padding:15px;
+    font-size:15px;
+    outline:none;
 }
 
-.quick-item span{
-  color:#667085;
-  font-size:12px;
+.search-box select{
+    width:190px;
+    border:1px solid #d0d5dd;
+    border-radius:10px;
+    padding:0 13px;
+    font-size:14px;
 }
 
-/* SECTION */
+.search-box button{
+    border:0;
+    background:#101828;
+    color:white;
+    border-radius:10px;
+    padding:0 24px;
+    font-weight:800;
+}
+
+/* ================= GENERAL ================= */
+
+.container{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+}
 
 .section{
-  padding:100px 6%;
-  max-width:1450px;
-  margin:auto;
+    padding:90px 0;
 }
 
 .section-head{
-  margin-bottom:38px;
-}
-
-.section-head small{
-  color:#ff5a36;
-  font-weight:800;
-  letter-spacing:1px;
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:30px;
+    gap:20px;
 }
 
 .section-head h2{
-  font-size:42px;
-  letter-spacing:-1.5px;
-  margin-top:8px;
+    font-size:35px;
+    letter-spacing:-1px;
 }
 
 .section-head p{
-  color:#667085;
-  line-height:1.6;
-  margin-top:10px;
+    color:#667085;
+    margin-top:7px;
 }
 
-/* FILTER */
+/* ================= CATEGORY ================= */
 
-.filters{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:30px;
+.categories{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
-.filter-btn{
-  border:1px solid #d0d5dd;
-  background:white;
-  padding:11px 18px;
-  border-radius:50px;
-  cursor:pointer;
-  font-weight:700;
-  color:#475467;
+.category{
+    border:1px solid #d0d5dd;
+    background:white;
+    border-radius:100px;
+    padding:11px 19px;
+    font-weight:700;
+    color:#344054;
 }
 
-.filter-btn.active,
-.filter-btn:hover{
-  background:#ff5a36;
-  color:white;
-  border-color:#ff5a36;
+.category.active,
+.category:hover{
+    background:#ff5b35;
+    color:white;
+    border-color:#ff5b35;
 }
 
-/* TOUR GRID */
+/* ================= TOURS ================= */
 
-.tour-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:23px;
+.tours{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
 }
 
 .tour-card{
-  background:white;
-  border-radius:19px;
-  overflow:hidden;
-  border:1px solid #eaecf0;
-  transition:.3s;
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid #eaecf0;
+    transition:.25s;
 }
 
 .tour-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 18px 40px rgba(16,24,40,.12);
+    transform:translateY(-5px);
+    box-shadow:0 15px 40px rgba(16,24,40,.12);
 }
 
 .tour-img{
-  height:240px;
-  position:relative;
-  background-size:cover;
-  background-position:center;
+    height:235px;
+    position:relative;
+    overflow:hidden;
 }
 
-.tour-tag{
-  position:absolute;
-  top:15px;
-  left:15px;
-  background:#ff5a36;
-  color:white;
-  padding:7px 11px;
-  border-radius:7px;
-  font-size:11px;
-  font-weight:800;
+.tour-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.4s;
 }
 
-.tour-info{
-  padding:23px;
+.tour-card:hover .tour-img img{
+    transform:scale(1.05);
 }
 
-.tour-info h3{
-  font-size:21px;
-  margin-bottom:10px;
+.tour-badge{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:white;
+    padding:7px 10px;
+    border-radius:7px;
+    font-size:12px;
+    font-weight:800;
 }
 
-.tour-country{
-  color:#667085;
-  font-size:13px;
-  margin-bottom:14px;
+.tour-body{
+    padding:21px;
+}
+
+.tour-body h3{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.tour-location{
+    color:#667085;
+    font-size:13px;
+    margin-bottom:15px;
 }
 
 .tour-meta{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-bottom:17px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:18px;
 }
 
 .tour-meta span{
-  background:#f2f4f7;
-  padding:7px 9px;
-  border-radius:7px;
-  font-size:12px;
-  color:#475467;
+    background:#f2f4f7;
+    border-radius:7px;
+    padding:7px 9px;
+    font-size:12px;
+    color:#475467;
 }
 
-.price-label{
-  color:#98a2b3;
-  font-size:12px;
+.tour-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    border-top:1px solid #eaecf0;
+    padding-top:16px;
 }
 
-.price{
-  color:#ff5a36;
-  font-size:24px;
-  font-weight:900;
-  margin:4px 0 18px;
+.tour-price small{
+    display:block;
+    color:#98a2b3;
+    font-size:11px;
+}
+
+.tour-price strong{
+    font-size:21px;
+    color:#ff5b35;
 }
 
 .detail-btn{
-  width:100%;
-  display:block;
-  text-align:center;
-  padding:13px;
-  background:#101828;
-  color:white;
-  border-radius:9px;
-  font-size:14px;
-  font-weight:800;
+    background:#101828;
+    color:white;
+    border:0;
+    padding:11px 15px;
+    border-radius:8px;
+    font-weight:800;
 }
 
-.detail-btn:hover{
-  background:#ff5a36;
+/* ================= WHY ================= */
+
+.why{
+    background:#101828;
+    color:white;
 }
 
-/* EMPTY */
-
-.no-result{
-  display:none;
-  text-align:center;
-  padding:50px;
-  color:#667085;
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
 }
 
-/* FOOTER */
+.why-card{
+    border:1px solid #344054;
+    border-radius:16px;
+    padding:25px;
+}
+
+.why-card div{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.why-card h3{
+    margin-bottom:8px;
+}
+
+.why-card p{
+    color:#98a2b3;
+    line-height:1.6;
+    font-size:14px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    background:#ff5b35;
+    color:white;
+}
+
+.contact-box{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.contact h2{
+    font-size:38px;
+}
+
+.contact p{
+    margin-top:8px;
+    opacity:.9;
+}
+
+.contact-btn{
+    background:white;
+    color:#ff5b35;
+    padding:15px 23px;
+    border-radius:10px;
+    font-weight:900;
+    white-space:nowrap;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
-  background:#101828;
-  color:white;
-  padding:60px 6% 30px;
+    background:#0b1220;
+    color:white;
+    padding:50px 0;
 }
 
 .footer-grid{
-  max-width:1330px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1.5fr 1fr 1fr;
-  gap:50px;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:40px;
 }
 
 footer h3{
-  margin-bottom:15px;
+    margin-bottom:15px;
 }
 
 footer p,
-footer a{
-  color:#98a2b3;
-  font-size:14px;
-  line-height:2;
+footer li{
+    color:#98a2b3;
+    line-height:1.8;
 }
 
-.copyright{
-  max-width:1330px;
-  margin:40px auto 0;
-  padding-top:20px;
-  border-top:1px solid #344054;
-  color:#667085;
-  font-size:12px;
+footer ul{
+    list-style:none;
 }
 
-/* MOBILE */
+/* ================= DETAIL PAGE ================= */
+
+.detail-page{
+    display:none;
+    background:#f6f7f9;
+    min-height:100vh;
+}
+
+.detail-hero{
+    height:480px;
+    position:relative;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:end;
+}
+
+.detail-overlay{
+    width:100%;
+    padding:70px 6%;
+    color:white;
+    background:linear-gradient(transparent,rgba(0,0,0,.85));
+}
+
+.detail-overlay h1{
+    font-size:52px;
+    margin-bottom:15px;
+}
+
+.detail-tags{
+    display:flex;
+    gap:9px;
+    flex-wrap:wrap;
+}
+
+.detail-tags span{
+    background:rgba(255,255,255,.15);
+    padding:9px 13px;
+    border-radius:8px;
+    backdrop-filter:blur(10px);
+}
+
+.detail-container{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+}
+
+.detail-price-box{
+    background:white;
+    margin-top:-45px;
+    position:relative;
+    border-radius:18px;
+    padding:23px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 15px 45px rgba(0,0,0,.1);
+}
+
+.detail-price strong{
+    display:block;
+    font-size:31px;
+    color:#ff5b35;
+}
+
+.detail-price small{
+    color:#98a2b3;
+}
+
+.close-detail{
+    border:1px solid #d0d5dd;
+    background:white;
+    padding:11px 17px;
+    border-radius:9px;
+    font-weight:800;
+}
+
+.detail-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:25px;
+    padding:55px 0;
+}
+
+.detail-card{
+    background:white;
+    border:1px solid #eaecf0;
+    border-radius:17px;
+    padding:28px;
+    margin-bottom:20px;
+}
+
+.detail-card h2{
+    font-size:26px;
+    margin-bottom:18px;
+}
+
+.detail-card p{
+    color:#475467;
+    line-height:1.8;
+}
+
+.day-card{
+    border:1px solid #eaecf0;
+    border-radius:15px;
+    margin-bottom:15px;
+    overflow:hidden;
+}
+
+.day-title{
+    padding:20px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:#fff;
+}
+
+.day-number{
+    width:52px;
+    height:52px;
+    background:#fff0ec;
+    color:#ff5b35;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+    font-size:12px;
+    font-weight:900;
+    flex-shrink:0;
+}
+
+.day-title h3{
+    font-size:19px;
+}
+
+.day-content{
+    padding:0 20px 22px;
+}
+
+.day-part{
+    margin-top:20px;
+}
+
+.day-part h4{
+    margin-bottom:7px;
+}
+
+.day-part p{
+    line-height:1.75;
+    color:#475467;
+}
+
+.meals{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin-top:18px;
+}
+
+.meal{
+    padding:7px 10px;
+    border-radius:7px;
+    font-size:11px;
+    font-weight:800;
+}
+
+.meal.yes{
+    background:#ecfdf3;
+    color:#027a48;
+}
+
+.meal.no{
+    background:#fef3f2;
+    color:#b42318;
+}
+
+.info-list{
+    list-style:none;
+}
+
+.info-list li{
+    padding:12px 0;
+    border-bottom:1px solid #eaecf0;
+    line-height:1.6;
+    color:#475467;
+}
+
+.info-list li:last-child{
+    border:0;
+}
+
+.booking-side{
+    background:#101828;
+    color:white;
+}
+
+.booking-side p{
+    color:#98a2b3;
+    margin-bottom:20px;
+}
+
+.booking-phone{
+    display:block;
+    background:#ff5b35;
+    color:white;
+    text-align:center;
+    padding:13px;
+    border-radius:9px;
+    margin-top:9px;
+    font-weight:800;
+}
+
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
-  nav{
-    display:none;
-  }
+    .nav-links{
+        display:none;
+    }
 
-  .quick-info{
-    grid-template-columns:repeat(2,1fr);
-  }
+    .hero h1{
+        font-size:47px;
+    }
 
-  .tour-grid{
-    grid-template-columns:1fr 1fr;
-  }
+    .tours{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .why-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .detail-grid{
+        grid-template-columns:1fr;
+    }
+
 }
 
 @media(max-width:600px){
 
-  .hero{
-    min-height:650px;
-  }
+    .hero{
+        min-height:580px;
+    }
 
-  .hero h1{
-    font-size:48px;
-  }
+    .hero h1{
+        font-size:38px;
+    }
 
-  .hero p{
-    font-size:16px;
-  }
+    .hero p{
+        font-size:16px;
+    }
 
-  .quick-info{
-    grid-template-columns:1fr;
-    width:90%;
-  }
+    .search-box{
+        flex-direction:column;
+    }
 
-  .section{
-    padding:70px 6%;
-  }
+    .search-box select{
+        width:100%;
+        height:50px;
+    }
 
-  .section-head h2{
-    font-size:32px;
-  }
+    .search-box button{
+        height:50px;
+    }
 
-  .tour-grid{
-    grid-template-columns:1fr;
-  }
+    .tours{
+        grid-template-columns:1fr;
+    }
+
+    .why-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact-box{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .contact h2{
+        font-size:30px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .detail-hero{
+        height:430px;
+    }
+
+    .detail-overlay h1{
+        font-size:37px;
+    }
+
+    .detail-price-box{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
 }
+
 </style>
 </head>
 
 
 <body>
 
-<!-- HEADER -->
+
+<!-- =====================================================
+     MAIN WEBSITE
+===================================================== -->
+
+<div id="homePage">
+
 
 <header>
 
-  <a href="#" class="logo">
-    RADAR <span>TOUR</span>
-  </a>
+    <div class="nav">
 
-  <nav>
-    <a href="#home">Нүүр</a>
-    <a href="#tours">Аяллууд</a>
-    <a href="#contact">Холбоо барих</a>
+        <a href="#" class="logo">
+            RADAR <span>TOUR</span>
+        </a>
 
-    <a href="#tours" class="nav-btn">
-      Аялал сонгох
-    </a>
-  </nav>
+        <nav class="nav-links">
+
+            <a href="#home">Нүүр</a>
+
+            <a href="#tours">Аялал</a>
+
+            <a href="#why">Бидний тухай</a>
+
+            <a href="#contact">Холбоо барих</a>
+
+            <a href="tel:98111682" class="nav-call">
+                📞 Залгах
+            </a>
+
+        </nav>
+
+    </div>
 
 </header>
 
 
-<!-- HERO -->
-
 <section class="hero" id="home">
 
-  <div class="hero-content">
+    <div class="hero-content">
 
-    <div class="hero-label">
-      ✈️ RADAR TOUR
+        <span class="hero-small">
+            ✈️ RADAR TOUR
+        </span>
+
+        <h1>
+            Дараагийн аяллаа<br>
+            эндээс эхлүүл.
+        </h1>
+
+        <p>
+            Таны амралтыг бид зохион байгуулна.
+            Хятад, Япон, Солонгос болон бусад
+            чиглэлийн аяллаа сонгоорой.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#tours" class="hero-btn main">
+                Аяллууд үзэх →
+            </a>
+
+            <a href="#contact" class="hero-btn second">
+                Холбоо барих
+            </a>
+
+        </div>
+
     </div>
-
-    <h1>
-      Дэлхийгээр<br>
-      <span>хамтдаа аялъя.</span>
-    </h1>
-
-    <p>
-      Танд тохирох аяллаа сонгоод,
-      аяллын хөтөлбөр, үнэ болон
-      дэлгэрэнгүй мэдээллийг нэг дороос хараарай.
-    </p>
-
-    <div class="hero-buttons">
-
-      <a href="#tours" class="primary-btn">
-        Аяллуудыг үзэх →
-      </a>
-
-      <a href="#contact" class="secondary-btn">
-        Холбогдох
-      </a>
-
-    </div>
-
-  </div>
 
 </section>
 
 
-<!-- QUICK INFO -->
+<div class="search-area">
 
-<div class="quick-info">
+    <div class="search-box">
 
-  <div class="quick-item">
-    <div class="quick-icon">🌏</div>
-    <div>
-      <strong>Олон чиглэл</strong>
-      <span>Ази тивийн аяллууд</span>
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Аялал хайх... жишээ нь Манжуур"
+            oninput="filterTours()"
+        >
+
+        <select
+            id="categorySelect"
+            onchange="filterTours()"
+        >
+
+            <option value="all">
+                Бүх аялал
+            </option>
+
+            <option value="china">
+                🇨🇳 Хятад
+            </option>
+
+            <option value="japan">
+                🇯🇵 Япон
+            </option>
+
+            <option value="korea">
+                🇰🇷 Солонгос
+            </option>
+
+        </select>
+
+        <button onclick="filterTours()">
+            🔎 Хайх
+        </button>
+
     </div>
-  </div>
-
-  <div class="quick-item">
-    <div class="quick-icon">✈️</div>
-    <div>
-      <strong>Шууд нислэг</strong>
-      <span>Сонгогдсон чиглэлүүд</span>
-    </div>
-  </div>
-
-  <div class="quick-item">
-    <div class="quick-icon">🏨</div>
-    <div>
-      <strong>Буудал</strong>
-      <span>Аяллын хөтөлбөртэй</span>
-    </div>
-  </div>
-
-  <div class="quick-item">
-    <div class="quick-icon">💬</div>
-    <div>
-      <strong>Зөвлөгөө</strong>
-      <span>Аяллын туршид</span>
-    </div>
-  </div>
 
 </div>
 
 
-<!-- TOURS -->
-
 <section class="section" id="tours">
 
-  <div class="section-head">
+<div class="container">
 
-    <small>RADAR TOUR</small>
+    <div class="section-head">
 
-    <h2>Аяллаа сонгоорой</h2>
+        <div>
+            <h2>Онцлох аяллууд</h2>
 
-    <p>
-      Чиглэлээр шүүж, өөрт тохирох аяллаа сонгоно уу.
-    </p>
+            <p>
+                Өөрт тохирох аяллаа сонгоод
+                дэлгэрэнгүй хөтөлбөртэй танилцаарай.
+            </p>
+        </div>
 
-  </div>
-
-
-  <!-- FILTER -->
-
-  <div class="filters">
-
-    <button class="filter-btn active" onclick="filterTours('all',this)">
-      Бүгд
-    </button>
-
-    <button class="filter-btn" onclick="filterTours('china',this)">
-      🇨🇳 Хятад
-    </button>
-
-    <button class="filter-btn" onclick="filterTours('japan',this)">
-      🇯🇵 Япон
-    </button>
-
-    <button class="filter-btn" onclick="filterTours('korea',this)">
-      🇰🇷 Солонгос
-    </button>
-
-    <button class="filter-btn" onclick="filterTours('hainan',this)">
-      🏝️ Хайнань
-    </button>
-
-  </div>
+    </div>
 
 
-  <!-- AUTO GENERATED TOURS -->
+    <div class="categories">
 
-  <div class="tour-grid" id="tourGrid"></div>
+        <button
+            class="category active"
+            onclick="chooseCategory('all',this)"
+        >
+            Бүгд
+        </button>
 
-  <div class="no-result" id="noResult">
-    Одоогоор энэ чиглэлд аялал нэмэгдээгүй байна.
-  </div>
+        <button
+            class="category"
+            onclick="chooseCategory('china',this)"
+        >
+            🇨🇳 Хятад
+        </button>
+
+        <button
+            class="category"
+            onclick="chooseCategory('japan',this)"
+        >
+            🇯🇵 Япон
+        </button>
+
+        <button
+            class="category"
+            onclick="chooseCategory('korea',this)"
+        >
+            🇰🇷 Солонгос
+        </button>
+
+    </div>
+
+
+    <br><br>
+
+
+    <div
+        class="tours"
+        id="tourList"
+    ></div>
+
+</div>
 
 </section>
 
 
-<!-- FOOTER -->
+<section class="section why" id="why">
 
-<footer id="contact">
+<div class="container">
 
-  <div class="footer-grid">
+    <div class="section-head">
 
-    <div>
+        <div>
 
-      <h3>RADAR TOUR</h3>
+            <h2>
+                Яагаад RADAR TOUR?
+            </h2>
 
-      <p>
-        Таны амралтыг<br>
-        бид зохион байгуулна.
-      </p>
+            <p>
+                Аяллаа эхнээс нь дуустал
+                хамтдаа зохион байгуулна.
+            </p>
 
-    </div>
-
-
-    <div>
-
-      <h3>Холбоо барих</h3>
-
-      <p>📞 9811-1682</p>
-
-      <p>📞 9100-1128</p>
-
-      <p>📱 Facebook: Radar tour</p>
+        </div>
 
     </div>
 
 
-    <div>
+    <div class="why-grid">
 
-      <h3>Ажлын цаг</h3>
+        <div class="why-card">
 
-      <p>Даваа – Баасан: 09:00–18:00</p>
+            <div>✈️</div>
 
-      <p>Бямба: 10:00–18:00</p>
+            <h3>
+                Тохиромжтой аялал
+            </h3>
 
-      <p>Ням: Амарна</p>
+            <p>
+                Төлөвлөсөн хөтөлбөрөөр
+                аяллаа тухтай өнгөрүүлнэ.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div>🧑‍💼</div>
+
+            <h3>
+                Мэргэжлийн баг
+            </h3>
+
+            <p>
+                Аяллын явцад мэдээлэл,
+                зохион байгуулалтаар хангана.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div>🏨</div>
+
+            <h3>
+                Буудал + унаа
+            </h3>
+
+            <p>
+                Аяллын нөхцөлд багтсан
+                үйлчилгээ тодорхой байна.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div>💬</div>
+
+            <h3>
+                Холбоо
+            </h3>
+
+            <p>
+                Захиалга болон мэдээллээ
+                шууд биднээс аваарай.
+            </p>
+
+        </div>
 
     </div>
 
-  </div>
+</div>
+
+</section>
 
 
-  <div class="copyright">
-    © 2026 RADAR TOUR. Бүх эрх хуулиар хамгаалагдсан.
-  </div>
+<section class="section contact" id="contact">
+
+<div class="container">
+
+    <div class="contact-box">
+
+        <div>
+
+            <h2>
+                Аяллаа эхлүүлэх үү?
+            </h2>
+
+            <p>
+                Суудал болон дэлгэрэнгүй мэдээллийг
+                манай ажилтнаас аваарай.
+            </p>
+
+        </div>
+
+        <a
+            href="tel:98111682"
+            class="contact-btn"
+        >
+            📞 9811-1682
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="container">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>
+                RADAR TOUR
+            </h3>
+
+            <p>
+                Таны амралтыг бид зохион байгуулна.
+            </p>
+
+            <br>
+
+            <p>
+                📞 9811-1682
+                <br>
+                📞 9100-1128
+                <br>
+                📘 Facebook: Radar tour
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Аялал
+            </h3>
+
+            <ul>
+
+                <li>🇨🇳 Хятад</li>
+
+                <li>🇯🇵 Япон</li>
+
+                <li>🇰🇷 Солонгос</li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Ажлын цаг
+            </h3>
+
+            <p>
+                Даваа – Баасан
+                <br>
+                09:00 – 18:00
+                <br><br>
+                Бямба
+                <br>
+                10:00 – 18:00
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
 
 </footer>
+
+</div>
+
+
+<!-- =====================================================
+     TOUR DETAIL PAGE
+===================================================== -->
+
+<div
+    id="detailPage"
+    class="detail-page"
+>
+
+    <div
+        id="detailHero"
+        class="detail-hero"
+    >
+
+        <div class="detail-overlay">
+
+            <div class="detail-container">
+
+                <div
+                    id="detailCountry"
+                    class="hero-small"
+                ></div>
+
+                <h1 id="detailTitle"></h1>
+
+                <div
+                    id="detailTags"
+                    class="detail-tags"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="detail-container">
+
+        <div class="detail-price-box">
+
+            <div class="detail-price">
+
+                <small>
+                    Аяллын үнэ
+                </small>
+
+                <strong id="detailPrice"></strong>
+
+            </div>
+
+            <button
+                class="close-detail"
+                onclick="closeTour()"
+            >
+                ← Аяллууд руу буцах
+            </button>
+
+        </div>
+
+
+        <div class="detail-grid">
+
+
+            <div>
+
+
+                <div class="detail-card">
+
+                    <h2>
+                        Аяллын танилцуулга
+                    </h2>
+
+                    <p id="detailIntro"></p>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <h2>
+                        Аяллын хөтөлбөр
+                    </h2>
+
+                    <div id="itinerary"></div>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <h2>
+                        Багтсан зүйлс
+                    </h2>
+
+                    <ul
+                        id="included"
+                        class="info-list"
+                    ></ul>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <h2>
+                        Багтаагүй / нэмэлт
+                    </h2>
+
+                    <ul
+                        id="excluded"
+                        class="info-list"
+                    ></ul>
+
+                </div>
+
+
+            </div>
+
+
+            <aside>
+
+
+                <div class="detail-card">
+
+                    <h2>
+                        Аяллын мэдээлэл
+                    </h2>
+
+                    <ul
+                        id="detailInfo"
+                        class="info-list"
+                    ></ul>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <h2>
+                        📌 Авч явах зүйлс
+                    </h2>
+
+                    <ul class="info-list">
+
+                        <li>
+                            Гадаад паспорт
+                        </li>
+
+                        <li>
+                            Хувийн бичиг баримт
+                        </li>
+
+                        <li>
+                            Хувийн хэрэглээний зүйлс
+                        </li>
+
+                        <li>
+                            Улиралд тохирсон хувцас
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="detail-card booking-side">
+
+                    <h2>
+                        Аяллаа захиалах
+                    </h2>
+
+                    <p>
+                        Суудлын мэдээлэл болон
+                        аяллын нөхцөлийг бидэнтэй
+                        холбогдож аваарай.
+                    </p>
+
+                    <a
+                        href="tel:98111682"
+                        class="booking-phone"
+                    >
+                        📞 9811-1682
+                    </a>
+
+                    <a
+                        href="tel:91001128"
+                        class="booking-phone"
+                    >
+                        📞 9100-1128
+                    </a>
+
+                </div>
+
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 <script>
 
-/* ==========================================
-   АЯЛЛЫН МЭДЭЭЛЭЛ
-   ЭНДЭЭС АЯЛАЛ НЭМЭХЭД
-   САЙТ ӨӨРӨӨ КАРТ ҮҮСГЭНЭ
-========================================== */
+/* =====================================================
+   TOUR DATA
+===================================================== */
 
 const tours = [
 
-  {
-    id: 1,
-    name: "Хайлаар – Манжуур",
-    country: "china",
-    countryName: "Хятад",
-    duration: "3 шөнө • 4 өдөр",
-    type: "Шууд нислэг",
-    price: "790,000₮-с",
-    tag: "ЭРЭЛТТЭЙ",
-    image: "https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1200&q=90"
-  },
+{
+    id:"manzhouli",
 
-  {
-    id: 2,
-    name: "Токио хотын аялал",
-    country: "japan",
-    countryName: "Япон",
-    duration: "4 шөнө • 5 өдөр",
-    type: "Токио • Фүжи",
-    price: "5,600,000₮-с",
-    tag: "ЯПОН",
-    image: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1200&q=90"
-  },
+    country:"🇨🇳 ХЯТАД",
 
-  {
-    id: 3,
-    name: "Жанжяже",
-    country: "china",
-    countryName: "Хятад",
-    duration: "10 өдөр",
-    type: "Галт тэрэг + Нислэг",
-    price: "Үнэ удахгүй",
-    tag: "ОНЦЛОХ",
-    image: "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1200&q=90"
-  },
+    category:"china",
 
-  {
-    id: 4,
-    name: "Хайнань – Санья",
-    country: "hainan",
-    countryName: "Хятад",
-    duration: "7 шөнө • 8 өдөр",
-    type: "Шууд нислэг",
-    price: "2,290,000₮",
-    tag: "🏝️ ДАЛАЙ",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=90"
-  },
+    title:"Хайлаар – Манжуур",
 
-  {
-    id: 5,
-    name: "Шанхай",
-    country: "china",
-    countryName: "Хятад",
-    duration: "Аяллын хөтөлбөртэй",
-    type: "Шууд нислэг",
-    price: "3,590,000₮-с",
-    tag: "ШИНЭ",
-    image: "https://images.unsplash.com/photo-1538428494232-9c0d8a3ab403?auto=format&fit=crop&w=1200&q=90"
-  },
+    location:"Хайлаар • Манжуур",
 
-  {
-    id: 6,
-    name: "Сөүл – Инчон",
-    country: "korea",
-    countryName: "Солонгос",
-    duration: "Аяллын хөтөлбөртэй",
-    type: "Сөүл • Инчон",
-    price: "Үнэ удахгүй",
-    tag: "СОЛОНГОС",
-    image: "https://images.unsplash.com/photo-1538485399081-7c897a9b2fdb?auto=format&fit=crop&w=1200&q=90"
-  }
+    price:"790,000₮",
+
+    duration:"3 шөнө / 4 өдөр",
+
+    type:"Шууд нислэг",
+
+    image:
+    "https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=1800&q=90",
+
+    intro:
+    "Хайлаар – Манжуур хотын шууд нислэгтэй аялал. Манжуур хотын аялал, Матрешка зочид буудал, Мишка-Клубника цэцэрлэгт хүрээлэн, Далай нуурын орчим, худалдааны төвүүд болон чөлөөт өдрийг багтаасан аялал.",
+
+    info:[
+        "7 хоног бүрийн Баасан гарагт 3 шөнө / 4 өдөртэй аялал.",
+        "7 хоног бүрийн Даваа гарагт 4 шөнө / 5 өдөртэй аялал.",
+        "Шууд нислэгтэй.",
+        "Аяллын үеэр хөтөч, унааны үйлчилгээтэй.",
+        "Буудлын өрөөнд 2-оороо байрлахаар тооцсон.",
+        "Ганцаараа байрлах бол нэмэлт төлбөртэй."
+    ],
+
+    included:[
+        "2 талын нислэгийн үйлчилгээний нөхцөл аяллын багцад тусгагдана.",
+        "Зочид буудал.",
+        "Аяллын хөтөлбөрийн дагуух унаа.",
+        "Хөтөч.",
+        "Хөтөлбөрт заасан хоол."
+    ],
+
+    excluded:[
+        "Чөлөөт өдрийн унаа, хөтөч болон хоолны үйлчилгээ.",
+        "Хувийн хэрэглээний зардал.",
+        "Нэмэлт төлбөртэй үйлчилгээ.",
+        "Ганцаараа байрлах нэмэлт төлбөр."
+    ],
+
+    days:[
+
+    {
+        day:"01",
+        title:"УБ – Хайлаар – Манжуур",
+
+        morning:
+        "Аялагчид 05:00 цагт Хөшигтийн хөндийн шинэ нисэх онгоцны буудлын 2 давхарт цуглана. 07:20 цагт УБ хотоос нисэж, 09:00 цагт Манжуур хотод бууна. Хайлаар хотод буух үед хөтөч, унаа тосож авна.",
+
+        noon:
+        "Хайлаар – Манжуур чиглэлд 3 цаг орчим автобусаар явна.",
+
+        evening:
+        "3 улсын шоу тоглолттой оройн хоол. Оройн хоол зооглонгоо 3 улсын шоу тоглолт үзнэ. Буудалдаа амарна.",
+
+        meals:[
+            ["Өглөөний цай",false],
+            ["Өдрийн хоол",true],
+            ["Оройн хоол",true]
+        ]
+    },
+
+    {
+        day:"02",
+        title:"Манжуур хотын аялал",
+
+        morning:
+        "Өглөөний цай. Манжуур толгой гарч хотыг бүхэлд нь тольдох боломжтой. Дэлхийн хамгийн том хүүхэлдэйн хэлбэртэй барилга болох Матрешка зочид буудалд орж сонирхоно. Мишка-Клубника цэцэрлэгт хүрээлэнгээр зугаална. Хуримын ордонтой танилцана.",
+
+        noon:
+        "Өдрийн хоол. Далай нуурын арслан зааны цэцэрлэгт хүрээлэнг гаднаас нь үзэж сонирхон дурсгалын зураг татуулна. Манжуур хотын хиймэл нуурыг үзэж дурсгалын зураг татуулна. Ванда худалдааны төвөөр орж худалдан авалт хийх боломжтой.",
+
+        evening:
+        "Амрах. Оройн хоол. Буудалдаа амарна.",
+
+        meals:[
+            ["Өглөөний цай",true],
+            ["Өдрийн хоол",true],
+            ["Оройн хоол",false]
+        ]
+    },
+
+    {
+        day:"03",
+        title:"Манжуур хот – Чөлөөт өдөр",
+
+        morning:
+        "Бүтэн чөлөөт өдөр. Өглөөний цай.",
+
+        noon:
+        "Өдрийн хоолыг аялагчид өөрсдөө хариуцна. 3 улсын хил харагддаг эргэдэг цамхагт нэмэлт төлбөртэй хоолонд орох боломжтой.",
+
+        evening:
+        "Амрах. Матрешка буудалдаа амарна.",
+
+        meals:[
+            ["Өглөөний цай",true],
+            ["Өдрийн хоол",false],
+            ["Оройн хоол",false]
+        ]
+    },
+
+    {
+        day:"04",
+        title:"Манжуур – Хайлаар",
+
+        morning:
+        "Өглөөний цай. Манжуур – Хайлаар чиглэлд 3 цаг орчим явна.",
+
+        noon:
+        "Аяллын хөтөлбөрийн дагуу буцах нислэгийн бэлтгэл.",
+
+        evening:
+        "Аялал өндөрлөнө.",
+
+        meals:[
+            ["Өглөөний цай",true],
+            ["Өдрийн хоол",false],
+            ["Оройн хоол",false]
+        ]
+    }
+
+    ]
+
+},
+
+/* ================= TOKYO ================= */
+
+{
+    id:"tokyo",
+
+    country:"🇯🇵 ЯПОН",
+
+    category:"japan",
+
+    title:"Токио хотын аялал",
+
+    location:"Токио • Япон",
+
+    price:"5,600,000₮",
+
+    duration:"4 шөнө / 5 өдөр",
+
+    type:"Хотын аялал",
+
+    image:
+    "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1800&q=90",
+
+    intro:
+    "Японы нийслэл Токио хотын алдартай газруудтай танилцах хотын аялал.",
+
+    info:[
+        "4 шөнө / 5 өдөр.",
+        "3 одтой буудал.",
+        "2026 оны 11 сарын хөтөлбөр.",
+        "2027 оны Сакурагийн аяллын хөтөлбөр гарах боломжтой."
+    ],
+
+    included:[
+        "Аяллын хөтөлбөрийн дагуух үйлчилгээ.",
+        "Зочид буудал.",
+        "Хотын аялал.",
+        "Хөтөчийн үйлчилгээ."
+    ],
+
+    excluded:[
+        "Хувийн хэрэглээний зардал.",
+        "Нэмэлт төлбөртэй үйлчилгээ.",
+        "Хөтөлбөрт тусгагдаагүй тасалбар."
+    ],
+
+    days:[
+
+    {
+        day:"01",
+        title:"УБ – Токио",
+
+        morning:
+        "Чингис хаан нисэх онгоцны буудалд цугларч бүртгэлээ хийлгэнэ.",
+
+        noon:
+        "Токио хот руу ниснэ.",
+
+        evening:
+        "Нарита олон улсын нисэх онгоцны буудалд бууж, Токио хотын аяллаа эхлүүлнэ. Сэнсожи сүм, Накамисэ худалдааны гудамж, Шибүяа Хачико нохойны хөшөө, Такшита худалдааны гудамжаар аялна.",
+
+        meals:[
+            ["Өглөөний цай",false],
+            ["Өдрийн хоол",false],
+            ["Оройн хоол",true]
+        ]
+    },
+
+    {
+        day:"02",
+        title:"Токио хот",
+
+        morning:
+        "Токио хотын аяллын хөтөлбөр үргэлжилнэ.",
+
+        noon:
+        "Хотын аялал болон чөлөөт цаг.",
+
+        evening:
+        "Зочид буудалдаа амарна.",
+
+        meals:[
+            ["Өглөөний цай",true],
+            ["Өдрийн хоол",true],
+            ["Оройн хоол",true]
+        ]
+    },
+
+    {
+        day:"03",
+        title:"Токио",
+
+        morning:
+        "Өглөөний цай.",
+
+        noon:
+        "Хөтөлбөрийн дагуух аялал.",
+
+        evening:
+        "Чөлөөт цаг.",
+
+        meals:[
+            ["Өглөөний цай",true],
+            ["Өдрийн хоол",true],
+            ["Оройн хоол",false]
+        ]
+    },
+
+    {
+        day:"04",
+        title:"Токио – Чөлөөт өдөр",
+
+        morning:
+        "Өглөөний цай.",
+
+        noon:
+        "Чөлөөт цаг.",
+
+        evening:
+        "Зочид буудалдаа амарна.",
+
+        meals:[
+            ["Өглөөний цай",true],
+            ["Өдрийн хоол",false],
+            ["Оройн хоол",false]
+        ]
+    },
+
+    {
+        day:"05",
+        title:"Токио – Улаанбаатар",
+
+        morning:
+        "Өглөөний цай.",
+
+        noon:
+        "Буцах нислэгийн бэлтгэл.",
+
+        evening:
+        "Улаанбаатар руу буцна.",
+
+        meals:[
+            ["Өглөөний цай",true],
+            ["Өдрийн хоол",false],
+            ["Оройн хоол",false]
+        ]
+    }
+
+    ]
+
+},
+
+/* ================= ZHANGJIAJIE ================= */
+
+{
+    id:"zhangjiajie",
+
+    country:"🇨🇳 ХЯТАД",
+
+    category:"china",
+
+    title:"Жанжиажэ – Тэнгэрийн хаалга",
+
+    location:"Жанжиажэ • Хятад",
+
+    price:"Үнэ удахгүй",
+
+    duration:"10 өдөр",
+
+    type:"Галт тэрэг + нислэг",
+
+    image:
+    "https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?auto=format&fit=crop&w=1800&q=90",
+
+    intro:
+    "БНХАУ-ын байгалийн гайхамшигт Жанжиажэ хотын сүрлэг уулс, алдарт Тэнгэрийн хаалга, үзэсгэлэнт байгальтай танилцах 10 өдрийн аялал. Галт тэрэг + нислэг хосолсон аялал.",
+
+    info:[
+        "10 өдрийн аялал.",
+        "Галт тэрэг + нислэг хосолсон.",
+        "Эрээн хот хүртэл газраар явна.",
+        "Эрээн – Хөх хот – Чаншагаар дамжин Жанжиажэ рүү явна."
+    ],
+
+    included:[
+        "Аяллын хөтөлбөрийн дагуух унаа.",
+        "Зочид буудал.",
+        "Хөтөчийн үйлчилгээ."
+    ],
+
+    excluded:[
+        "Хувийн хэрэглээний зардал.",
+        "Нэмэлт төлбөртэй үйлчилгээ.",
+        "Хөтөлбөрт тусгагдаагүй тасалбар."
+    ],
+
+    days:[
+
+    {
+        day:"01",
+        title:"УБ – Замын-Үүд",
+
+        morning:
+        "Аялал эхлэх өдөр.",
+
+        noon:
+        "Замын-Үүд рүү явах бэлтгэл.",
+
+        evening:
+        "УБТЗ-ын хүлээлгийн танхимд 15:30 цагт цугларч бүртгэлээ хийлгэнэ. 16:10 цагт галт тэргэндээ сууж аялал эхэлнэ.",
+
+        meals:[
+            ["Өглөөний цай",false],
+            ["Өдрийн хоол",false],
+            ["Оройн хоол",false]
+        ]
+    },
+
+    {
+        day:"02",
+        title:"Замын-Үүд – Эрээн",
+
+        morning:
+        "Замын-Үүдэд 07:20 цагт бууж, Замын-Үүд – Эрээн чиглэлийн унаанд сууж хил гаалиар нэвтэрнэ. Хилийн ачааллаас шалтгаалж удах магадлалтай.",
+
+        noon:
+        "Эрээн дэх буудалдаа байрлаж амарна. Чөлөөт цаг.",
+
+        evening:
+        "Буудалдаа амарна.",
+
+        meals:[
+            ["Өглөөний цай",false],
+            ["Өдрийн хоол",false],
+            ["Оройн хоол",false]
+        ]
+    },
+
+    {
+        day:"03",
+        title:"Эрээн – Хөх хот – Чанша",
+
+        morning:
+        "Аяллын дараагийн чиглэл рүү хөдөлнө.",
+
+        noon:
+        "Хөтөлбөрийн дагуу шилжилт хөдөлгөөн.",
+
+        evening:
+        "Буудалдаа амарна.",
+
+        meals:[
+            ["Өглөөний цай",true],
+            ["Өдрийн хоол",true],
+            ["Оройн хоол",false]
+        ]
+    },
+
+    {
+        day:"04",
+        title:"Жанжиажэ",
+
+        morning:
+        "Жанжиажэ хотын байгалийн үзэсгэлэнт газруудтай танилцана.",
+
+        noon:
+        "Аяллын хөтөлбөр үргэлжилнэ.",
+
+        evening:
+        "Буудалдаа амарна.",
+
+        meals:[
+            ["Өглөөний цай",true],
+            ["Өдрийн хоол",true],
+            ["Оройн хоол",true]
+        ]
+    }
+
+    ]
+
+}
 
 ];
 
 
-/* ==========================================
-   АЯЛЛЫН КАРТЫГ АВТОМАТААР ҮҮСГЭХ
-========================================== */
+/* =====================================================
+   RENDER TOUR CARDS
+===================================================== */
 
-function showTours(list){
+function renderTours(list=tours){
 
-  const grid = document.getElementById("tourGrid");
+    const box=document.getElementById("tourList");
 
-  const noResult = document.getElementById("noResult");
+    box.innerHTML="";
 
-  grid.innerHTML = "";
+    if(list.length===0){
 
-  if(list.length === 0){
+        box.innerHTML=`
+            <div style="
+                grid-column:1/-1;
+                background:white;
+                padding:50px;
+                border-radius:15px;
+                text-align:center;
+            ">
+                <h3>Аялал олдсонгүй 😢</h3>
+                <p style="margin-top:8px;color:#667085">
+                    Өөр аяллын нэрээр хайж үзээрэй.
+                </p>
+            </div>
+        `;
 
-    noResult.style.display = "block";
-
-    return;
-
-  }
-
-  noResult.style.display = "none";
-
-
-  list.forEach(tour => {
-
-    const card = document.createElement("div");
-
-    card.className = "tour-card";
-
-    card.innerHTML = `
-
-      <div
-        class="tour-img"
-        style="background-image:url('${tour.image}')"
-      >
-
-        <div class="tour-tag">
-          ${tour.tag}
-        </div>
-
-      </div>
+        return;
+    }
 
 
-      <div class="tour-info">
+    list.forEach(tour=>{
 
-        <h3>
-          ${tour.name}
-        </h3>
+        box.innerHTML+=`
 
-        <div class="tour-country">
-          🌏 ${tour.countryName}
-        </div>
+        <article class="tour-card">
 
+            <div class="tour-img">
 
-        <div class="tour-meta">
+                <img
+                    src="${tour.image}"
+                    alt="${tour.title}"
+                    loading="lazy"
+                >
 
-          <span>
-            📅 ${tour.duration}
-          </span>
+                <span class="tour-badge">
+                    ${tour.country}
+                </span>
 
-          <span>
-            ✈️ ${tour.type}
-          </span>
-
-        </div>
+            </div>
 
 
-        <div class="price-label">
-          Аяллын үнэ
-        </div>
+            <div class="tour-body">
 
-        <div class="price">
-          ${tour.price}
-        </div>
+                <h3>
+                    ${tour.title}
+                </h3>
 
-
-        <a
-          href="#"
-          class="detail-btn"
-          onclick="openTour(${tour.id}); return false;"
-        >
-          Дэлгэрэнгүй үзэх →
-        </a>
-
-      </div>
-
-    `;
-
-    grid.appendChild(card);
-
-  });
-
-}
+                <div class="tour-location">
+                    📍 ${tour.location}
+                </div>
 
 
-/* ==========================================
-   ШҮҮЛТ
-========================================== */
+                <div class="tour-meta">
 
-function filterTours(category, button){
+                    <span>
+                        📅 ${tour.duration}
+                    </span>
 
-  document
-    .querySelectorAll(".filter-btn")
-    .forEach(btn => btn.classList.remove("active"));
+                    <span>
+                        ✈️ ${tour.type}
+                    </span>
 
-  button.classList.add("active");
+                </div>
 
 
-  if(category === "all"){
+                <div class="tour-bottom">
 
-    showTours(tours);
+                    <div class="tour-price">
 
-  }else{
+                        <small>
+                            Эхлэх үнэ
+                        </small>
 
-    const filtered = tours.filter(
-      tour => tour.country === category
-    );
+                        <strong>
+                            ${tour.price}
+                        </strong>
 
-    showTours(filtered);
+                    </div>
 
-  }
+
+                    <button
+                        class="detail-btn"
+                        onclick="openTour('${tour.id}')"
+                    >
+                        Дэлгэрэнгүй →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        `;
+
+    });
 
 }
 
 
-/* ==========================================
-   ДЭЛГЭРЭНГҮЙ
-========================================== */
+/* =====================================================
+   FILTER
+===================================================== */
+
+function filterTours(){
+
+    const search=
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    const category=
+        document
+        .getElementById("categorySelect")
+        .value;
+
+
+    const result=tours.filter(tour=>{
+
+        const text=(
+            tour.title+
+            tour.location+
+            tour.country
+        ).toLowerCase();
+
+        const matchesSearch=
+            text.includes(search);
+
+        const matchesCategory=
+            category==="all" ||
+            tour.category===category;
+
+        return matchesSearch && matchesCategory;
+
+    });
+
+
+    renderTours(result);
+
+}
+
+
+/* =====================================================
+   CATEGORY BUTTON
+===================================================== */
+
+function chooseCategory(category,button){
+
+    document
+        .querySelectorAll(".category")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+    document
+        .getElementById("categorySelect")
+        .value=category;
+
+    filterTours();
+
+}
+
+
+/* =====================================================
+   OPEN TOUR
+===================================================== */
 
 function openTour(id){
 
-  const tour = tours.find(
-    item => item.id === id
-  );
+    const tour=
+        tours.find(item=>item.id===id);
 
-  alert(
-    tour.name +
-    "\n\nДараагийн алхамд энэ хэсгийг жинхэнэ аяллын дэлгэрэнгүй хуудас болгоно."
-  );
+    if(!tour)return;
+
+
+    document.getElementById("homePage")
+        .style.display="none";
+
+    document.getElementById("detailPage")
+        .style.display="block";
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"instant"
+    });
+
+
+    document.getElementById("detailHero")
+        .style.backgroundImage=
+        `
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.82),
+            rgba(0,0,0,.05)
+        ),
+        url("${tour.image}")
+        `;
+
+
+    document.getElementById("detailCountry")
+        .innerText=tour.country;
+
+    document.getElementById("detailTitle")
+        .innerText=tour.title;
+
+    document.getElementById("detailPrice")
+        .innerText=tour.price;
+
+    document.getElementById("detailIntro")
+        .innerText=tour.intro;
+
+
+    document.getElementById("detailTags")
+        .innerHTML=`
+
+            <span>📍 ${tour.location}</span>
+
+            <span>📅 ${tour.duration}</span>
+
+            <span>✈️ ${tour.type}</span>
+
+        `;
+
+
+    document.getElementById("detailInfo")
+        .innerHTML=
+        tour.info
+        .map(item=>`
+            <li>✓ ${item}</li>
+        `)
+        .join("");
+
+
+    document.getElementById("included")
+        .innerHTML=
+        tour.included
+        .map(item=>`
+            <li>✓ ${item}</li>
+        `)
+        .join("");
+
+
+    document.getElementById("excluded")
+        .innerHTML=
+        tour.excluded
+        .map(item=>`
+            <li>• ${item}</li>
+        `)
+        .join("");
+
+
+    let itinerary="";
+
+
+    tour.days.forEach(day=>{
+
+        itinerary+=`
+
+        <div class="day-card">
+
+            <div class="day-title">
+
+                <div class="day-number">
+                    ӨДӨР<br>${day.day}
+                </div>
+
+                <h3>
+                    ${day.title}
+                </h3>
+
+            </div>
+
+
+            <div class="day-content">
+
+
+                <div class="day-part">
+
+                    <h4>
+                        🌅 Өглөө
+                    </h4>
+
+                    <p>
+                        ${day.morning}
+                    </p>
+
+                </div>
+
+
+                <div class="day-part">
+
+                    <h4>
+                        ☀️ Өдөр
+                    </h4>
+
+                    <p>
+                        ${day.noon}
+                    </p>
+
+                </div>
+
+
+                <div class="day-part">
+
+                    <h4>
+                        🌙 Орой
+                    </h4>
+
+                    <p>
+                        ${day.evening}
+                    </p>
+
+                </div>
+
+
+                <div class="meals">
+
+                    ${day.meals.map(meal=>`
+
+                        <span
+                            class="meal ${meal[1] ? 'yes':'no'}"
+                        >
+                            ${meal[1] ? '✓':'✕'}
+                            ${meal[0]}
+                        </span>
+
+                    `).join("")}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+
+    document.getElementById("itinerary")
+        .innerHTML=itinerary;
+
+
+    history.pushState(
+        {tour:id},
+        "",
+        "#tour-"+id
+    );
 
 }
 
 
-/* ==========================================
-   ЭХЛЭХДЭЭ БҮХ АЯЛЛЫГ ХАРУУЛНА
-========================================== */
+/* =====================================================
+   CLOSE TOUR
+===================================================== */
 
-showTours(tours);
+function closeTour(){
+
+    document.getElementById("detailPage")
+        .style.display="none";
+
+    document.getElementById("homePage")
+        .style.display="block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"instant"
+    });
+
+    history.pushState(
+        {},
+        "",
+        window.location.pathname
+    );
+
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+window.addEventListener(
+    "popstate",
+    function(){
+
+        closeTour();
+
+    }
+);
+
+
+/* =====================================================
+   START
+===================================================== */
+
+renderTours();
 
 </script>
 
